@@ -215,6 +215,8 @@ $ git clone https://github.com/avabellaw/crystal-clear-opticians
 
 ### Code
 
+* I found out how to use jest with JQuery from [StackOverflow](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file)
+
 ### Media
 
 #### Images
