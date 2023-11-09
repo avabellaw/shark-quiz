@@ -128,6 +128,8 @@ I will also use an image or gif for the background of the webpage.
     * For working out what width and height an image should have when first loaded on a mobile
 * [Grammarly](https://app.grammarly.com/)
     * To help find grammar and spelling mistakes to correct.
+* [Aspect Ratio Calculator](https://aspectratiocalculator.com/)
+    * To work out the aspect ratio of images.
 
 ## Testing
 

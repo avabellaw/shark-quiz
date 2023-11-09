@@ -1,8 +1,22 @@
+body {
+    background: #001b3bf5 url(../images/sea-bg.gif) repeat center;
+    background-size: contain;
+    height: 100vh;
+}
+
+@media screen and (max-aspect-ratio: 955/707) {
+    body {
+        background-size: cover;
+    }
+}
+
 /* Top bar */
 
 #topbar {
     display: flex;
     position: relative;
+    background-color: white;
+    opacity: 0.95;
 }
 
 #topbar > h1 {
@@ -41,7 +55,7 @@
 
 .game-area {
     height: 100%;
-    background-color: #001b3bce;
+    background-color: #001b3bf9;
 }
 
 .game-area#home {
@@ -82,10 +96,12 @@ input#start-quiz {
     height: 75%;
     max-height: 500px;
     margin: auto;
-    border: 1px solid black;
+    /* border: 1px solid white; */
 
     display: flex;
     flex-direction: column;
+
+    box-shadow: #001b3bf5 0 0 1rem 1rem;
 }
 
 /* End of Quiz container */
