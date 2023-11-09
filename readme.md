@@ -153,6 +153,28 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Automatic Testing (unit tests)
 
+I had to setup Jest to work with JQuery by importing it. I found this [StackOverflow post](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file) explaining how.
+1. Add the following to the package.json file:
+```
+"jest": {
+    "setupFiles": [
+      "./setup-jest.js"
+    ]
+  },
+```
+2. Create a file with the same name referenced above containing:
+```
+global.window = window
+global.$ = require('jquery');
+```
+
+My first two tests were:
+1. To test that all .game-areas have been hidden by JQuery
+2. To test that the #home .game-area is revealed when showHomeScreen() is called
+
+For the rest of the tests, I followed the red, green, refactor approach.
+
+
 ### Manual Testing
 
 ### Further Testing
