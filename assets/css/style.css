@@ -23,6 +23,12 @@
     width: 2rem;
     height: 2rem;
     padding: 0.5rem;
+
+    cursor: pointer;
+}
+
+.topbar_icon:hover {
+    background-color: rgba(0, 0, 0, 0.1)
 }
 
 #topbar > .topbar_icon:first-child {
