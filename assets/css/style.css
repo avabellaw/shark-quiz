@@ -1,11 +1,31 @@
+/* Top bar */
 
+#topbar {
+    display: flex;
+}
+
+#topbar > h1 {
+    margin: auto;
+    line-height: 3rem;
+    font-size: 1.5rem;
+}
+
+.topbar_icon {
+    display: flex;
+    align-items: center;
+    width: 2rem;
+    height: 3rem;
+}
+
+/* End of Top bar */
 
 #quiz-container {
     position: absolute;
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 60%;
+    max-width: 600px;
     height: 300px;
     margin: auto;
 }
