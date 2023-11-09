@@ -37,6 +37,31 @@
 
 /* End of Top bar */
 
+/* Game area */
+
+.game-area {
+    height: 100%;
+    background-color: #001b3bce;
+}
+
+.game-area#home {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-area#home > .game-area_container {
+    margin: auto;
+}
+
+.game-area#home .game-area_container > h1 {
+    text-transform: capitalize;
+    margin-bottom: 3rem;
+}
+
+/* End of Game area */
+
+/* Quiz container */
+
 #quiz-container {
     position: absolute;
     top:50%;
@@ -48,4 +73,9 @@
     max-height: 500px;
     margin: auto;
     border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
 }
+
+/* End of Quiz container */
