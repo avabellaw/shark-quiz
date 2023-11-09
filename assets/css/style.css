@@ -51,11 +51,21 @@
 
 .game-area#home > .game-area_container {
     margin: auto;
+    text-align: center;
 }
 
 .game-area#home .game-area_container > h1 {
     text-transform: capitalize;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
+    color: white;
+    font-family: 'Jolly Lodger';
+    font-size: 3.5rem;
+}
+
+input#start-quiz {
+    padding: 0.3rem 2.5rem;
+    font-size: 1.2rem;
+    border: 0px;
 }
 
 /* End of Game area */
