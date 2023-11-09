@@ -13,7 +13,7 @@ beforeAll(() => {
 });
 
 describe("Quiz is initialised correctly", () => {
-    test("All game-areas are hidden after init", () => {
+    test("All game-areas should be hidden after init", () => {
         init();
         let gameAreas = document.getElementsByClassName("game-area");
 

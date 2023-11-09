@@ -11,7 +11,6 @@ body {
 }
 
 /* Top bar */
-
 #topbar {
     display: flex;
     position: relative;
@@ -48,16 +47,16 @@ body {
 #topbar > .topbar_icon:first-child {
     margin-right: auto;
 }
-
 /* End of Top bar */
 
 /* Game area */
-
 .game-area {
     height: 100%;
     background-color: #001b3bf9;
 }
+/* End of Game area */
 
+/* Home screen */
 .game-area#home {
     display: flex;
     flex-direction: column;
@@ -81,11 +80,9 @@ input#start-quiz {
     font-size: 1.2rem;
     border: 0px;
 }
-
-/* End of Game area */
+/* End of Home screen */
 
 /* Quiz container */
-
 #quiz-container {
     position: absolute;
     top:50%;
@@ -96,12 +93,10 @@ input#start-quiz {
     height: 75%;
     max-height: 500px;
     margin: auto;
-    /* border: 1px solid white; */
 
     display: flex;
     flex-direction: column;
 
     box-shadow: #001b3bf5 0 0 1rem 1rem;
 }
-
 /* End of Quiz container */

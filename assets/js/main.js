@@ -1,4 +1,5 @@
-$(document).ready(function(){
+// Equivalent to $(document).ready( handler ) https://api.jquery.com/ready/
+$(function(){
     init();
     showHomeScreen();
 });
