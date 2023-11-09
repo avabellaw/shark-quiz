@@ -2,19 +2,31 @@
 
 #topbar {
     display: flex;
+    position: relative;
 }
 
 #topbar > h1 {
-    margin: auto;
+    margin: 0;
     line-height: 3rem;
     font-size: 1.5rem;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .topbar_icon {
     display: flex;
+    box-sizing: content-box; 
+    justify-content: center;
     align-items: center;
     width: 2rem;
-    height: 3rem;
+    height: 2rem;
+    padding: 0.5rem;
+}
+
+#topbar > .topbar_icon:first-child {
+    margin-right: auto;
 }
 
 /* End of Top bar */
@@ -24,8 +36,10 @@
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
-    max-width: 600px;
-    height: 300px;
+    width: 95%;
+    max-width: 800px;
+    height: 75%;
+    max-height: 500px;
     margin: auto;
+    border: 1px solid black;
 }
