@@ -1,30 +1,24 @@
 let currentGameArea = "#home";
 
 // Equivalent to $(document).ready( handler ) https://api.jquery.com/ready/
-$(function(){
-    init();
-    // showHomeScreen();
-    swapGameArea("#quiz");
+$(init);
+
+$("#start-quiz").on("click", () => {
+    console.log(swapGameArea("#quiz"));
 });
 
 /**
  * Initialises variables and elements
  */
 function init(){ 
-    $(".game-area").hide(); // Hides all game-areas
-}
-
-function showHomeScreen(){
-    $("#home").show();
 }
 
 function swapGameArea(gameArea){
-    $(currentGameArea).hide();
+    $(currentGameArea).attr("data-visible", "false")
     currentGameArea = gameArea;
-    console.log(currentGameArea);
-    $(currentGameArea).show();
+    $(currentGameArea).attr("data-visible", "true");
 
     return currentGameArea;
 }
 
-module.exports = {init, showHomeScreen, currentGameArea, swapGameArea};
+module.exports = {init, currentGameArea, swapGameArea};

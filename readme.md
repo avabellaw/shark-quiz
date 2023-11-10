@@ -172,6 +172,8 @@ My first two tests were:
 1. To test that all .game-areas have been hidden by JQuery
 2. To test that the #home .game-area is revealed when showHomeScreen() is called
 
+I discovered that elements wouldn't be hidden fast enough meaning all the game-areas would be shown for a second while JQuery loaded. I decided to use the data-attribute "data-visible" instead of using JQuery to hide the elements. Therefore,I removed these first tests.
+
 For the rest of the tests, I followed the red, green, refactor approach.
 
 
