@@ -1,7 +1,10 @@
+let currentGameArea = "#home";
+
 // Equivalent to $(document).ready( handler ) https://api.jquery.com/ready/
 $(function(){
     init();
-    showHomeScreen();
+    // showHomeScreen();
+    swapGameArea("#quiz");
 });
 
 /**
@@ -15,4 +18,13 @@ function showHomeScreen(){
     $("#home").show();
 }
 
-module.exports = {init, showHomeScreen};
+function swapGameArea(gameArea){
+    $(currentGameArea).hide();
+    currentGameArea = gameArea;
+    console.log(currentGameArea);
+    $(currentGameArea).show();
+
+    return currentGameArea;
+}
+
+module.exports = {init, showHomeScreen, currentGameArea, swapGameArea};
