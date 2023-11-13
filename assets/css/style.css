@@ -2,6 +2,7 @@ body {
     background: #001b3bf5 url(../images/sea-bg.gif) repeat center;
     background-size: contain;
     height: 100vh;
+    margin: 0;
 }
 
 @media screen and (max-aspect-ratio: 955/707) {
@@ -154,6 +155,7 @@ input#start-quiz {
 
 .answer-box:hover {
     border: 1px solid black;
+    cursor: pointer;
 }
 
 .answer-box_text {

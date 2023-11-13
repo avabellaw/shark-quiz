@@ -55,6 +55,8 @@ function showQuestion(questionSet){
 
     if(questionSet.options.length < 3) {
         answerBoxes[2].setAttribute("data-visible", "false");
+    } else {
+        answerBoxes[2].setAttribute("data-visible", "true");
     }
 }
 
