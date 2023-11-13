@@ -53,11 +53,19 @@ body {
 .game-area {
     height: 100%;
     background-color: #001b3bf9;
+    color: white;
 }
 
 .game-area[data-visible="false"]{
     /* I use "!important" here because this should always override any other styling */
     display: none !important;
+}
+
+.game-area_container {
+    padding: 2rem 4rem;
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
 }
 /* End of Game area */
 
@@ -87,7 +95,7 @@ input#start-quiz {
 }
 /* End of Home screen */
 
-/* Quiz container */
+/* Quiz screen */
 #quiz-container {
     position: absolute;
     top:50%;
@@ -95,8 +103,6 @@ input#start-quiz {
     transform: translate(-50%, -50%);
     width: 95%;
     max-width: 800px;
-    height: 75%;
-    max-height: 500px;
     margin: auto;
 
     display: flex;
@@ -104,4 +110,27 @@ input#start-quiz {
 
     box-shadow: #001b3bf5 0 0 1rem 1rem;
 }
-/* End of Quiz container */
+
+#question-box {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 20vh;
+}
+
+#next-button {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+}
+
+#next-button > img {
+    margin: auto;
+}
+
+.answer-box > summary {
+    height: 4rem;
+}
+
+/* End of Quiz screen */

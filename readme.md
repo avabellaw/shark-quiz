@@ -247,6 +247,7 @@ $ git clone https://github.com/avabellaw/crystal-clear-opticians
 
 * ![Background image ocean image](https://tenor.com/en-GB/view/sea-aesthetic-anime-gif-22005651)
     * I edited the gif using [ezgif](https://ezgif.com/effects/ezgif-1-d9e8e08506.gif).
-* ![next-button image](https://www.pngwing.com/en/free-png-nucgc)
+* ![next-button icon](https://www.pngfind.com/mpng/boJwxo_left-arrow-comments-instagram-plus-icon-png-transparent/)
+    * I edited and resized the image.
 
 ### Videos

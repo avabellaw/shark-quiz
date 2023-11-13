@@ -12,6 +12,7 @@ $("#start-quiz").on("click", () => {
  * Initialises variables and elements
  */
 function init(){ 
+    swapGameArea("#quiz");
 }
 
 function swapGameArea(gameArea){
