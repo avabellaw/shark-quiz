@@ -3,6 +3,7 @@ let currentGameArea = "#home";
 // Equivalent to $(document).ready( handler ) https://api.jquery.com/ready/
 $(init);
 
+// Event listeners
 $("#start-quiz").on("click", () => {
     console.log(swapGameArea("#quiz"));
 });
@@ -17,8 +18,10 @@ function swapGameArea(gameArea){
     $(currentGameArea).attr("data-visible", "false")
     currentGameArea = gameArea;
     $(currentGameArea).attr("data-visible", "true");
+}
 
+function getCurrentGameArea(){
     return currentGameArea;
 }
 
-module.exports = {init, currentGameArea, swapGameArea};
+module.exports = {init, getCurrentGameArea, swapGameArea};
