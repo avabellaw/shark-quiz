@@ -127,6 +127,14 @@ input#start-quiz {
     display: flex;
 }
 
+#next-button:not(:hover) {
+    opacity: 0.9;
+}
+
+#next-button:hover {
+    cursor: pointer;
+}
+
 #next-button > img {
     margin: auto;
 }
@@ -137,6 +145,15 @@ input#start-quiz {
 
 .answer-box {
     background-color: white;
+    margin: 1rem 0;
+}
+
+.answer-box:not(:hover){
+    opacity: 0.95;
+}
+
+.answer-box:hover {
+    border: 1px solid black;
 }
 
 .answer-box_text {
@@ -148,6 +165,7 @@ input#start-quiz {
     align-items: center;
     font-size: 1em;
     font-weight: 600;
+    margin: 0;
 }
 
 /* End of Quiz screen */
