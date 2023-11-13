@@ -130,7 +130,7 @@ input#start-quiz {
 }
 
 #answers-container {
-    padding: 1rem 1.5rem;
+    padding: 1rem 0;
 }
 
 .answer-box {
@@ -139,6 +139,7 @@ input#start-quiz {
 
 .answer-box_text {
     height: 4rem;
+    color: black[];
 }
 
 /* End of Quiz screen */
