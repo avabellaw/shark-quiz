@@ -48,9 +48,13 @@ function showQuestion(questionSet){
     $("#question-box > h2").html(questionSet.question);
     let answerBoxes = $(".answer-box");
     
-    for(let i = 0; i < 3; i++) {
+    for(let i = 0; i < questionSet.options.length; i++) {
         // Using [element].childNodes [https://www.w3schools.com/jsref/prop_node_childnodes.asp]
         answerBoxes[i].childNodes[1].innerText = questionSet.options[i];
+    }
+
+    if(questionSet.options.length < 3) {
+        answerBoxes[2].setAttribute("data-visible", "false");
     }
 }
 

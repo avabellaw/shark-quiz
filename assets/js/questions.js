@@ -1,7 +1,7 @@
 const questions = [
     {
         question:"Do sharks sleep?",
-        options: ["Yes", "No", "Rarely"],
+        options: ["Yes", "No"],
         answer: 0
     },
     {
