@@ -56,7 +56,7 @@ body {
     color: white;
 }
 
-.game-area[data-visible="false"]{
+[data-visible="false"]{
     /* I use "!important" here because this should always override any other styling */
     display: none !important;
 }
@@ -129,7 +129,15 @@ input#start-quiz {
     margin: auto;
 }
 
-.answer-box > summary {
+#answers-container {
+    padding: 1rem 1.5rem;
+}
+
+.answer-box {
+    background-color: white;
+}
+
+.answer-box_text {
     height: 4rem;
 }
 
