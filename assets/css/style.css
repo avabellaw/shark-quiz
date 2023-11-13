@@ -109,6 +109,8 @@ input#start-quiz {
     flex-direction: column;
 
     box-shadow: #001b3bf5 0 0 1rem 1rem;
+
+    font-size: 1.3rem;
 }
 
 #question-box {
@@ -138,8 +140,14 @@ input#start-quiz {
 }
 
 .answer-box_text {
-    height: 4rem;
+    height: 3rem;
     color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    font-weight: 600;
 }
 
 /* End of Quiz screen */
