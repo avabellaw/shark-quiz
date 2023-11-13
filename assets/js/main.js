@@ -16,15 +16,19 @@ $(init);
 
 // Event listeners
 $("#start-quiz").on("click", () => {
-    console.log(swapGameArea("#quiz"));
+    swapGameArea("#quiz");
+});
+
+$("#next-button").on("click", () => {
+    showQuestion(quiz.nextQuestion());
 });
 
 /**
  * Initialises variables and elements
  */
 function init(){ 
-    swapGameArea("#quiz");
     quiz.questions = questions;
+    swapGameArea("#quiz");
 }
 
 /**
@@ -36,12 +40,11 @@ function swapGameArea(gameArea){
     $(currentGameArea).attr("data-visible", "true");
 
     if(gameArea === "#quiz"){
-        showQuestions();
+        showQuestion(quiz.getQuestion());
     }
 }
 
-function showQuestions(){
-    let questionSet = quiz.getQuestion();
+function showQuestion(questionSet){
     $("#question-box > h2").html(questionSet.question);
     let answerBoxes = $(".answer-box");
     
