@@ -2,12 +2,19 @@ let currentGameArea = "#home";
 
 let quiz = {
     questions: [],
+    userAnswers: [],
     questionIndex: 0,
+    questionAnswered: false,
     getQuestion: function() {
         return questions[this.questionIndex];
     },
     nextQuestion: function() {
         return questions[++this.questionIndex];
+    },
+    answerQuestion: function(answerId) {
+        this.userAnswers.push(answerId);
+        this.questionAnswered = true;
+        return answerId == this.questions[this.questionIndex].answer;
     }
 };
 
@@ -21,6 +28,15 @@ $("#start-quiz").on("click", () => {
 
 $("#next-button").on("click", () => {
     showQuestion(quiz.nextQuestion());
+});
+
+$(".answer-box").on("click", (event) => {
+    if(quiz.questionAnswered) return;
+
+    // event.target gets the top element which is the paragraph tag [https://www.metaltoad.com/blog/how-detect-which-element-was-clicked-using-jquery]
+    let id = event.target.parentElement.id;
+    let answerBoxNum = id.charAt(id.length-1);
+    let correctAnswer = quiz.answerQuestion(answerBoxNum);
 });
 
 /**
