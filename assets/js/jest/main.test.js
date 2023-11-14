@@ -3,7 +3,7 @@
 */
 
 const { default: expect } = require("expect");
-const { init, quiz, getCurrentGameArea, swapGameArea} = require("../main");
+const { init, quiz, getCurrentGameArea, swapGameArea } = require("../main");
 
 beforeAll(() => {
     let fs = require("fs");
@@ -32,12 +32,25 @@ describe(".game-area transitions work correctly", () => {
 });
 
 describe("Quiz updates correctly between questions", () => {
+    test("An answer box class should have the 'correct-answer'", () => {
+        let correctAnswer = quiz.getQuestion().answer;
+
+        $(`.answer-box[data-option="${correctAnswer}"]`).trigger("click");
+
+        setTimeout(() => {
+            // Timeout to allow for the click event to trigger
+            expect($(`.answer-box[data-option="${correctAnswer}"]`).hasClass("correct-answer")).toBeTruthy();
+        }, 100);
+    });
+
     test("answer-box classes should be reset for next question", () => {
-        $("answer-box[data-option='1']").trigger();
-        $("#next-question").trigger();
-        $(".answer-box").each((option) => {
-            expect($(option).hasClass("incorrect-answer")).toBeFalsy();
-            expect($(option).hasClass("correct-answer")).toBeFalsy();
-        });
+        $(".answer-box[data-option='1']").trigger("click");
+        $("#next-question").trigger("click");
+        setTimeout(() => {
+            $(".answer-box").each((option) => {
+                expect($(option).hasClass("incorrect-answer")).toBeFalsy();
+                expect($(option).hasClass("correct-answer")).toBeFalsy();
+            });
+        }, 100);
     });
 });
