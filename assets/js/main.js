@@ -9,6 +9,9 @@ let quiz = {
     getQuestion: function () {
         return questions[this.questionIndex];
     },
+    hasNextQuestion: function () {
+        return this.questionIndex < this.questions.length-1;
+    },
     nextQuestion: function () {
         $(".answer-box.incorrect-answer").removeClass("incorrect-answer");
         $(".answer-box.correct-answer").removeClass("correct-answer");

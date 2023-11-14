@@ -52,14 +52,25 @@ describe("Quiz updates correctly between questions", () => {
         expect($(`.answer-box[data-option="${correctAnswer}"]`).hasClass("correct-answer")).toBeTruthy();
     });
 
-    test("If answered wrong, the wrong answer-box should have the class 'incorrect-answer'", () => {
-        expect($('.answer-box[data-option="0"]').hasClass("correct-answer")).toBeFalsy();
+    test("If answered wrong, .incorrect-answer and .correct-answer should be applied", () => {
+        while(quiz.hasNextQuestion()) {
+            let correctAnswerIndex = quiz.getQuestion().answer;
+            let incorrectAnswer;
 
-        let incorrectAnswer = $('.answer-box[data-option="1"]');
-        $('.answer-box[data-option="1"] > p.answer-box_text').trigger("click");
+            for (let i = 0; i < quiz.getQuestion().options.length; i++) {
+                if (i !== correctAnswerIndex) {
+                    incorrectAnswer = $(`.answer-box[data-option="${i}"]`);
+                    break;
+                }
+            }
 
-        expect($(".answer-box[data-option='0']").hasClass("correct-answer")).toBeTruthy();
-        expect($(incorrectAnswer).hasClass("incorrect-answer")).toBeTruthy();
+            $(incorrectAnswer).find("p.answer-box_text").trigger("click");
+
+            expect($(`.answer-box[data-option="${correctAnswerIndex}"]`).hasClass("correct-answer")).toBeTruthy();
+            expect($(incorrectAnswer).hasClass("incorrect-answer")).toBeTruthy();
+
+            $("#next-button").trigger("click");
+        }
     });
 
     test("answer-box classes should be reset for next question", () => {
@@ -69,7 +80,7 @@ describe("Quiz updates correctly between questions", () => {
         expect($(".answer-box").hasClass("incorrect-answer")).toBeFalsy();
         expect($(".answer-box").hasClass("correct-answer")).toBeFalsy();
     });
-    
+
     test("Next question button shouldn't work if not answered the current question", () => {
         let initalQuestionIndex = quiz.questionIndex;
         $("#next-button").trigger("click");
