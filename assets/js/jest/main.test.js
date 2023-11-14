@@ -34,6 +34,7 @@ describe(".game-area transitions work correctly", () => {
 
 describe("Quiz updates correctly between questions", () => {
     afterEach(() => {
+        // Reset the variables and elements after each test
         $(".answer-box").removeClass("correct-answer").removeClass("incorrect-answer");
         quiz.questionIndex = 0;
         quiz.userAnswers = [];

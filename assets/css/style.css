@@ -102,6 +102,10 @@ input#start-quiz {
     font-size: 1.2rem;
     border: 0px;
 }
+
+input#start-quiz:hover {
+    cursor: pointer;
+}
 /* End of Home screen */
 
 /* Quiz screen */
@@ -175,11 +179,11 @@ input#start-quiz {
 }
 
 .incorrect-answer {
-    background-color: red;
+    background-color: #ff6969;
 }
 
 .correct-answer {
-    background-color: green;
+    background-color: #44ff8f;
 }
 
 /* End of Quiz screen */
