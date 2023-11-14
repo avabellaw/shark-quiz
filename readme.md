@@ -176,6 +176,7 @@ I discovered that elements wouldn't be hidden fast enough meaning all the game-a
 
 For the rest of the tests, I followed the red, green, refactor approach.
 
+I spent a lot of time trying to debug why questions from questions.js was an empty array. It turned out that I needed to use "module.exports = questions" instead of "module.exports = {questions}". This fixed my bug in jest.
 
 ### Manual Testing
 

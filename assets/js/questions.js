@@ -10,3 +10,5 @@ const questions = [
         answer: 0
     }
 ];
+
+module.exports = questions;
