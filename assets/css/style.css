@@ -170,4 +170,12 @@ input#start-quiz {
     margin: 0;
 }
 
+.incorrect-answer {
+    background-color: red;
+}
+
+.correct-answer {
+    background-color: green;
+}
+
 /* End of Quiz screen */

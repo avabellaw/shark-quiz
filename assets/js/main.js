@@ -32,11 +32,17 @@ $("#next-button").on("click", () => {
 
 $(".answer-box").on("click", (event) => {
     if(quiz.questionAnswered) return;
-
     // event.target gets the top element which is the paragraph tag [https://www.metaltoad.com/blog/how-detect-which-element-was-clicked-using-jquery]
-    let id = event.target.parentElement.id;
-    let answerBoxNum = id.charAt(id.length-1);
-    let correctAnswer = quiz.answerQuestion(answerBoxNum);
+    let clickedBox = event.target.parentElement;
+    let correctAnswer = quiz.answerQuestion(clickedBox.dataset.option);
+
+    if(!correctAnswer){
+        $(clickedBox).addClass("incorrect-answer");
+    }
+
+    let correctAnswerOptionNum = quiz.getQuestion().answer;
+    console.log(correctAnswerOptionNum);
+    $(`.answer-box[data-option="${correctAnswerOptionNum}"]`).addClass("correct-answer");
 });
 
 /**
