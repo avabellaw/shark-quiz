@@ -12,6 +12,7 @@ let quiz = {
     nextQuestion: function() {
         $(".answer-box.incorrect-answer").removeClass("incorrect-answer");
         $(".answer-box.correct-answer").removeClass("correct-answer");
+        this.questionAnswered = false;
 
         return questions[++this.questionIndex];
     },
@@ -45,7 +46,6 @@ $(".answer-box").on("click", (event) => {
     }
 
     let correctAnswerOptionNum = quiz.getQuestion().answer;
-    console.log(correctAnswerOptionNum);
     $(`.answer-box[data-option="${correctAnswerOptionNum}"]`).addClass("correct-answer");
 });
 

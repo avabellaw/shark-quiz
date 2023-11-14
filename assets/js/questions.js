@@ -7,7 +7,7 @@ const questions = [
     {
         question:"How many bones do sharks have?",
         options: ["206", "None", "Over 500"],
-        answer: 0
+        answer: 1
     }
 ];
 
