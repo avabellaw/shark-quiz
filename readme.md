@@ -178,6 +178,9 @@ For the rest of the tests, I followed the red, green, refactor approach.
 
 I spent a lot of time trying to debug why questions from questions.js was an empty array. It turned out that I needed to use "module.exports = questions" instead of "module.exports = {questions}". This fixed my bug in jest.
 
+Event listeners don't work in jest unless they're added after the page is loaded. I fixed this by moving the event listeners over to init();. At first I thought it was to do with JQuery and therefore I tried adding the event listeners using vanilla js. This gave an error through jest saying that the element doesn't exist yet. This prompted me to move the code into init() which worked. I then tried switching back to using JQuery and this worked bringing me to the conclusion I just had to move the code into init().
+Had I followed the red, green refractor approach earlier I would have noticed this sooner as the timeout I was using was making the test pass no matter what. 
+
 ### Manual Testing
 
 ### Further Testing

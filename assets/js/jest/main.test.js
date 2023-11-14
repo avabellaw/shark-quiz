@@ -4,6 +4,7 @@
 
 const { default: expect } = require("expect");
 const { init, quiz, getCurrentGameArea, swapGameArea } = require("../main");
+const { beforeEach } = require("jest-circus");
 
 beforeAll(() => {
     let fs = require("fs");
@@ -32,42 +33,39 @@ describe(".game-area transitions work correctly", () => {
 });
 
 describe("Quiz updates correctly between questions", () => {
+    afterEach(() => {
+        $(".answer-box").removeClass("correct-answer").removeClass("incorrect-answer");
+        quiz.questionIndex = 0;
+        quiz.userAnswers = [];
+        quiz.questionAnswered = false;
+        swapGameArea("#quiz");
+    });
+
     test("Correct answer box should have the class 'correct-answer'", () => {
         let correctAnswer = quiz.getQuestion().answer;
 
+        expect($(`.answer-box[data-option="${correctAnswer}"]`).hasClass("correct-answer")).toBeFalsy();
+
         $(`.answer-box[data-option="${correctAnswer}"]`).trigger("click");
 
-        setTimeout(() => {
-            // Timeout to allow for the click event to trigger
-            expect($(`.answer-box[data-option="${correctAnswer}"]`).hasClass("correct-answer")).toBeTruthy();
-        }, 10);
+        expect($(`.answer-box[data-option="${correctAnswer}"]`).hasClass("correct-answer")).toBeTruthy();
     });
 
     test("If answered wrong, the wrong answer-box should have the class 'incorrect-answer'", () => {
-        let correctAnswer = quiz.getQuestion().answer;
-        let incorrectAnswer;
-        $(".answer-box").each((option)=>{
-            if($(option).data("option") != correctAnswer){
-                incorrectAnswer = option;
-                return;
-            }
-        });
+        expect($('.answer-box[data-option="0"]').hasClass("correct-answer")).toBeFalsy();
 
-        $(incorrectAnswer).trigger("click");
+        let incorrectAnswer = $('.answer-box[data-option="1"]');
+        $('.answer-box[data-option="1"] > p.answer-box_text').trigger("click");
 
-        setTimeout(() => {
-            expect($(incorrectAnswer).hasClass("incorrect-answer"));
-        }, 10);
+        expect($(".answer-box[data-option='0']").hasClass("correct-answer")).toBeTruthy();
+        expect($(incorrectAnswer).hasClass("incorrect-answer")).toBeTruthy();
     });
 
     test("answer-box classes should be reset for next question", () => {
-        $(".answer-box[data-option='1']").trigger("click");
-        $("#next-question").trigger("click");
-        setTimeout(() => {
-            $(".answer-box").each((option) => {
-                expect($(option).hasClass("incorrect-answer")).toBeFalsy();
-                expect($(option).hasClass("correct-answer")).toBeFalsy();
-            });
-        }, 10);
+        $(".answer-box[data-option='1'] > p.answer-box_text").trigger("click");
+        $("#next-button").trigger("click");
+
+        expect($(".answer-box").hasClass("incorrect-answer")).toBeFalsy();
+        expect($(".answer-box").hasClass("correct-answer")).toBeFalsy();
     });
 });
