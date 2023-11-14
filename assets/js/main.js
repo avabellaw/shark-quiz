@@ -38,6 +38,7 @@ function init() {
     });
 
     $("#next-button").on("click", () => {
+        if(!quiz.questionAnswered) return;
         showQuestion(quiz.nextQuestion());
     });
 
