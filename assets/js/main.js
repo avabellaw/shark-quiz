@@ -1,3 +1,4 @@
+// Game variables
 let currentGameArea = "#home";
 
 let quiz = {
@@ -9,6 +10,9 @@ let quiz = {
         return questions[this.questionIndex];
     },
     nextQuestion: function() {
+        $(".answer-box.incorrect-answer").removeClass("incorrect-answer");
+        $(".answer-box.correct-answer").removeClass("correct-answer");
+
         return questions[++this.questionIndex];
     },
     answerQuestion: function(answerId) {
@@ -50,7 +54,6 @@ $(".answer-box").on("click", (event) => {
  */
 function init(){ 
     quiz.questions = questions;
-    swapGameArea("#quiz");
 }
 
 /**
@@ -86,4 +89,4 @@ function getCurrentGameArea(){
     return currentGameArea;
 }
 
-module.exports = {init, getCurrentGameArea, swapGameArea};
+module.exports = {init, quiz, getCurrentGameArea, swapGameArea};

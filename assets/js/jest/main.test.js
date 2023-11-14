@@ -36,7 +36,8 @@ describe("Quiz updates correctly between questions", () => {
         $("answer-box[data-option='1']").trigger();
         $("#next-question").trigger();
         $(".answer-box").each((option) => {
-            expect(option.hasClass("incorrect-answer")).toBeFalsy();
+            expect($(option).hasClass("incorrect-answer")).toBeFalsy();
+            expect($(option).hasClass("correct-answer")).toBeFalsy();
         });
     });
 });
