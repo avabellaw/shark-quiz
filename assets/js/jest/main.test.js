@@ -32,7 +32,7 @@ describe(".game-area transitions work correctly", () => {
 });
 
 describe("Quiz updates correctly between questions", () => {
-    test("An answer box class should have the 'correct-answer'", () => {
+    test("Correct answer box should have the class 'correct-answer'", () => {
         let correctAnswer = quiz.getQuestion().answer;
 
         $(`.answer-box[data-option="${correctAnswer}"]`).trigger("click");
@@ -40,7 +40,24 @@ describe("Quiz updates correctly between questions", () => {
         setTimeout(() => {
             // Timeout to allow for the click event to trigger
             expect($(`.answer-box[data-option="${correctAnswer}"]`).hasClass("correct-answer")).toBeTruthy();
-        }, 100);
+        }, 10);
+    });
+
+    test("If answered wrong, the wrong answer-box should have the class 'incorrect-answer'", () => {
+        let correctAnswer = quiz.getQuestion().answer;
+        let incorrectAnswer;
+        $(".answer-box").each((option)=>{
+            if($(option).data("option") != correctAnswer){
+                incorrectAnswer = option;
+                return;
+            }
+        });
+
+        $(incorrectAnswer).trigger("click");
+
+        setTimeout(() => {
+            expect($(incorrectAnswer).hasClass("incorrect-answer"));
+        }, 10);
     });
 
     test("answer-box classes should be reset for next question", () => {
@@ -51,6 +68,6 @@ describe("Quiz updates correctly between questions", () => {
                 expect($(option).hasClass("incorrect-answer")).toBeFalsy();
                 expect($(option).hasClass("correct-answer")).toBeFalsy();
             });
-        }, 100);
+        }, 10);
     });
 });
