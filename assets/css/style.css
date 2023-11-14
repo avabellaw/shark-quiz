@@ -3,6 +3,8 @@ body {
     background-size: contain;
     height: 100vh;
     margin: 0;
+
+    display: flex;
 }
 
 @media screen and (max-aspect-ratio: 955/707) {
@@ -79,11 +81,17 @@ body {
 .game-area#home > .game-area_container {
     margin: auto;
     text-align: center;
+
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .game-area#home .game-area_container > h1 {
     text-transform: capitalize;
     margin-bottom: 3.5rem;
+    margin-top: 0;
     color: white;
     font-family: 'Jolly Lodger';
     font-size: 3.5rem;
@@ -98,10 +106,6 @@ input#start-quiz {
 
 /* Quiz screen */
 #quiz-container {
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 95%;
     max-width: 800px;
     margin: auto;
