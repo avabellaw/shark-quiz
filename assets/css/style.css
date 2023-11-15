@@ -179,11 +179,15 @@ input#start-quiz:hover {
 }
 
 .incorrect-answer {
-    background-color: #ff6969;
+    background-color: #ff6075;
 }
 
 .correct-answer {
-    background-color: #44ff8f;
+    background-color: #38ff82;
+}
+
+.grey-out {
+    opacity: .4!important;
 }
 
 #timer {

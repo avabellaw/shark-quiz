@@ -23,8 +23,8 @@ const questions = [
         options: ["A pup", "A nestling", "A kit"]
     },
     {
-        question: "Male sharks are bigger than female sharks in most Species.",
-        options: ["False", "True"]
+        question: "In most Species, female sharks are bigger.",
+        options: ["True", "False"]
     },
     {
         question: "How many species of shark are there?",
