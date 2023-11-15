@@ -68,7 +68,8 @@ function randomiseAnswerPositions(){
         question.answer = offSet;
 
         for(let i = 0; i < offSet; i++){
-            // Cycles the array [i] number of times by unshifting the popped value to the start of the array.
+            // Cycles the array [i] number of times by pushing the popped value to the start of the array.
+            // unshift adds element to the beginning of the array, push adds to the end [https://www.w3schools.com/jsref/jsref_unshift.asp]
             question.options.unshift(question.options.pop());
         }
     }
