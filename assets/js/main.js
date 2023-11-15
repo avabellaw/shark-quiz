@@ -6,6 +6,7 @@ let quiz = {
     userAnswers: [],
     questionIndex: 0,
     questionAnswered: false,
+    score: 0,
     getQuestion: function () {
         return questions[this.questionIndex];
     },
@@ -67,6 +68,9 @@ function init() {
 
         if (!correctAnswer) {
             $(clickedBox).addClass("incorrect-answer");
+        } else {
+            let score = quiz.score += timer.timer + 10;
+            document.getElementById("points").innerText = score;
         }
 
         timer.stopTimer();
@@ -137,6 +141,16 @@ function swapGameArea(gameArea) {
     $(currentGameArea).attr("data-visible", "true");
 
     if (gameArea === "#quiz") {
+        $.each($(".topbar_icon"), function(i, icon){
+            let id = $(icon).attr("id");
+            if(id === "home-button") return;
+
+            if(id === "score"){
+                $(icon).attr("data-visible", "true");
+            } else {
+                $(icon).attr("data-visible", "false");
+            }
+        });
         showQuestion(quiz.getQuestion());
     }
 }

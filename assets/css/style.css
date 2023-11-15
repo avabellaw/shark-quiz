@@ -39,15 +39,24 @@ body {
     width: 2rem;
     height: 2rem;
     padding: 0.5rem;
+}
+
+.topbar_icon#score {
+    width: fit-content;
+    padding: 0.5rem 0.75rem;
+}
+
+.topbar_icon:not(#score):hover {
+    background-color: rgba(0, 0, 0, 0.1);
 
     cursor: pointer;
 }
 
-.topbar_icon:hover {
-    background-color: rgba(0, 0, 0, 0.1)
+.topbar_icon#score > p, #points {
+    margin-left: 0.5rem;
 }
 
-#topbar > .topbar_icon:first-child {
+#topbar > .topbar_icon:nth-child(1) {
     margin-right: auto;
 }
 /* End of Top bar */
@@ -208,4 +217,5 @@ input#start-quiz:hover {
     height: 100%;
     transition: width 0.8s ease;
 }
+
 /* End of Quiz screen */
