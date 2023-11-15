@@ -16,6 +16,7 @@ let quiz = {
         $(".answer-box.incorrect-answer").removeClass("incorrect-answer");
         $(".answer-box.correct-answer").removeClass("correct-answer");
         this.questionAnswered = false;
+        timer.resetTimer();
 
         return questions[++this.questionIndex];
     },
@@ -38,6 +39,7 @@ function init() {
     // Event listeners
     $("#start-quiz").on("click", () => {
         swapGameArea("#quiz");
+        timer.startTimer(timerTick);
     });
 
     $("#next-button").on("click", () => {
@@ -60,6 +62,10 @@ function init() {
     });
 
     randomiseAnswerPositions();
+}
+
+async function timerTick(timer){
+    console.log(timer);
 }
 
 function randomiseAnswerPositions(){

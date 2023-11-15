@@ -2,7 +2,7 @@
  * @jest-environment jsdom
 */
 
-const { init, quiz, getCurrentGameArea, swapGameArea, showQuestion } = require("../main");
+const { init, quiz, getCurrentGameArea, swapGameArea } = require("../main");
 
 beforeAll(() => {
     let fs = require("fs");
@@ -37,7 +37,7 @@ describe("Quiz updates correctly between questions", () => {
         quiz.questionIndex = 0;
         quiz.userAnswers = [];
         quiz.questionAnswered = false;
-        swapGameArea("#quiz");
+        $("#start-button").trigger("click");
     });
 
     test("Correct answer box should have the class 'correct-answer'", () => {
