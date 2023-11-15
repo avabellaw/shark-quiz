@@ -16,8 +16,8 @@ let quiz = {
         $(".answer-box.incorrect-answer").removeClass("incorrect-answer");
         $(".answer-box.correct-answer").removeClass("correct-answer");
         this.questionAnswered = false;
-        timer.resetTimer();
-
+        timer.resetTimer(timerTick);
+        
         return questions[++this.questionIndex];
     },
     answerQuestion: function (answerId) {
@@ -39,7 +39,6 @@ function init() {
     // Event listeners
     $("#start-quiz").on("click", () => {
         swapGameArea("#quiz");
-        timer.startTimer(timerTick);
     });
 
     $("#next-button").on("click", () => {
@@ -56,6 +55,8 @@ function init() {
         if (!correctAnswer) {
             $(clickedBox).addClass("incorrect-answer");
         }
+
+        timer.stopTimer();
 
         showCorrectAnswer();
     });
@@ -82,7 +83,7 @@ function timerTick(timer) {
                 else
                     $(box).addClass("incorrect-answer");
             });
-        }, 1000);
+        }, 500);
     }
 }
 
@@ -131,6 +132,7 @@ function showQuestion(questionSet) {
     } else {
         answerBoxes[2].setAttribute("data-visible", "true");
     }
+    timer.startTimer(timerTick);
 }
 
 function getCurrentGameArea() {

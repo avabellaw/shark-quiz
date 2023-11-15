@@ -200,7 +200,7 @@ input#start-quiz:hover {
     background-color: rgb(16 117 223);
     width: 100%;
     height: 100%;
-    transition: width 1s ease;
+    transition: width 0.5s ease;
 }
 
 /* End of Quiz screen */

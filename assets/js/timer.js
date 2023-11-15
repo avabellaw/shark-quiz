@@ -2,8 +2,9 @@ let decreaseTimer;
 
 let timer = {
     timer: 30,
-    resetTimer: function () {
+    resetTimer: function (callFunction) {
         this.timer = 30;
+        callFunction(this.timer);
     },
     startTimer: async function (callFunction) {
         decreaseTimer = setInterval(() => {
