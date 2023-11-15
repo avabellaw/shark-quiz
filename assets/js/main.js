@@ -84,11 +84,10 @@ function timerTick(timeLeft) {
             // .each() wasn't working therfore I found a different way [https://stackoverflow.com/questions/4735342/jquery-to-loop-through-elements-with-the-same-class]
             $.each($(".answer-box"), function (i, box) {
                 // This will loop through every .answer-box and apply the appropriate class 
-                if (i === quiz.getQuestion().answer)
-                    $(box).addClass("correct-answer");
-                else
+                if (i !== quiz.getQuestion().answer)
                     $(box).addClass("incorrect-answer");
             });
+            showCorrectAnswer();
         }, 500);
     }
 }
