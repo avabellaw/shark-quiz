@@ -129,11 +129,15 @@ input#start-quiz:hover {
     height: 20vh;
 }
 
-#next-button {
+#next-button_container {
     position: absolute;
     right: 0;
     height: 100%;
     display: flex;
+}
+
+#next-button{
+    margin: auto;
 }
 
 #next-button:not(:hover) {
@@ -144,10 +148,6 @@ input#start-quiz:hover {
     cursor: pointer;
 }
 
-#next-button > img {
-    margin: auto;
-}
-
 #answers-container {
     padding: 1rem 0;
 }
@@ -155,6 +155,7 @@ input#start-quiz:hover {
 .answer-box {
     background-color: white;
     margin: 1rem 0;
+    transition: background-color 0.3s ease-out;
 }
 
 .answer-box:not(:hover){
@@ -188,6 +189,7 @@ input#start-quiz:hover {
 
 .grey-out {
     opacity: .4!important;
+    transition: opacity 0.1s;
 }
 
 #timer {
@@ -204,7 +206,6 @@ input#start-quiz:hover {
     background-color: rgb(16 117 223);
     width: 100%;
     height: 100%;
-    transition: width 0.5s ease;
+    transition: width 0.8s ease;
 }
-
 /* End of Quiz screen */

@@ -37,13 +37,25 @@ $(init);
 function init() {
     quiz.questions = questions;
 
+    const tooltip = document.getElementById("next-button");
+
+    const nextButtonTooltip = tippy(tooltip, {
+        content: "Please answer question first",
+        placement: "left",
+        trigger: "manual",
+        animation: "perspective"
+    });
+
     // Event listeners
     $("#start-quiz").on("click", () => {
         swapGameArea("#quiz");
     });
 
     $("#next-button").on("click", () => {
-        if (!quiz.questionAnswered) return;
+        if (!quiz.questionAnswered) {
+            nextButtonTooltip.show();   
+            return;
+        };
         showQuestion(quiz.nextQuestion());
     });
 
@@ -68,7 +80,7 @@ function init() {
 function timerTick(timeLeft) {
     $("#timer > div").width(`${timeLeft * (100 / timer.max)}%`);
 
-    if (timeLeft % 2 === 0){
+    if (timeLeft % 2 === 0) {
         // Set progress bar colour
         let red = 255 - ((255 / timer.max) * timeLeft);
         let green = 117 - 100 + timeLeft * (100 / timer.max);
@@ -94,8 +106,8 @@ function timerTick(timeLeft) {
 
 function showCorrectAnswer() {
     let correctAnswerOptionNum = quiz.getQuestion().answer;
-    $.each($(".answer-box"), function(i, option){
-        if(option.dataset.option == correctAnswerOptionNum){
+    $.each($(".answer-box"), function (i, option) {
+        if (option.dataset.option == correctAnswerOptionNum) {
             $(option).addClass("correct-answer");
         } else {
             $(option).addClass("grey-out");
