@@ -10,7 +10,7 @@ let quiz = {
         return questions[this.questionIndex];
     },
     hasNextQuestion: function () {
-        return this.questionIndex < this.questions.length-1;
+        return this.questionIndex < this.questions.length - 1;
     },
     nextQuestion: function () {
         $(".answer-box.incorrect-answer").removeClass("incorrect-answer");
@@ -43,7 +43,7 @@ function init() {
     });
 
     $("#next-button").on("click", () => {
-        if(!quiz.questionAnswered) return;
+        if (!quiz.questionAnswered) return;
         showQuestion(quiz.nextQuestion());
     });
 
@@ -57,23 +57,27 @@ function init() {
             $(clickedBox).addClass("incorrect-answer");
         }
 
-        let correctAnswerOptionNum = quiz.getQuestion().answer;
-        $(`.answer-box[data-option="${correctAnswerOptionNum}"]`).addClass("correct-answer");
+        showCorrectAnswer();
     });
 
     randomiseAnswerPositions();
 }
 
-async function timerTick(timer){
+async function timerTick(timer) {
     console.log(timer);
 }
 
-function randomiseAnswerPositions(){
-    for(let question of quiz.questions){
+function showCorrectAnswer() {
+    let correctAnswerOptionNum = quiz.getQuestion().answer;
+    $(`.answer-box[data-option="${correctAnswerOptionNum}"]`).addClass("correct-answer");
+}
+
+function randomiseAnswerPositions() {
+    for (let question of quiz.questions) {
         let offSet = Math.floor(Math.random() * question.options.length);
         question.answer = offSet;
 
-        for(let i = 0; i < offSet; i++){
+        for (let i = 0; i < offSet; i++) {
             // Cycles the array [i] number of times by pushing the popped value to the start of the array.
             // unshift adds element to the beginning of the array, push adds to the end [https://www.w3schools.com/jsref/jsref_unshift.asp]
             question.options.unshift(question.options.pop());
