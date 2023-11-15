@@ -2,9 +2,7 @@
  * @jest-environment jsdom
 */
 
-const { default: expect } = require("expect");
-const { init, quiz, getCurrentGameArea, swapGameArea } = require("../main");
-const { beforeEach } = require("jest-circus");
+const { init, quiz, getCurrentGameArea, swapGameArea, showQuestion } = require("../main");
 
 beforeAll(() => {
     let fs = require("fs");
@@ -33,7 +31,7 @@ describe(".game-area transitions work correctly", () => {
 });
 
 describe("Quiz updates correctly between questions", () => {
-    afterEach(() => {
+    beforeEach(() => {
         // Reset the variables and elements after each test
         $(".answer-box").removeClass("correct-answer").removeClass("incorrect-answer");
         quiz.questionIndex = 0;
@@ -50,12 +48,15 @@ describe("Quiz updates correctly between questions", () => {
         $(`.answer-box[data-option="${correctAnswer}"]`).trigger("click");
 
         expect($(`.answer-box[data-option="${correctAnswer}"]`).hasClass("correct-answer")).toBeTruthy();
+        expect($(".answer-box").hasClass("incorrect-answer")).toBeFalsy();
     });
 
     test("If answered wrong, .incorrect-answer and .correct-answer should be applied", () => {
-        while(quiz.hasNextQuestion()) {
+        while (quiz.hasNextQuestion()) {
             let correctAnswerIndex = quiz.getQuestion().answer;
             let incorrectAnswer;
+            expect($(".answer-box").hasClass("incorrect-answer")).toBeFalsy();
+            expect($(".answer-box").hasClass("correct-answer")).toBeFalsy();
 
             for (let i = 0; i < quiz.getQuestion().options.length; i++) {
                 if (i !== correctAnswerIndex) {
@@ -63,7 +64,6 @@ describe("Quiz updates correctly between questions", () => {
                     break;
                 }
             }
-
             $(incorrectAnswer).find("p.answer-box_text").trigger("click");
 
             expect($(`.answer-box[data-option="${correctAnswerIndex}"]`).hasClass("correct-answer")).toBeTruthy();
