@@ -64,14 +64,19 @@ function init() {
     randomiseAnswerPositions();
 }
 
-function timerTick(timer) {
-    $("#timer > div").width(`${timer * 3.3333}%`);
+function timerTick(timeLeft) {
+    $("#timer > div").width(`${timeLeft * (100 / timer.max)}%`);
 
-    if (timer % 3 === 0)
-        $("#timer > div").css("background-color", `rgb(${255 - (8.5 * timer)}, ${117 - 90 + timer * 3}, ${223 - 180 + (timer * 6)})`);
+    if (timeLeft % 3 === 0){
+        // Set progress bar colour
+        let red = 255 - ((255 / timer.max) * timeLeft);
+        let green = 117 - 100 + timeLeft * (100 / timer.max);
+        let blue = 223 - 180 + (timeLeft * (180 / timer.max));
 
+        $("#timer > div").css("background-color", `rgb(${red}, ${green}, ${blue})`);
+    }
 
-    if (timer === 0) {
+    if (timeLeft === 0) {
         setTimeout(() => {
             quiz.answerQuestion(-1);
 

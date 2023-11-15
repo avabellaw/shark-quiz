@@ -1,9 +1,10 @@
 let decreaseTimer;
 
 let timer = {
-    timer: 30,
+    max: 20,
+    timer: 20,
     resetTimer: function (callFunction) {
-        this.timer = 30;
+        this.timer = this.max;
         callFunction(this.timer);
     },
     startTimer: async function (callFunction) {
