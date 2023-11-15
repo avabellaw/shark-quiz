@@ -64,13 +64,13 @@ function init() {
 
 function randomiseAnswerPositions(){
     for(let question of quiz.questions){
-        let offSet = 1;
+        let offSet = Math.floor(Math.random() * question.options.length);
+        question.answer = offSet;
 
         for(let i = 0; i < offSet; i++){
+            // Cycles the array [i] number of times by unshifting the popped value to the start of the array.
             question.options.unshift(question.options.pop());
         }
-
-        question.answer = offSet % question.options.length;
     }
 }
 
