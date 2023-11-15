@@ -241,6 +241,11 @@ $ git clone https://github.com/avabellaw/crystal-clear-opticians
 
 ### Content
 
+* Questions were inspired by the following websites.
+    * [zoo.com/quiz](https://www.zoo.com/quiz/the-great-shark-quiz);
+    * [beano.com](https://www.beano.com/posts/the-ultimate-shark-quiz)
+    * [natgeokids.com](https://www.natgeokids.com/uk/play-and-win/games/quiz-whiz-sharks/)
+
 ### Code
 
 * I found out how to use jest with JQuery from [StackOverflow](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file)

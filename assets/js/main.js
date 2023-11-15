@@ -58,6 +58,20 @@ function init() {
         let correctAnswerOptionNum = quiz.getQuestion().answer;
         $(`.answer-box[data-option="${correctAnswerOptionNum}"]`).addClass("correct-answer");
     });
+
+    randomiseAnswerPositions();
+}
+
+function randomiseAnswerPositions(){
+    for(let question of quiz.questions){
+        let offSet = 1;
+
+        for(let i = 0; i < offSet; i++){
+            question.options.unshift(question.options.pop());
+        }
+
+        question.answer = offSet % question.options.length;
+    }
 }
 
 /**
