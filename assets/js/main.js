@@ -15,6 +15,7 @@ let quiz = {
     nextQuestion: function () {
         $(".answer-box.incorrect-answer").removeClass("incorrect-answer");
         $(".answer-box.correct-answer").removeClass("correct-answer");
+        $(".answer-box.grey-out").removeClass("grey-out");
         this.questionAnswered = false;
         timer.resetTimer(timerTick);
         

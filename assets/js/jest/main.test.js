@@ -79,7 +79,7 @@ describe("Quiz updates correctly between questions", () => {
 
         expect($(".answer-box").hasClass("incorrect-answer")).toBeFalsy();
         expect($(".answer-box").hasClass("correct-answer")).toBeFalsy();
-        expect($(".answer-box")).hasClass(".grey-out").toBeFalsy();
+        expect($(".answer-box").hasClass("grey-out")).toBeFalsy();
     });
 
     test("Next question button shouldn't work if not answered the current question", () => {
