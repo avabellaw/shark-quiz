@@ -64,7 +64,7 @@ function init() {
 }
 
 async function timerTick(timer) {
-    console.log(timer);
+    $("#timer").val(timer);
 }
 
 function showCorrectAnswer() {

@@ -186,4 +186,10 @@ input#start-quiz:hover {
     background-color: #44ff8f;
 }
 
+progress#timer {
+    width: 100%;
+    height: 0.4rem;
+    margin: 0.5rem 0;
+}
+
 /* End of Quiz screen */
