@@ -66,17 +66,23 @@ function init() {
 function timerTick(timer) {
     $("#timer > div").width(`${timer * 3.3333}%`);
 
-    if (timer === 0) {
-        quiz.answerQuestion(-1);
+    if (timer % 3 === 0)
+        $("#timer > div").css("background-color", `rgb(${255 - (8.5 * timer)}, ${117 - 90 + timer * 3}, ${223 - 180 + (timer * 6)})`);
 
-        // .each() wasn't working therfore I found a different way [https://stackoverflow.com/questions/4735342/jquery-to-loop-through-elements-with-the-same-class]
-        $.each($(".answer-box"), function (i, box) {
-            // This will loop through every .answer-box and apply the appropriate class 
-            if (i === quiz.getQuestion().answer)
-                $(box).addClass("correct-answer");
-            else
-                $(box).addClass("incorrect-answer");
-        });
+
+    if (timer === 0) {
+        setTimeout(() => {
+            quiz.answerQuestion(-1);
+
+            // .each() wasn't working therfore I found a different way [https://stackoverflow.com/questions/4735342/jquery-to-loop-through-elements-with-the-same-class]
+            $.each($(".answer-box"), function (i, box) {
+                // This will loop through every .answer-box and apply the appropriate class 
+                if (i === quiz.getQuestion().answer)
+                    $(box).addClass("correct-answer");
+                else
+                    $(box).addClass("incorrect-answer");
+            });
+        }, 1000);
     }
 }
 

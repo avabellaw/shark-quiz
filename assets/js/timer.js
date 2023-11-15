@@ -6,9 +6,9 @@ let timer = {
         this.timer = 30;
     },
     startTimer: async function (callFunction) {
-        decreaseTimer = setInterval(()=>{
+        decreaseTimer = setInterval(() => {
             callFunction(--this.timer);
-            if(this.timer <= 0) this.stopTimer();
+            if (this.timer <= 0) this.stopTimer();
         }, 1000);
     },
     stopTimer: function () {
