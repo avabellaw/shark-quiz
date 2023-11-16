@@ -219,6 +219,7 @@ function swapGameArea(gameArea) {
             break;
         case gameAreaScreen.endGame:
             displayTopBar(gameAreaScreen.endGame);
+            if(prevGameArea !== gameAreaScreen.quiz) return;
             let correctAnswers = quiz.userAnswers.reduce(scoreReducer, 0);
 
             $("#questions-correct").text(correctAnswers);
