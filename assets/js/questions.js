@@ -75,17 +75,17 @@ const questions = [
     {
         question: "How do sharks communicate?",
         options: ["Body language", "Vibrations", "A clicking noise"],
-        desciption: "They angle their body, fluff their gills, nod their heads and so on."
+        description: "They angle their body, fluff their gills, nod their heads and so on."
     },
     {
         question: "How is a shark's eyesight compared to a human's?",
         options: ["Better", "Worse", "Similar"],
-        desciption: "It's estimated to be about 10 times better!"
+        description: "It's estimated to be about 10 times better!"
     },
     {
         question: "How do sharks like to hunt?",
         options: ["Alone", "In large groups", "With 1-2 others"],
-        desciption: "They primarly rely on the element of surprise. Some sharks will join up in certain circumstances."
+        description: "They primarly rely on the element of surprise. Some sharks will join up in certain circumstances."
     }
 ];
 
