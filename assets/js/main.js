@@ -68,7 +68,7 @@ function init() {
         quiz.questions[randomIndex] = valueToSwap;
     }
 
-    quiz.questions = quiz.questions.splice(0, 15); // Delete 15 and then set the quiz.questions to the deleted questions
+    quiz.questions.splice(0, 10); // Delete 15 and then set the quiz.questions to the deleted questions
 
     // Event listeners
     $("#start-quiz").on("click", () => {
@@ -106,7 +106,8 @@ function init() {
     $(".answer-box").on("click", (event) => {
         if (quiz.questionAnswered) return;
         // event.target gets the top element which is the paragraph tag [https://www.metaltoad.com/blog/how-detect-which-element-was-clicked-using-jquery]
-        let clickedBox = event.target.parentElement;
+        // event.currentTarget gets the element clicked [https://stackoverflow.com/questions/50149925/click-event-target-gives-element-or-its-child-not-parent-element]
+        let clickedBox = event.currentTarget;
         let correctAnswer = quiz.answerQuestion(clickedBox.dataset.option);
 
         if (!correctAnswer) {
