@@ -110,13 +110,13 @@ body {
     font-size: 3.5rem;
 }
 
-input#start-quiz {
+input{
     padding: 0.3rem 2.5rem;
     font-size: 1.2rem;
     border: 0px;
 }
 
-input#start-quiz:hover {
+input {
     cursor: pointer;
 }
 

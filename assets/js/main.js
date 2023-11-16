@@ -11,6 +11,7 @@ let quiz = {
         return questions[this.questionIndex];
     },
     hasNextQuestion: function () {
+        return false;
         return this.questionIndex < this.questions.length - 1;
     },
     nextQuestion: function () {
@@ -25,7 +26,7 @@ let quiz = {
         return questions[++this.questionIndex];
     },
     answerQuestion: function (answerId) {
-        this.userAnswers.push(answerId);
+        this.userAnswers.push(parseInt(answerId));
         this.questionAnswered = true;
         $("#next-button").removeClass("grey-out");
         return answerId == this.questions[this.questionIndex].answer;
@@ -74,7 +75,7 @@ function init() {
             return;
         };
 
-        if(!quiz.hasNextQuestion()){
+        if (!quiz.hasNextQuestion()) {
             swapGameArea(gameAreaOptions.endGame);
             return;
         }
@@ -197,8 +198,18 @@ function swapGameArea(gameArea) {
             break;
         case "#end-game":
             displayTopBar(topbarMenuOptions.home);
+            let correctAnswers = quiz.userAnswers.reduce(scoreReducer, 0);
+
+            $("#questions-correct").text(correctAnswers);
+            $("#total-questions").text(quiz.questions.length);
+            $("#end-game-score").text(quiz.score);
             break;
     }
+}
+
+function scoreReducer(acc, currentValue, i){
+    if (currentValue === quiz.questions[i].answer)
+        return acc += 1;
 }
 
 function showQuestion(questionSet) {
