@@ -21,7 +21,7 @@ body {
     opacity: 0.95;
 }
 
-#topbar > h1 {
+#topbar>h1 {
     margin: 0;
     line-height: 3rem;
     font-size: 1.5rem;
@@ -33,7 +33,7 @@ body {
 
 .topbar_icon {
     display: flex;
-    box-sizing: content-box; 
+    box-sizing: content-box;
     justify-content: center;
     align-items: center;
     width: 2rem;
@@ -52,13 +52,15 @@ body {
     cursor: pointer;
 }
 
-.topbar_icon#score > p, #points {
+.topbar_icon#score>p,
+#points {
     margin-left: 0.5rem;
 }
 
-#topbar > .topbar_icon:nth-child(1) {
+#topbar>.topbar_icon:nth-child(1) {
     margin-right: auto;
 }
+
 /* End of Top bar */
 
 /* Game area */
@@ -68,7 +70,7 @@ body {
     color: white;
 }
 
-[data-visible="false"]{
+[data-visible="false"] {
     /* I use "!important" here because this should always override any other styling */
     display: none !important;
 }
@@ -79,15 +81,17 @@ body {
     height: 100%;
     box-sizing: border-box;
 }
+
 /* End of Game area */
 
 /* Home screen */
-.game-area#home {
+.game-area {
     display: flex;
     flex-direction: column;
 }
 
-.game-area#home > .game-area_container {
+.game-area#home>.game-area_container,
+.game-area#end-game>.game-area_container {
     margin: auto;
     text-align: center;
 
@@ -97,7 +101,7 @@ body {
     justify-content: center;
 }
 
-.game-area#home .game-area_container > h1 {
+.game-area#home .game-area_container>h1 {
     text-transform: capitalize;
     margin-bottom: 3.5rem;
     margin-top: 0;
@@ -115,6 +119,7 @@ input#start-quiz {
 input#start-quiz:hover {
     cursor: pointer;
 }
+
 /* End of Home screen */
 
 /* Quiz screen */
@@ -145,7 +150,7 @@ input#start-quiz:hover {
     display: flex;
 }
 
-#next-button{
+#next-button {
     margin: auto;
     transition: opacity 0.6s ease-out;
 }
@@ -172,7 +177,7 @@ input#start-quiz:hover {
     transition: background-color 0.3s ease-out;
 }
 
-.answer-box:not(:hover){
+.answer-box:not(:hover) {
     opacity: 0.95;
 }
 
@@ -186,7 +191,8 @@ input#start-quiz:hover {
     font-size: 1em;
 }
 
-.answer-box_text, .answer-box_desc {
+.answer-box_text,
+.answer-box_desc {
     height: 3rem;
     color: black;
     display: flex;
@@ -209,7 +215,7 @@ input#start-quiz:hover {
 }
 
 .grey-out {
-    opacity: .4!important;
+    opacity: .4 !important;
     transition: opacity 0.1s;
 }
 
@@ -221,7 +227,7 @@ input#start-quiz:hover {
     position: relative;
 }
 
-#timer > div {
+#timer>div {
     position: absolute;
     z-index: 1;
     background-color: rgb(16 117 223);

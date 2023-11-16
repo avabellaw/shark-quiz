@@ -32,6 +32,19 @@ let quiz = {
     }
 };
 
+let gameAreaOptions = {
+    // The options to pass into swapGameArea()
+    home: "#home",
+    quiz: "#quiz",
+    endGame: "#end-game"
+};
+
+let topbarMenuOptions = {
+    // The options to pass into displayTopBar()
+    home: 0,
+    quiz: 1,
+};
+
 // Equivalent to $(document).ready( handler ) https://api.jquery.com/ready/
 $(init);
 
@@ -52,7 +65,7 @@ function init() {
 
     // Event listeners
     $("#start-quiz").on("click", () => {
-        swapGameArea("#quiz");
+        swapGameArea(gameAreaOptions.quiz);
     });
 
     $("#next-button").on("click", () => {
@@ -60,6 +73,11 @@ function init() {
             nextButtonTooltip.show();
             return;
         };
+
+        if(!quiz.hasNextQuestion()){
+            swapGameArea(gameAreaOptions.endGame);
+            return;
+        }
         showQuestion(quiz.nextQuestion());
     });
 
@@ -85,29 +103,20 @@ function init() {
 }
 
 /**
- * Choose which topbar to display
- */
-let topbarMenuOptions = {
-    // The options to pass into displayTopBar
-    home: 0,
-    quiz: 1,
-};
-
-/**
  * Will display the top bar based on which option you pass to it
  * @param topbarMenuOptions Takes a topbarMenuOptions option  
  */
-function displayTopBar(topbarMenuOptions) {
+function displayTopBar(topbarMenuOption) {
     $.each($(".topbar_icon"), function (i, icon) {
         let id = $(icon).attr("id");
         if (id === "home-button") return;
 
         if (id === "score") {
             // Display score
-            $(icon).attr("data-visible", topbarMenu === topbarMenuOptions.quiz);
+            $(icon).attr("data-visible", topbarMenuOption === topbarMenuOptions.quiz);
         } else {
             // Display help and leader board icons
-            $(icon).attr("data-visible", topbarMenu === topbarMenuOptions.home);
+            $(icon).attr("data-visible", topbarMenuOption === topbarMenuOptions.home);
         }
     });
 }
@@ -181,9 +190,14 @@ function swapGameArea(gameArea) {
     currentGameArea = gameArea;
     $(currentGameArea).attr("data-visible", "true");
 
-    if (gameArea === "#quiz") {
-        displayTopBar(topbarMenuOptions.quiz);
-        showQuestion(quiz.getQuestion());
+    switch (gameArea) {
+        case "#quiz":
+            displayTopBar(topbarMenuOptions.quiz);
+            showQuestion(quiz.getQuestion());
+            break;
+        case "#end-game":
+            displayTopBar(topbarMenuOptions.home);
+            break;
     }
 }
 
