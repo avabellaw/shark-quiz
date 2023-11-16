@@ -17,6 +17,7 @@ let quiz = {
         $(".answer-box.incorrect-answer").removeClass("incorrect-answer");
         $(".answer-box.correct-answer").removeClass("correct-answer");
         $(".answer-box.grey-out").removeClass("grey-out");
+        $(".answer-box_desc").attr("data-visible", "false");
         this.questionAnswered = false;
         timer.resetTimer(timerTick);
         
