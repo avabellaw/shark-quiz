@@ -11,7 +11,6 @@ let quiz = {
         return questions[this.questionIndex];
     },
     hasNextQuestion: function () {
-        return false;
         return this.questionIndex < this.questions.length - 1;
     },
     nextQuestion: function () {
@@ -53,7 +52,7 @@ $(init);
  * Initialises variables and elements
  */
 function init() {
-    quiz.questions = questions;
+    quiz.questions = questions.slice(0, 5);
 
     const tooltip = document.getElementById("next-button");
 
@@ -210,6 +209,8 @@ function swapGameArea(gameArea) {
 function scoreReducer(acc, currentValue, i){
     if (currentValue === quiz.questions[i].answer)
         return acc += 1;
+
+    return acc;
 }
 
 function showQuestion(questionSet) {

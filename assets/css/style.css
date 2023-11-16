@@ -101,7 +101,7 @@ body {
     justify-content: center;
 }
 
-.game-area#home .game-area_container>h1 {
+.game-area#home .game-area_container>h1, .game-area#end-game h1 {
     text-transform: capitalize;
     margin-bottom: 3.5rem;
     margin-top: 0;
@@ -237,3 +237,20 @@ input {
 }
 
 /* End of Quiz screen */
+
+/* End screen */
+
+#correctOutOf {
+    font-size: 1.6em;
+    margin: 1.8rem 0;
+}
+
+.game-area#end-game h1 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    line-height: 1em;
+    font-size: 2.6rem;
+}
+
+/* End of End screen */

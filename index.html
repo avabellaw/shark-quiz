@@ -85,8 +85,14 @@
         <!-- End screen -->
         <div class="game-area" data-visible="false" id="end-game">
             <div class="game-area_container">
-                <h1>You got <span id="questions-correct"></span>/<span id="total-questions"> correct answers!</span>
+                <h1>
+                    You got:
+                    <span id="correctOutOf">
+                        <span id="questions-correct"></span>/<span id="total-questions"></span>
+                    </span>
+                    answers correct!
                 </h1>
+
                 <h2>Score: <span id="end-game-score"></span></h2>
                 <input id="add-to-leaderboard" type="button" value="Add to leaderboard?">
             </div>
