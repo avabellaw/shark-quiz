@@ -21,7 +21,7 @@ let quiz = {
         $("#next-button").addClass("grey-out");
         this.questionAnswered = false;
         timer.resetTimer(timerTick);
-        
+
         return questions[++this.questionIndex];
     },
     answerQuestion: function (answerId) {
@@ -57,7 +57,7 @@ function init() {
 
     $("#next-button").on("click", () => {
         if (!quiz.questionAnswered) {
-            nextButtonTooltip.show();   
+            nextButtonTooltip.show();
             return;
         };
         showQuestion(quiz.nextQuestion());
@@ -84,11 +84,43 @@ function init() {
     randomiseAnswerPositions();
 }
 
+/**
+ * Choose which topbar to display
+ */
+let topbarMenuOptions = {
+    // The options to pass into displayTopBar
+    home: 0,
+    quiz: 1,
+};
+
+/**
+ * Will display the top bar based on which option you pass to it
+ * @param topbarMenuOptions Takes a topbarMenuOptions option  
+ */
+function displayTopBar(topbarMenuOptions) {
+    $.each($(".topbar_icon"), function (i, icon) {
+        let id = $(icon).attr("id");
+        if (id === "home-button") return;
+
+        if (id === "score") {
+            // Display score
+            $(icon).attr("data-visible", topbarMenu === topbarMenuOptions.quiz);
+        } else {
+            // Display help and leader board icons
+            $(icon).attr("data-visible", topbarMenu === topbarMenuOptions.home);
+        }
+    });
+}
+
+/**
+ * This is passed as a callback funcion to the timer to update the progress bar
+ * @param timeLeft Timer passes the time left on the timer 
+ */
 function timerTick(timeLeft) {
     $("#timer > div").width(`${timeLeft * (100 / timer.max)}%`);
 
     if (timeLeft % 2 === 0) {
-        // Set progress bar colour
+        // Set progress bar colour - slowly turns red
         let red = 255 - ((255 / timer.max) * timeLeft);
         let green = 117 - 100 + timeLeft * (100 / timer.max);
         let blue = 223 - 180 + (timeLeft * (180 / timer.max));
@@ -97,26 +129,30 @@ function timerTick(timeLeft) {
     }
 
     if (timeLeft === 0) {
+        // If ran out of time
         setTimeout(() => {
+            // -1 indicates that the timer ran out
             quiz.answerQuestion(-1);
 
-            // .each() wasn't working therfore I found a different way [https://stackoverflow.com/questions/4735342/jquery-to-loop-through-elements-with-the-same-class]
+            // $("class").each() wasn't working therfore I found a different way [https://stackoverflow.com/questions/4735342/jquery-to-loop-through-elements-with-the-same-class]
             $.each($(".answer-box"), function (i, box) {
                 // This will loop through every .answer-box and apply the appropriate class 
                 if (i !== quiz.getQuestion().answer)
                     $(box).addClass("incorrect-answer");
             });
+            // Show the correct answer after displaying the incorrect ones
             showCorrectAnswer();
         }, 500);
     }
 }
 
 function showCorrectAnswer() {
+    // Apply .correct-answer to the correct option and .grey-out the rest
     let correctAnswerOptionNum = quiz.getQuestion().answer;
     $.each($(".answer-box"), function (i, option) {
         if (option.dataset.option == correctAnswerOptionNum) {
             $(option).addClass("correct-answer");
-            $(option).find(".answer-box_desc").attr("data-visible", "true").text(quiz.getQuestion().description);  
+            $(option).find(".answer-box_desc").attr("data-visible", "true").text(quiz.getQuestion().description);
         } else {
             $(option).addClass("grey-out");
         }
@@ -124,6 +160,7 @@ function showCorrectAnswer() {
 }
 
 function randomiseAnswerPositions() {
+    // Loops through the options and randomize where the correct option is
     for (let question of quiz.questions) {
         let offSet = Math.floor(Math.random() * question.options.length);
         question.answer = offSet;
@@ -145,16 +182,7 @@ function swapGameArea(gameArea) {
     $(currentGameArea).attr("data-visible", "true");
 
     if (gameArea === "#quiz") {
-        $.each($(".topbar_icon"), function(i, icon){
-            let id = $(icon).attr("id");
-            if(id === "home-button") return;
-
-            if(id === "score"){
-                $(icon).attr("data-visible", "true");
-            } else {
-                $(icon).attr("data-visible", "false");
-            }
-        });
+        displayTopBar(topbarMenuOptions.quiz);
         showQuestion(quiz.getQuestion());
     }
 }
