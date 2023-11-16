@@ -34,11 +34,12 @@ let quiz = {
 };
 
 let gameAreaScreen = {
-    // The options to pass into swapGameArea()
+    // The options to pass into swapGameArea() for example
     home: "#home",
     quiz: "#quiz",
     endGame: "#end-game",
-    instructions: "#instructions"
+    instructions: "#instructions",
+    leaderboard: "#leaderboard",
 };
 
 nextButtonTooltip = tippy(document.getElementById("next-button"), {
@@ -79,11 +80,17 @@ function init() {
     });
 
     $("#instructions-button").on("click", () => {
-        console.log("click");
         if (currentGameArea === gameAreaScreen.instructions)
             swapGameArea(prevGameArea);
         else
-            swapGameArea("#instructions");
+            swapGameArea(gameAreaScreen.instructions);
+    });
+
+    $("#leaderboard-button").on("click", () => {
+        if (currentGameArea === gameAreaScreen.leaderboard)
+            swapGameArea(prevGameArea);
+        else
+            swapGameArea(gameAreaScreen.leaderboard);
     });
 
     document.addEventListener("keyup", (event) => {

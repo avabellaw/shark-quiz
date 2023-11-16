@@ -70,7 +70,7 @@ body {
     color: white;
 }
 
-.game-area#end-game > .game-area_container {
+.game-area#end-game>.game-area_container {
     height: fit-content;
 }
 
@@ -95,12 +95,11 @@ body {
 /* End of Game area */
 
 /* Instructions screen */
-
 .game-area#instructions {
     padding: 2rem 1rem;
 }
 
-@media screen and (min-width:576px){
+@media screen and (min-width:576px) {
     .game-area#instructions {
         padding: 2rem 15%;
     }
@@ -108,19 +107,50 @@ body {
 
 /* End of Instructions screen */
 
+/* Leaderboard */
+#leaderboard_table {
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 0.5rem;
+    border-spacing: 0;
+}
+
+#leaderboard_table tr> :first-child {
+    border-right: 1px solid white;
+}
+
+#leaderboard_table tr> :nth-child(2) {
+    border-left: 1px solid white;
+}
+
+#leaderboard_table th {
+    border-bottom: 1px solid white;
+}
+
+#leaderboard_table th, #leaderboard_table td {
+    padding: 0.3rem;
+}
+
+.game-area#leaderboard>div.game-area_container {
+    justify-content: flex-start;
+    max-width: 600px;
+}
+
+/* End of Leaderboard */
+
 /* Home screen */
 .game-area {
     display: flex;
     flex-direction: column;
-    
+
     position: relative;
 }
 
-.game-area#home > .game-area_container {
+.game-area#home>.game-area_container {
     padding: 2rem 3rem;
 }
 
-.game-area:not(#quiz) >.game-area_container {
+.game-area:not(#quiz)>.game-area_container {
     margin: auto;
     text-align: center;
 
