@@ -70,6 +70,10 @@ body {
     color: white;
 }
 
+.game-area#end-game > .game-area_container {
+    height: fit-content;
+}
+
 [data-visible="false"] {
     /* I use "!important" here because this should always override any other styling */
     display: none !important;
@@ -90,9 +94,19 @@ body {
 
 /* End of Game area */
 
-/* Instructions popup */
+/* Instructions screen */
 
-/* End of Instructions popup */
+.game-area#instructions {
+    padding: 2rem 1rem;
+}
+
+@media screen and (min-width:576px){
+    .game-area#instructions {
+        padding: 2rem 15%;
+    }
+}
+
+/* End of Instructions screen */
 
 /* Home screen */
 .game-area {
@@ -106,7 +120,7 @@ body {
     margin: auto;
     text-align: center;
 
-    height: 60vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,7 +128,7 @@ body {
 
 .game-area:not(#quiz) .game-area_container>h1 {
     text-transform: capitalize;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
     margin-top: 0;
     color: white;
     font-family: 'Jolly Lodger';
