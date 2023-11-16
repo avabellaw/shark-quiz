@@ -40,6 +40,7 @@ let gameAreaScreen = {
     endGame: "#end-game",
     instructions: "#instructions",
     leaderboard: "#leaderboard",
+    submitScore: "#submit-score"
 };
 
 nextButtonTooltip = tippy(document.getElementById("next-button"), {
@@ -68,7 +69,7 @@ function init() {
         quiz.questions[randomIndex] = valueToSwap;
     }
 
-    quiz.questions.splice(0, 10); // Delete 15 and then set the quiz.questions to the deleted questions
+    quiz.questions.splice(0, 14); // Delete 15 and then set the quiz.questions to the deleted questions
 
     // Event listeners
     $("#start-quiz").on("click", () => {
@@ -91,6 +92,11 @@ function init() {
             swapGameArea(prevGameArea);
         else
             swapGameArea(gameAreaScreen.leaderboard);
+    });
+
+    $("#add-to-leaderboard").on("click", ()=>{
+        swapGameArea(gameAreaScreen.submitScore);
+        $("#submit-score_score").text(quiz.score);
     });
 
     document.addEventListener("keyup", (event) => {
@@ -201,7 +207,8 @@ function showCorrectAnswer() {
     $.each($(".answer-box"), function (i, option) {
         if (option.dataset.option == correctAnswerOptionNum) {
             $(option).addClass("correct-answer");
-            $(option).find(".answer-box_desc").attr("data-visible", "true").text(quiz.getQuestion().description);
+            let desc = quiz.getQuestion().description;
+            $(option).find(".answer-box_desc").attr("data-visible", "true").text(desc);
         } else {
             $(option).addClass("grey-out");
         }

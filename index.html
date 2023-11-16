@@ -120,7 +120,21 @@
                 </h1>
 
                 <h2>Score: <span id="end-game-score"></span></h2>
-                <input id="add-to-leaderboard" type="button" value="Add to leaderboard?">
+                <input id="add-to-leaderboard" type="button" value="Add to leaderboard">
+            </div>
+        </div>
+
+        <!-- Submit score screen -->
+        <div class="game-area" data-visible="false" id="submit-score">
+            <div class="game-area_container">
+                <fieldset>
+                    <legend>Score: <span id="submit-score_score"></span></legend>
+                    <label for="username">Username:</label>
+                    <br>
+                    <input type="text" id="username">
+                    <br>
+                    <input id="submit-score_button" type="button" value="Add to leaderboard">
+                </fieldset>
             </div>
         </div>
     </div>

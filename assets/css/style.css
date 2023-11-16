@@ -127,7 +127,8 @@ body {
     border-bottom: 1px solid white;
 }
 
-#leaderboard_table th, #leaderboard_table td {
+#leaderboard_table th,
+#leaderboard_table td {
     padding: 0.3rem;
 }
 
@@ -137,6 +138,33 @@ body {
 }
 
 /* End of Leaderboard */
+
+/* Add to leaderboard */
+
+.game-area#submit-score fieldset {
+    padding: 2rem;
+    text-align: left;
+}
+
+.game-area#submit-score fieldset > legend {
+    text-align: center;
+}
+
+#submit-score_button {
+    margin-top: 1rem;
+}
+
+.game-area#submit-score input {
+    width: 100%;
+    height: 2rem;
+}
+
+input#username {
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+}
+
+/* End of Add to leaderboard */
 
 /* Home screen */
 .game-area {
@@ -169,7 +197,7 @@ body {
     font-size: 2.5rem;
 }
 
-input {
+input[type="button"] {
     padding: 0.3rem 2.5rem;
     font-size: 1.2rem;
     border: 0px;
@@ -319,7 +347,7 @@ input#start-quiz {
 
 /* End of Quiz screen */
 
-/* End screen */
+/* End-screen */
 
 #correctOutOf {
     font-size: 1.6em;
@@ -334,4 +362,4 @@ input#start-quiz {
     font-size: 2.6rem;
 }
 
-/* End of End screen */
+/* End of End-screen */
