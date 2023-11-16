@@ -116,6 +116,10 @@ body {
     position: relative;
 }
 
+.game-area#home > .game-area_container {
+    padding: 2rem 3rem;
+}
+
 .game-area:not(#quiz) >.game-area_container {
     margin: auto;
     text-align: center;
@@ -128,21 +132,22 @@ body {
 
 .game-area:not(#quiz) .game-area_container>h1 {
     text-transform: capitalize;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     margin-top: 0;
     color: white;
     font-family: 'Jolly Lodger';
-    font-size: 3.5rem;
+    font-size: 2.5rem;
 }
 
 input {
     padding: 0.3rem 2.5rem;
     font-size: 1.2rem;
     border: 0px;
+    cursor: pointer;
 }
 
-input {
-    cursor: pointer;
+input#start-quiz {
+    margin-top: 2rem;
 }
 
 /* End of Home screen */
