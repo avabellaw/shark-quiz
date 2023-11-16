@@ -13,6 +13,18 @@ body {
     }
 }
 
+input.validation-error {
+    border: 2px solid red;
+}
+
+p.validation-error {
+    color: rgb(255, 88, 88);
+}
+
+.validation-message {
+    font-size: 0.8rem;
+}
+
 /* Top bar */
 #topbar {
     display: flex;
@@ -162,6 +174,7 @@ body {
 input#username {
     box-sizing: border-box;
     margin-top: 0.5rem;
+    outline: none;
 }
 
 /* End of Add to leaderboard */

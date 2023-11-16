@@ -43,10 +43,18 @@ let gameAreaScreen = {
     submitScore: "#submit-score"
 };
 
-nextButtonTooltip = tippy(document.getElementById("next-button"), {
+let nextButtonTooltip = tippy(document.getElementById("next-button"), {
     // Setup the tooltip for when next button is clicked before answering the question
     content: "Please answer question first",
     placement: "left",
+    trigger: "manual",
+    animation: "perspective"
+});
+
+let validationTooltip = tippy(document.getElementById("username"), {
+    // Setup the tooltip for when next button is clicked before answering the question
+    content: "Validation errors present",
+    placement: "top",
     trigger: "manual",
     animation: "perspective"
 });
@@ -61,7 +69,7 @@ function init() {
     quiz.questions = questions;
 
     // Randomise the questions order
-    for(let i = 0; i < questions.length; i++){
+    for (let i = 0; i < questions.length; i++) {
         // Inspired by [https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj]
         let randomIndex = Math.floor(Math.random() * questions.length);
         let valueToSwap = quiz.questions[i];
@@ -94,18 +102,33 @@ function init() {
             swapGameArea(gameAreaScreen.leaderboard);
     });
 
-    $("#add-to-leaderboard").on("click", ()=>{
+    $("#add-to-leaderboard").on("click", () => {
         swapGameArea(gameAreaScreen.submitScore);
         $("#submit-score_score").text(quiz.score);
+    });
+
+    $("#submit-score_button").on("click", () => {
+        submitScoreToLeaderboard();
+    });
+
+    $("#username").on("input", () => {
+        validateUsername();
     });
 
     document.addEventListener("keyup", (event) => {
         // Add key listener [https://www.section.io/engineering-education/keyboard-events-in-javascript/]
         if (event.key === "Enter") {
-            if (currentGameArea === gameAreaScreen.home)
-                $("#start-quiz").trigger("click");
-            else
-                clickNextButton();
+            switch (currentGameArea) {
+                case gameAreaScreen.home:
+                    $("#start-quiz").trigger("click");
+                    break;
+                case gameAreaScreen.quiz:
+                    clickNextButton();
+                    break;
+                case gameAreaScreen.submitScore:
+                    submitScoreToLeaderboard();
+                    break;
+            }
         }
     });
 
@@ -129,6 +152,44 @@ function init() {
     });
 
     randomiseAnswerPositions();
+}
+
+function validateUsername(){
+    // specialChars.test() taken from [https://onecompiler.com/questions/3xnp9df38/-javascript-how-to-check-for-special-characters-present-in-a-string]
+    let specialChars = /[`!@#$%^&*()\-+=\[\]{};':"\\|,.<>\/?~ ]/;
+
+    let passedValidation = true;
+
+    $(".validation-message").removeClass("validation-error");
+
+    if (specialChars.test($("#username").val())) {
+        $("#special-characters").addClass("validation-error");
+        passedValidation = false;
+    } 
+
+    let usernameLength = $("#username").val().length;
+    if(usernameLength < 3 || usernameLength > 15){
+        $("#min-max-characters").addClass("validation-error");
+        passedValidation = false;
+    }
+
+    if(!passedValidation){
+        $("#username").addClass("validation-error");
+        $("#submit-score_button").addClass("grey-out");
+    } else {
+        $("#username").removeClass("validation-error");
+        $("#submit-score_button").removeClass("grey-out");
+    }
+
+    return passedValidation;
+}
+
+function submitScoreToLeaderboard() {
+    if(validateUsername()){
+
+    } else {
+        validationTooltip.show();
+    }
 }
 
 function clickNextButton() {
@@ -245,7 +306,7 @@ function swapGameArea(gameArea) {
             break;
         case gameAreaScreen.endGame:
             displayTopBar(gameAreaScreen.endGame);
-            if(prevGameArea !== gameAreaScreen.quiz) return;
+            if (prevGameArea !== gameAreaScreen.quiz) return;
             let correctAnswers = quiz.userAnswers.reduce(scoreReducer, 0);
 
             $("#questions-correct").text(correctAnswers);

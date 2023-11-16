@@ -131,9 +131,11 @@
                     <legend>Score: <span id="submit-score_score"></span></legend>
                     <label for="username">Username:</label>
                     <br>
-                    <input type="text" id="username">
+                    <input type="text" id="username" placeholder="Enter username">
                     <br>
-                    <input id="submit-score_button" type="button" value="Add to leaderboard">
+                    <p id="special-characters" class="validation-message">*Specials characters aren't allowed</p>
+                    <p id="min-max-characters" class="validation-message">*Must be between 2-15 characters</p>
+                    <input id="submit-score_button" class="grey-out" type="button" value="Add to leaderboard">
                 </fieldset>
             </div>
         </div>
