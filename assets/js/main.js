@@ -45,6 +45,14 @@ let topbarMenuOptions = {
     quiz: 1,
 };
 
+nextButtonTooltip = tippy(document.getElementById("next-button"), {
+    // Setup the tooltip for when next button is clicked before answering the question
+    content: "Please answer question first",
+    placement: "left",
+    trigger: "manual",
+    animation: "perspective"
+});
+
 // Equivalent to $(document).ready( handler ) https://api.jquery.com/ready/
 $(init);
 
@@ -54,31 +62,23 @@ $(init);
 function init() {
     quiz.questions = questions.slice(0, 5);
 
-    const tooltip = document.getElementById("next-button");
-
-    const nextButtonTooltip = tippy(tooltip, {
-        content: "Please answer question first",
-        placement: "left",
-        trigger: "manual",
-        animation: "perspective"
-    });
-
     // Event listeners
     $("#start-quiz").on("click", () => {
         swapGameArea(gameAreaOptions.quiz);
     });
 
     $("#next-button").on("click", () => {
-        if (!quiz.questionAnswered) {
-            nextButtonTooltip.show();
-            return;
-        };
+        clickNextButton();
+    });
 
-        if (!quiz.hasNextQuestion()) {
-            swapGameArea(gameAreaOptions.endGame);
-            return;
+    document.addEventListener("keyup", (event) => {
+        // Add key listener [https://www.section.io/engineering-education/keyboard-events-in-javascript/]
+        if (event.key === "Enter") {
+            if (currentGameArea === gameAreaOptions.home)
+                $("#start-quiz").trigger("click");
+            else
+                clickNextButton();
         }
-        showQuestion(quiz.nextQuestion());
     });
 
     $(".answer-box").on("click", (event) => {
@@ -100,6 +100,19 @@ function init() {
     });
 
     randomiseAnswerPositions();
+}
+
+function clickNextButton() {
+    if (!quiz.questionAnswered) {
+        nextButtonTooltip.show();
+        return;
+    };
+
+    if (!quiz.hasNextQuestion()) {
+        swapGameArea(gameAreaOptions.endGame);
+        return;
+    }
+    showQuestion(quiz.nextQuestion());
 }
 
 /**
@@ -206,7 +219,7 @@ function swapGameArea(gameArea) {
     }
 }
 
-function scoreReducer(acc, currentValue, i){
+function scoreReducer(acc, currentValue, i) {
     if (currentValue === quiz.questions[i].answer)
         return acc += 1;
 
