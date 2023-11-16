@@ -4,7 +4,8 @@
 const questions = [
     {
         question: "Do sharks sleep?",
-        options: ["No", "Yes"]
+        options: ["No", "Yes"],
+        description: "While sharks do have periods of rest, but it's nothing like how other animals sleep."
     },
     {
         question: "How many bones do sharks have?",

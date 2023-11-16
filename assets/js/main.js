@@ -113,6 +113,7 @@ function showCorrectAnswer() {
     $.each($(".answer-box"), function (i, option) {
         if (option.dataset.option == correctAnswerOptionNum) {
             $(option).addClass("correct-answer");
+            $(option).find(".answer-box_desc").attr("data-visible", "true").text(quiz.getQuestion().description);  
         } else {
             $(option).addClass("grey-out");
         }

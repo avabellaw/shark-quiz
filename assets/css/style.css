@@ -177,15 +177,22 @@ input#start-quiz:hover {
 }
 
 .answer-box_text {
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.answer-box_text, .answer-box_desc {
     height: 3rem;
     color: black;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1em;
-    font-weight: 600;
     margin: 0;
+}
+
+.answer-box_desc {
+    font-size: 0.9em;
+    margin-top: -0.6em;
 }
 
 .incorrect-answer {
@@ -193,7 +200,7 @@ input#start-quiz:hover {
 }
 
 .correct-answer {
-    background-color: #38ff82;
+    background-color: #7fff92;
 }
 
 .grey-out {
