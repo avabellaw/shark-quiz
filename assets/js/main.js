@@ -58,6 +58,17 @@ $(init);
 function init() {
     quiz.questions = questions;
 
+    // Randomise the questions order
+    for(let i = 0; i < questions.length; i++){
+        // Inspired by [https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj]
+        let randomIndex = Math.floor(Math.random() * questions.length);
+        let valueToSwap = quiz.questions[i];
+        quiz.questions[i] = quiz.questions[randomIndex];
+        quiz.questions[randomIndex] = valueToSwap;
+    }
+
+    quiz.questions = quiz.questions.splice(0, 15); // Delete 15 and then set the quiz.questions to the deleted questions
+
     // Event listeners
     $("#start-quiz").on("click", () => {
         swapGameArea(gameAreaScreen.quiz);
