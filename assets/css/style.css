@@ -147,6 +147,7 @@ input#start-quiz:hover {
 
 #next-button{
     margin: auto;
+    transition: opacity 0.6s ease-out;
 }
 
 #next-button:not(:hover) {
@@ -155,6 +156,10 @@ input#start-quiz:hover {
 
 #next-button:hover {
     cursor: pointer;
+}
+
+#next-button:not(.grey-out):hover {
+    transform: scale(1.05);
 }
 
 #answers-container {

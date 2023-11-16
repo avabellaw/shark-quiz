@@ -18,6 +18,7 @@ let quiz = {
         $(".answer-box.correct-answer").removeClass("correct-answer");
         $(".answer-box.grey-out").removeClass("grey-out");
         $(".answer-box_desc").attr("data-visible", "false");
+        $("#next-button").addClass("grey-out");
         this.questionAnswered = false;
         timer.resetTimer(timerTick);
         
@@ -26,6 +27,7 @@ let quiz = {
     answerQuestion: function (answerId) {
         this.userAnswers.push(answerId);
         this.questionAnswered = true;
+        $("#next-button").removeClass("grey-out");
         return answerId == this.questions[this.questionIndex].answer;
     }
 };
