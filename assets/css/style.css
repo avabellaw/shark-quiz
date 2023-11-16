@@ -90,14 +90,19 @@ body {
 
 /* End of Game area */
 
+/* Instructions popup */
+
+/* End of Instructions popup */
+
 /* Home screen */
 .game-area {
     display: flex;
     flex-direction: column;
+    
+    position: relative;
 }
 
-.game-area#home>.game-area_container,
-.game-area#end-game>.game-area_container {
+.game-area:not(#quiz) >.game-area_container {
     margin: auto;
     text-align: center;
 
@@ -107,8 +112,7 @@ body {
     justify-content: center;
 }
 
-.game-area#home .game-area_container>h1,
-.game-area#end-game h1 {
+.game-area:not(#quiz) .game-area_container>h1 {
     text-transform: capitalize;
     margin-bottom: 3.5rem;
     margin-top: 0;

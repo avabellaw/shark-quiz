@@ -1,5 +1,6 @@
 // Game variables
 let currentGameArea = "#home";
+let prevGameArea;
 
 let quiz = {
     questions: [],
@@ -32,17 +33,12 @@ let quiz = {
     }
 };
 
-let gameAreaOptions = {
+let gameAreaScreen = {
     // The options to pass into swapGameArea()
     home: "#home",
     quiz: "#quiz",
-    endGame: "#end-game"
-};
-
-let topbarMenuOptions = {
-    // The options to pass into displayTopBar()
-    home: 0,
-    quiz: 1,
+    endGame: "#end-game",
+    instructions: "#instructions"
 };
 
 nextButtonTooltip = tippy(document.getElementById("next-button"), {
@@ -64,17 +60,25 @@ function init() {
 
     // Event listeners
     $("#start-quiz").on("click", () => {
-        swapGameArea(gameAreaOptions.quiz);
+        swapGameArea(gameAreaScreen.quiz);
     });
 
     $("#next-button").on("click", () => {
         clickNextButton();
     });
 
+    $("#instructions-button").on("click", () => {
+        console.log("click");
+        if (currentGameArea === gameAreaScreen.instructions)
+            swapGameArea(prevGameArea);
+        else
+            swapGameArea("#instructions");
+    });
+
     document.addEventListener("keyup", (event) => {
         // Add key listener [https://www.section.io/engineering-education/keyboard-events-in-javascript/]
         if (event.key === "Enter") {
-            if (currentGameArea === gameAreaOptions.home)
+            if (currentGameArea === gameAreaScreen.home)
                 $("#start-quiz").trigger("click");
             else
                 clickNextButton();
@@ -109,7 +113,7 @@ function clickNextButton() {
     };
 
     if (!quiz.hasNextQuestion()) {
-        swapGameArea(gameAreaOptions.endGame);
+        swapGameArea(gameAreaScreen.endGame);
         return;
     }
     showQuestion(quiz.nextQuestion());
@@ -117,19 +121,23 @@ function clickNextButton() {
 
 /**
  * Will display the top bar based on which option you pass to it
- * @param topbarMenuOptions Takes a topbarMenuOptions option  
+ * @param gameAreaScreen Takes a gameAreaScreen variable
  */
-function displayTopBar(topbarMenuOption) {
+function displayTopBar(gameArea) {
     $.each($(".topbar_icon"), function (i, icon) {
         let id = $(icon).attr("id");
-        if (id === "home-button") return;
-
-        if (id === "score") {
-            // Display score
-            $(icon).attr("data-visible", topbarMenuOption === topbarMenuOptions.quiz);
-        } else {
-            // Display help and leader board icons
-            $(icon).attr("data-visible", topbarMenuOption === topbarMenuOptions.home);
+        switch (id) {
+            case "home-button":
+                return;
+            case "score":
+                // Display score icon
+                $(icon).attr("data-visible", gameArea === gameAreaScreen.quiz);
+                break;
+            case "instructions-button":
+            case "leaderboard-button":
+                // Display instructions and leaderboard button
+                $(icon).attr("data-visible", gameArea === gameAreaScreen.home || gameArea === gameAreaScreen.endGame || gameArea === gameAreaScreen.instructions);
+                break;
         }
     });
 }
@@ -200,21 +208,25 @@ function randomiseAnswerPositions() {
 */
 function swapGameArea(gameArea) {
     $(currentGameArea).attr("data-visible", "false")
+    prevGameArea = currentGameArea;
     currentGameArea = gameArea;
     $(currentGameArea).attr("data-visible", "true");
 
     switch (gameArea) {
-        case "#quiz":
-            displayTopBar(topbarMenuOptions.quiz);
+        case gameAreaScreen.quiz:
+            displayTopBar(gameAreaScreen.quiz);
             showQuestion(quiz.getQuestion());
             break;
-        case "#end-game":
-            displayTopBar(topbarMenuOptions.home);
+        case gameAreaScreen.endGame:
+            displayTopBar(gameAreaScreen.endGame);
             let correctAnswers = quiz.userAnswers.reduce(scoreReducer, 0);
 
             $("#questions-correct").text(correctAnswers);
             $("#total-questions").text(quiz.questions.length);
             $("#end-game-score").text(quiz.score);
+            break;
+        case gameAreaScreen.instructions:
+            displayTopBar(gameAreaScreen.instructions);
             break;
     }
 }
