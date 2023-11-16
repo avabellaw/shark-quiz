@@ -60,7 +60,7 @@ $(init);
  * Initialises variables and elements
  */
 function init() {
-    quiz.questions = questions.slice(0, 5);
+    quiz.questions = questions;
 
     // Event listeners
     $("#start-quiz").on("click", () => {
