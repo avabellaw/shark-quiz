@@ -168,7 +168,7 @@ function validateUsername(){
     } 
 
     let usernameLength = $("#username").val().length;
-    if(usernameLength < 3 || usernameLength > 15){
+    if(usernameLength < 2 || usernameLength > 15){
         $("#min-max-characters").addClass("validation-error");
         passedValidation = false;
     }
@@ -186,7 +186,8 @@ function validateUsername(){
 
 function submitScoreToLeaderboard() {
     if(validateUsername()){
-
+        document.cookie = `${$("#username").val()}=${quiz.score}; max-age=31536000;`;
+        swapGameArea(gameAreaScreen.leaderboard);
     } else {
         validationTooltip.show();
     }
@@ -315,6 +316,28 @@ function swapGameArea(gameArea) {
             break;
         case gameAreaScreen.instructions:
             displayTopBar(gameAreaScreen.instructions);
+            break;
+        case gameAreaScreen.leaderboard:
+            let userScores = [];
+            for(let cookie of document.cookie.split(";")){
+                let userScorePair = cookie.split("=");
+                userScores.push({username: userScorePair[0], score: userScorePair[1]});
+                // Create and use map() [https://www.hackinbits.com/articles/js/how-to-iterate-a-map-in-javascript---map-part-2]
+            } 
+
+            // Sort userScores [https://www.altcademy.com/blog/how-to-sort-array-of-objects-in-javascript/]
+            userScores.sort((a, b)=> b.score.localeCompare(a.score));
+
+            for(let userScore of userScores) {
+                $("#leaderboard_table tbody").append(`<tr>
+                    <td>
+                    ${userScore.username}
+                    </td>
+                    <td>
+                    ${userScore.score}
+                    </td>
+                </tr>`);
+            }
             break;
     }
 }
