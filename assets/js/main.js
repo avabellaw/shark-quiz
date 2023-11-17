@@ -77,7 +77,7 @@ function init() {
         quiz.questions[randomIndex] = valueToSwap;
     }
 
-    quiz.questions.splice(0, 14); // Delete 15 and then set the quiz.questions to the deleted questions
+    quiz.questions.splice(0, 2);
 
     // Event listeners
     $("#start-quiz").on("click", () => {
@@ -326,7 +326,7 @@ function swapGameArea(gameArea) {
             } 
 
             // Sort userScores [https://www.altcademy.com/blog/how-to-sort-array-of-objects-in-javascript/]
-            userScores.sort((a, b)=> b.score.localeCompare(a.score));
+            userScores.sort((a, b)=> b.score - a.score);
 
             for(let userScore of userScores) {
                 $("#leaderboard_table tbody").append(`<tr>
