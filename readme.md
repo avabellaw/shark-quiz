@@ -259,5 +259,6 @@ $ git clone https://github.com/avabellaw/crystal-clear-opticians
     * I edited the gif using [ezgif](https://ezgif.com/effects/ezgif-1-d9e8e08506.gif).
 * ![next-button icon](https://www.pngfind.com/mpng/boJwxo_left-arrow-comments-instagram-plus-icon-png-transparent/)
     * I edited and resized the image.
+* favicon created by me in paint.NET
 
 ### Videos
