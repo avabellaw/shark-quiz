@@ -144,7 +144,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
-    * 
+* [style.css results](docs/validation/css/style-results.webp) 
 
 ### HTML Validator Notes
 
