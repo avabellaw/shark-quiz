@@ -199,7 +199,8 @@ According to Google Lighthouse, gifs are inefficient for animated content. On mo
 I tried converting the 2.86MiB gif into a WebM video using ezgif. This reduced the size to only 180.95KiB, a 93% descrease in file size!
 ![Converted gif on ezgif](docs/lighthouse/sea-bg-gif-to-webm.webp)
 
-However, this meant it would be a lot trickier to repeat the animation on larger screens. I attempted to do this using JavaScript but decided to compress the gif file I was already using and stick with that. I reduced the file size by just over 50%.
+However, this meant it would be a lot trickier to repeat the animation on larger screens. I attempted to do this using JavaScript but decided to compress the gif file I was already using and stick with that.
+I reduced the file size by just over 50%.
 
 ### Known Bugs
 
