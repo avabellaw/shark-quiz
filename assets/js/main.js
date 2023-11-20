@@ -320,21 +320,22 @@ function swapGameArea(gameArea) {
         case gameAreaScreen.leaderboard:
             let userScores = [];
             for(let cookie of document.cookie.split(";")){
+                if(cookie === "") break;
                 let userScorePair = cookie.split("=");
+
                 userScores.push({username: userScorePair[0], score: userScorePair[1]});
-                // Create and use map() [https://www.hackinbits.com/articles/js/how-to-iterate-a-map-in-javascript---map-part-2]
             } 
 
             // Sort userScores [https://www.altcademy.com/blog/how-to-sort-array-of-objects-in-javascript/]
             userScores.sort((a, b)=> b.score - a.score);
 
-            for(let userScore of userScores) {
+            for(let i = 0; i <= 10; i++) {
                 $("#leaderboard_table tbody").append(`<tr>
                     <td>
-                    ${userScore.username}
+                    ${userScores[i].username}
                     </td>
                     <td>
-                    ${userScore.score}
+                    ${userScores[i].score}
                     </td>
                 </tr>`);
             }
