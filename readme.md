@@ -183,6 +183,9 @@ Had I followed the red, green refractor approach earlier I would have noticed th
 
 ### Manual Testing
 
+* I clicked through all the topbar icons in different orders.
+* I went through every question and answered them repeatedly
+
 ### Further Testing
 
 #### Google Lighthouse

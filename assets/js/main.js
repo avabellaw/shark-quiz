@@ -295,11 +295,15 @@ function randomiseAnswerPositions() {
  * Swaps which screen is displayed eg Home screen -> Quiz screen
 */
 function swapGameArea(gameArea) {
-    $(currentGameArea).attr("data-visible", "false")
     prevGameArea = currentGameArea;
     currentGameArea = gameArea;
+
+    $(prevGameArea).attr("data-visible", "false");
     $(currentGameArea).attr("data-visible", "true");
 
+    if(currentGameArea == gameAreaScreen.leaderboard || currentGameArea == gameAreaScreen.instructions){
+        prevGameArea = gameAreaScreen.home;
+    }
     switch (gameArea) {
         case gameAreaScreen.quiz:
             displayTopBar(gameAreaScreen.quiz);
@@ -307,7 +311,7 @@ function swapGameArea(gameArea) {
             break;
         case gameAreaScreen.endGame:
             displayTopBar(gameAreaScreen.endGame);
-            if (prevGameArea !== gameAreaScreen.quiz) return;
+            if (prevGameArea !== gameAreaScreen.quiz) break;
             let correctAnswers = quiz.userAnswers.reduce(scoreReducer, 0);
 
             $("#questions-correct").text(correctAnswers);
