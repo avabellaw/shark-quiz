@@ -29,6 +29,12 @@ p.validation-error {
     font-size: 0.8rem;
 }
 
+button {
+    /* Remove <button> default styling */
+    background: none;
+    border: 0;
+}
+
 /* Top bar */
 #topbar {
     display: flex;

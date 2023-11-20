@@ -135,11 +135,14 @@ I will also use an image or gif for the background of the webpage.
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page as I went to ensure unexpected errors were kept to a minimum. I used these validators at the end to ensure there were no validation errors upon project submission.
 
-* [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
+### [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
 
-    * 
+* [index.html results](docs/validation/html/index-results.webp)
+    * I received a warning for a misuse of aria-label on the topbar icons. After research, I concluded  that the button tag would be more appropriate than a div tag for these icons and the next question button.
+    * I removed a duplicate "data-visible" tag from the score topbar icon.
+    * I am left with a warning for a misuse of aria-label on the trophy icon that has the score displayed next to it. Without this and the described-by attribute, a person with a screenreader wouldn't know their score.
 
-* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
     * 
 

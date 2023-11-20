@@ -21,22 +21,28 @@
 
         <!-- The bar above the game area that has the home button and other navigation options  -->
         <div id="topbar">
+            <!-- The home button refreshes the page and therefore uses an anchor tag  -->
             <a href="index.html" class="topbar_icon" id="home-button" aria-label="Go to homepage">
+                <!-- Homepage icon -->
                 <img src="assets/icons/house-solid.svg" width="25" height="25" alt="Home icon">
             </a>
 
             <h1>Shark Quiz</h1>
 
-            <div class="topbar_icon" id="leaderboard-button" aria-label="Go to leaderboard">
+            <!-- The following buttons have js event listeners attached to swap between .game-area screens -->
+            <button class="topbar_icon" id="leaderboard-button" aria-label="Go to leaderboard">
+                <!-- Leaderboard icon -->
                 <img src="assets/icons/award-solid.svg" width="25" height="25" alt="Medal icon">
-            </div>
+            </button>
 
-            <div class="topbar_icon" id="instructions-button" aria-label="Go to instructions">
+            <button class="topbar_icon" id="instructions-button" aria-label="Go to instructions">
+                <!-- Instructions icon -->
                 <img src="assets/icons/question-solid.svg" width="25" height="25" alt="Question mark icon">
-            </div>
+            </button>
 
-            <div class="topbar_icon" data-visible="false" id="score" data-visible="true" aria-label="Your score"
-                aria-describedby="points">
+            <!-- This isn't a button and therefore is container in a div tag -->
+            <div class="topbar_icon" data-visible="false" id="score" aria-label="Your score" aria-describedby="points">
+                <!-- Trophy icon and scored -->
                 <img src="assets/icons/trophy-solid.svg" width="25" height="25" alt="Trophy">
                 <p>:<span id="points">0</span></p>
             </div>
@@ -86,10 +92,10 @@
                 <div id="question-box">
                     <h2>Question box</h2>
 
-                    <div id="next-button_container" aria-label="Next question button">
+                    <button id="next-button_container" aria-label="Next question button">
                         <img id="next-button" class="grey-out" width="40" height="40" src="assets/icons/next-button.png"
                             alt="Arrow pointing right">
-                    </div>
+                    </button>
                 </div>
 
                 <div id="answers-container">
