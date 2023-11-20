@@ -226,6 +226,14 @@ input[type="button"] {
     cursor: pointer;
 }
 
+input[type="button"]:not(:hover) {
+    opacity: 0.95;
+}
+
+input[type="button"]:hover {
+    box-shadow: black 0.2rem 0.2rem 0.4rem 0.1rem;
+}
+
 input#start-quiz {
     margin-top: 2rem;
     width: 100%;
