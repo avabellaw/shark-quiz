@@ -410,3 +410,18 @@ input#start-quiz {
 }
 
 /* End of End-screen */
+
+/* Display message if JavaScript isn't enabled */
+noscript {
+    background: white;
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    padding: 2rem;
+    z-index: 10;
+    top: calc(50% + 25px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid black;
+    font-size: 1.1rem;
+}
