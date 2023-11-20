@@ -7,6 +7,10 @@ body {
     display: flex;
 }
 
+h2 { 
+    margin-top: 0;
+}
+
 @media screen and (max-aspect-ratio: 955/707) {
     body {
         background-size: cover;
@@ -100,7 +104,7 @@ p.validation-error {
 
 @media screen and (min-width: 576px) {
     .game-area_container {
-        padding: 2rem 4rem;
+        padding: 3rem 4rem;
     }
 }
 
@@ -127,11 +131,15 @@ p.validation-error {
     border-spacing: 0;
 }
 
-#leaderboard_table tr> :first-child {
-    border-right: 1px solid white;
+#leaderboard_table th:first-child {
+    width: 1rem;
 }
 
 #leaderboard_table tr> :nth-child(2) {
+    border-right: 1px solid white;
+}
+
+#leaderboard_table tr> :nth-child(3) {
     border-left: 1px solid white;
 }
 

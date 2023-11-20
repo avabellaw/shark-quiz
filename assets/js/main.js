@@ -154,7 +154,7 @@ function init() {
     randomiseAnswerPositions();
 }
 
-function validateUsername(){
+function validateUsername() {
     // specialChars.test() taken from [https://onecompiler.com/questions/3xnp9df38/-javascript-how-to-check-for-special-characters-present-in-a-string]
     let specialChars = /[`!@#$%^&*()\-+=\[\]{};':"\\|,.<>\/?~ ]/;
 
@@ -165,15 +165,15 @@ function validateUsername(){
     if (specialChars.test($("#username").val())) {
         $("#special-characters").addClass("validation-error");
         passedValidation = false;
-    } 
+    }
 
     let usernameLength = $("#username").val().length;
-    if(usernameLength < 2 || usernameLength > 15){
+    if (usernameLength < 2 || usernameLength > 15) {
         $("#min-max-characters").addClass("validation-error");
         passedValidation = false;
     }
 
-    if(!passedValidation){
+    if (!passedValidation) {
         $("#username").addClass("validation-error");
         $("#submit-score_button").addClass("grey-out");
     } else {
@@ -185,7 +185,7 @@ function validateUsername(){
 }
 
 function submitScoreToLeaderboard() {
-    if(validateUsername()){
+    if (validateUsername()) {
         document.cookie = `${$("#username").val()}=${quiz.score}; max-age=31536000;`;
         swapGameArea(gameAreaScreen.leaderboard);
     } else {
@@ -319,23 +319,29 @@ function swapGameArea(gameArea) {
             break;
         case gameAreaScreen.leaderboard:
             let userScores = [];
-            for(let cookie of document.cookie.split(";")){
-                if(cookie === "") break;
+            for (let cookie of document.cookie.split(";")) {
+                if (cookie === "") break;
                 let userScorePair = cookie.split("=");
 
-                userScores.push({username: userScorePair[0], score: userScorePair[1]});
-            } 
+                userScores.push({ username: userScorePair[0], score: userScorePair[1] });
+            }
 
             // Sort userScores [https://www.altcademy.com/blog/how-to-sort-array-of-objects-in-javascript/]
-            userScores.sort((a, b)=> b.score - a.score);
+            userScores.sort((a, b) => b.score - a.score);
 
-            for(let i = 0; i <= 10; i++) {
+            for (let i = 0; i < 10; i++) {
+                let username = i < userScores.length ? userScores[i].username : ""; 
+                let score = i < userScores.length ? userScores[i].score : "";
+
                 $("#leaderboard_table tbody").append(`<tr>
                     <td>
-                    ${userScores[i].username}
+                    ${i + 1}
                     </td>
                     <td>
-                    ${userScores[i].score}
+                    ${username}
+                    </td>
+                    <td>
+                    ${score}
                     </td>
                 </tr>`);
             }
