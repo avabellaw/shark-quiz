@@ -132,14 +132,14 @@ p.validation-error {
 }
 
 #leaderboard_table th:first-child {
-    width: 1rem;
+    width: 2rem;
 }
 
-#leaderboard_table tr> :nth-child(2) {
+#leaderboard_table tr > :not(:last-child)  {
     border-right: 1px solid white;
 }
 
-#leaderboard_table tr> :nth-child(3) {
+#leaderboard_table tr> :not(:first-child) {
     border-left: 1px solid white;
 }
 
