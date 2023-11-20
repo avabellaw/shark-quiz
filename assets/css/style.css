@@ -207,6 +207,7 @@ input#username {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .game-area:not(#quiz) .game-area_container>h1 {
@@ -227,6 +228,14 @@ input[type="button"] {
 
 input#start-quiz {
     margin-top: 2rem;
+    width: 100%;
+    max-width: 14rem;
+}
+
+@media screen and (min-width:576px) {
+    .game-area:not(#quiz) .game-area_container>h1 {
+        font-size: 3rem;
+    }
 }
 
 /* End of Home screen */
