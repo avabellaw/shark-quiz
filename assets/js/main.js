@@ -77,7 +77,7 @@ function init() {
         quiz.questions[randomIndex] = valueToSwap;
     }
 
-    quiz.questions.splice(0, 2);
+    quiz.questions.splice(0, 5); // Reduce number of questions by 5
 
     // Event listeners
     $("#start-quiz").on("click", () => {
