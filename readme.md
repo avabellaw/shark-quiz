@@ -193,6 +193,12 @@ Had I followed the red, green refractor approach earlier I would have noticed th
 
 #### Google Lighthouse
 
+According to Google Lighthouse, gifs are inefficient for animated content. On mobile, it can take 12 seconds to load.
+![Gifs are inefficient](docs/lighthouse/sea-bg-gif.webp)
+
+I tried converting the 2.86MiB gif into a WebM video using ezgif. This reduced the size to only 180.95KiB, a 93% descrease in file size!
+![Converted gif on ezgif](docs/lighthouse/sea-bg-gif-to-webm.webp)
+
 ### Known Bugs
 
 ### Deployment
