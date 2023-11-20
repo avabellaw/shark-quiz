@@ -86,6 +86,21 @@ const questions = [
         question: "How do sharks like to hunt?",
         options: ["Alone", "In large groups", "With 1-2 others"],
         description: "They primarly rely on the element of surprise. Some sharks will join up in certain circumstances."
+    },
+    {
+        question: "What is the fastest shark?",
+        options: ["The Shortfin Mako", "The Thresher", "The bull shark"],
+        description: "It can reach up to 45 miles per hour and is one of the fastest fishes on earth."
+    },
+    {
+        question: "How does shark control their buoyancy?",
+        options: ["Liver", "Swim bladder", "Lungs"],
+        description: "Unlike many fish who use their swim bladder, sharks fill their liver with an oil (that's less dense than water) to make them float. It's about 25-30% of their body weight."
+    },
+    {
+        question: "How many shark attacks happen each year around the world?",
+        options: ["Less than 100", "1,500", "3,000+"],
+        description: "Shark attacks are rare and only a small percentage of them are fatal."
     }
 ];
 

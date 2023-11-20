@@ -244,10 +244,11 @@ $ git clone https://github.com/avabellaw/crystal-clear-opticians
 
 ### Content
 
-* Questions were inspired by the following websites.
+* Questions were inspired by or taken and modified from the following websites.
     * [zoo.com/quiz](https://www.zoo.com/quiz/the-great-shark-quiz);
     * [beano.com](https://www.beano.com/posts/the-ultimate-shark-quiz)
     * [natgeokids.com](https://www.natgeokids.com/uk/play-and-win/games/quiz-whiz-sharks/)
+    * [Article from The Sun](https://www.thesun.co.uk/news/3410447/great-white-shark-uk-attacks-british-waters/)
 
 ### Code
 
