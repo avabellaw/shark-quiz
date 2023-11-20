@@ -301,13 +301,18 @@ function swapGameArea(gameArea) {
     $(prevGameArea).attr("data-visible", "false");
     $(currentGameArea).attr("data-visible", "true");
 
-    if(currentGameArea == gameAreaScreen.leaderboard || currentGameArea == gameAreaScreen.instructions){
+    if (currentGameArea == gameAreaScreen.leaderboard || currentGameArea == gameAreaScreen.instructions)
         prevGameArea = gameAreaScreen.home;
-    }
+
     switch (gameArea) {
         case gameAreaScreen.quiz:
             displayTopBar(gameAreaScreen.quiz);
             showQuestion(quiz.getQuestion());
+            // Displays confimation dialog before leaving quiz [https://www.sanwebe.com/2013/02/confirmation-dialog-on-leaving-page-javascript]
+            window.onbeforeunload = (e) => {
+                // You can't display your own text anymore.
+                return "";
+            };
             break;
         case gameAreaScreen.endGame:
             displayTopBar(gameAreaScreen.endGame);
@@ -322,6 +327,9 @@ function swapGameArea(gameArea) {
             displayTopBar(gameAreaScreen.instructions);
             break;
         case gameAreaScreen.leaderboard:
+            window.onbeforeunload = (e) => {
+                // Remove "You have unsaved changes" dialog
+            };
             let userScores = [];
             for (let cookie of document.cookie.split(";")) {
                 if (cookie === "") break;
@@ -335,14 +343,14 @@ function swapGameArea(gameArea) {
 
             let alreadyDisplayedScores = $("#leaderboard_table tbody").children();
 
-            if(alreadyDisplayedScores.length > 1){
-                for(let i = 1; i < alreadyDisplayedScores.length; i++){
+            if (alreadyDisplayedScores.length > 1) {
+                for (let i = 1; i < alreadyDisplayedScores.length; i++) {
                     $(alreadyDisplayedScores)[i].remove();
                 }
             }
 
             for (let i = 0; i < 10; i++) {
-                let username = i < userScores.length ? userScores[i].username : ""; 
+                let username = i < userScores.length ? userScores[i].username : "";
                 let score = i < userScores.length ? userScores[i].score : "";
 
                 $("#leaderboard_table tbody").append(`<tr>
