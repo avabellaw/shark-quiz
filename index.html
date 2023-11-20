@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Test your knowledge of sharks with Shark Quiz - facts from the deep.">
+    <meta name="theme-color" content="#001b3b">
 
     <title>Shark Quiz</title>
 
@@ -19,9 +20,8 @@
 <body>
 
     <div id="quiz-container">
-
         <!-- The bar above the game area that has the home button and other navigation options  -->
-        <div id="topbar">
+        <header id="topbar">
             <!-- The home button refreshes the page and therefore uses an anchor tag  -->
             <a href="index.html" class="topbar_icon" id="home-button" aria-label="Go to homepage">
                 <!-- Homepage icon -->
@@ -47,7 +47,7 @@
                 <img src="assets/icons/trophy-solid.svg" width="25" height="25" alt="Trophy">
                 <p>:<span id="points">0</span></p>
             </div>
-        </div>
+        </header>
 
         <!-- Instructions screen -->
         <div class="game-area" id="instructions" data-visible="false">
@@ -94,8 +94,8 @@
                     <h2>Question box</h2>
 
                     <button id="next-button_container" aria-label="Next question button">
-                        <img id="next-button" class="grey-out" width="40" height="40" src="assets/icons/next-button.webp"
-                            alt="Arrow pointing right">
+                        <img id="next-button" class="grey-out" width="40" height="40"
+                            src="assets/icons/next-button.webp" alt="Arrow pointing right">
                     </button>
                 </div>
 
