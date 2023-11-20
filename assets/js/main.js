@@ -329,6 +329,14 @@ function swapGameArea(gameArea) {
             // Sort userScores [https://www.altcademy.com/blog/how-to-sort-array-of-objects-in-javascript/]
             userScores.sort((a, b) => b.score - a.score);
 
+            let alreadyDisplayedScores = $("#leaderboard_table tbody").children();
+
+            if(alreadyDisplayedScores.length > 1){
+                for(let i = 1; i < alreadyDisplayedScores.length; i++){
+                    $(alreadyDisplayedScores)[i].remove();
+                }
+            }
+
             for (let i = 0; i < 10; i++) {
                 let username = i < userScores.length ? userScores[i].username : ""; 
                 let score = i < userScores.length ? userScores[i].score : "";
