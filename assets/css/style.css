@@ -62,12 +62,6 @@ p.validation-error {
     padding: 0.5rem 0.75rem;
 }
 
-.topbar_icon:not(#score):hover {
-    background-color: rgba(0, 0, 0, 0.1);
-
-    cursor: pointer;
-}
-
 .topbar_icon#score>p,
 #points {
     margin-left: 0.5rem;
@@ -75,6 +69,14 @@ p.validation-error {
 
 #topbar>.topbar_icon:nth-child(1) {
     margin-right: auto;
+}
+
+@media screen and (hover: hover) {
+    .topbar_icon:not(#score):hover {
+        background-color: rgba(0, 0, 0, 0.1);
+
+        cursor: pointer;
+    }
 }
 
 /* End of Top bar */
@@ -135,7 +137,7 @@ p.validation-error {
     width: 2rem;
 }
 
-#leaderboard_table tr > :not(:last-child)  {
+#leaderboard_table tr> :not(:last-child) {
     border-right: 1px solid white;
 }
 
@@ -166,7 +168,7 @@ p.validation-error {
     text-align: left;
 }
 
-.game-area#submit-score fieldset > legend {
+.game-area#submit-score fieldset>legend {
     text-align: center;
 }
 
