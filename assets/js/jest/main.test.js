@@ -2,7 +2,12 @@
  * @jest-environment jsdom
 */
 
-const { init, quiz, getCurrentGameArea, swapGameArea } = require("../main");
+global.$ = require("jquery");
+global.questions = require("../questions");
+global.timer = require("../timer");
+global.popper = require("@popperjs/core");
+
+const { init, quiz, getCurrentGameArea, swapGameArea, setUpJest} = require("../main");
 
 beforeAll(() => {
     let fs = require("fs");
