@@ -4,7 +4,7 @@ Shark Facts is a simple, online quiz put your shark knowledge to the test!
 
 This project demonstrates my ability to use JavaScript, JQuery and external APIs after studying the modules with Code Institue. It also builds on my knowledge of HTML5, CSS3 and UX design but primarily showcases my skills in making an interactive website.
 
-[View the live project here.](https://codeinstitute.net)
+[View the live project here.](https://avabellaw.github.io/shark-quiz/)
 
 <img src="" alt="Multi-Device Mockup" width="50%">
 
@@ -193,14 +193,29 @@ Had I followed the red, green refractor approach earlier I would have noticed th
 
 #### Google Lighthouse
 
-According to Google Lighthouse, gifs are inefficient for animated content. On mobile, it can take 12 seconds to load.
+**gifs are inefficient for animated content**
+
+On mobile, it can take 12 seconds to load.
 ![Gifs are inefficient](docs/lighthouse/sea-bg-gif.webp)
 
 I tried converting the 2.86MiB gif into a WebM video using ezgif. This reduced the size to only 180.95KiB, a 93% descrease in file size!
 ![Converted gif on ezgif](docs/lighthouse/sea-bg-gif-to-webm.webp)
 
-However, this meant it would be a lot trickier to repeat the animation on larger screens. I attempted to do this using JavaScript but decided to compress the gif file I was already using and stick with that.
+I attempted to use JavaScript and clone the video to add to the sides. However, even without that code it took longer and resulted in more layout shifts. I decided to compress the gif file I was already using and stick with that.
 I reduced the file size by just over 50%.
+
+**Google Fonts**
+
+Google Fonts spends a long time render-blocking.
+
+![Eliminate render-blocking elements](docs/lighthouse/google-fonts-render-blocking.webp)
+![Lighthouse metrics](docs/lighthouse/google-fonts-lighthouse-metrics.webp)
+
+If you click on the link that Google Fonts gives you, it connects to googleapis.com and opens a stylesheet with font-faces. 
+
+By copying this and adding it to the HTML inline, you avoid an additional request. Google Fonts is a render-blocking resource that takes around 700ms. This significantly improves performance.
+
+![Google Lighthouse report after optimising](docs/lighthouse/google-fonts-optimised.webp)
 
 ### Known Bugs
 
@@ -266,6 +281,8 @@ $ git clone https://github.com/avabellaw/crystal-clear-opticians
 
 * I found out how to use jest with JQuery from [StackOverflow](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file)
 * How to use cookies from [developer.mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
+* Speed up Google Fonts by [inlining the stylseheet](https://johnfraney.ca/blog/improve-page-speed-google-fonts/)
+    * If you open the Google Fonts link tag src, you will load a stylsheet. Adding this critical css font stylesheet inline, cuts out an additional request.
 
 ### Media
 
