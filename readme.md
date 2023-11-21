@@ -220,6 +220,8 @@ By copying this and adding it to the HTML inline, you avoid an additional reques
 
 ### Known Bugs
 
+* I had to add an if statement to stop nextButtonTooltip.show(); from being run in Jest. I did this because the function is unavailable in the test enviroment and I'm unable to figure out why.
+
 ### Deployment
 
 #### GitHub Pages
