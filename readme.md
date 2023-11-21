@@ -6,7 +6,7 @@ This project demonstrates my ability to use JavaScript, JQuery and external APIs
 
 [View the live project here.](https://avabellaw.github.io/shark-quiz/)
 
-<img src="" alt="Multi-Device Mockup" width="50%">
+<img src="docs/multi-device-website-presentation.webp" alt="Multi-Device Mockup" width="50%">
 
 ## User Experience (UX)
 
