@@ -43,21 +43,21 @@ let gameAreaScreen = {
     submitScore: "#submit-score"
 };
 
-// let nextButtonTooltip = tippy(document.getElementById("next-button"), {
-//     // Setup the tooltip for when next button is clicked before answering the question
-//     content: "Please answer question first",
-//     placement: "left",
-//     trigger: "manual",
-//     animation: "perspective"
-// });
+let nextButtonTooltip = tippy(document.getElementById("next-button"), {
+    // Setup the tooltip for when next button is clicked before answering the question
+    content: "Please answer question first",
+    placement: "left",
+    trigger: "manual",
+    animation: "perspective"
+});
 
-// let validationTooltip = tippy(document.getElementById("username"), {
-//     // Setup the tooltip for when next button is clicked before answering the question
-//     content: "Validation errors present",
-//     placement: "top",
-//     trigger: "manual",
-//     animation: "perspective"
-// });
+let validationTooltip = tippy(document.getElementById("username"), {
+    // Setup the tooltip for when next button is clicked before answering the question
+    content: "Validation errors present",
+    placement: "top",
+    trigger: "manual",
+    animation: "perspective"
+});
 
 // Equivalent to $(document).ready( handler ) https://api.jquery.com/ready/
 $(init);
@@ -156,7 +156,7 @@ function init() {
 
 function validateUsername() {
     // specialChars.test() taken from [https://onecompiler.com/questions/3xnp9df38/-javascript-how-to-check-for-special-characters-present-in-a-string]
-    let specialChars = /[`!@#$%^&*()\-+=\[\]{};':"\\|,.<>\/?~]/;
+    let specialChars = /[`!@#$%^&*()\-+=\[\]{};':"\\|, .<>\/?~]/;
 
     let passedValidation = true;
 
@@ -195,7 +195,7 @@ function submitScoreToLeaderboard() {
 
 function clickNextButton() {
     if (!quiz.questionAnswered) {
-        // nextButtonTooltip.show();
+        nextButtonTooltip.show();
         return;
     };
 
