@@ -77,7 +77,7 @@ function init() {
         quiz.questions[randomIndex] = valueToSwap;
     }
 
-    quiz.questions.splice(0, 5); // Reduce number of questions by 5
+    quiz.questions.splice(0, 10); // Reduce number of questions by 10
 
     // Event listeners
     $("#start-quiz").on("click", () => {
@@ -223,7 +223,7 @@ function displayTopBar(gameArea) {
             case "instructions-button":
             case "leaderboard-button":
                 // Display instructions and leaderboard button
-                $(icon).attr("data-visible", gameArea === gameAreaScreen.home || gameArea === gameAreaScreen.endGame || gameArea === gameAreaScreen.instructions);
+                $(icon).attr("data-visible", gameArea === gameAreaScreen.home || gameArea === gameAreaScreen.instructions);
                 break;
         }
     });
