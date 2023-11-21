@@ -41,7 +41,7 @@ const questions = [
         question: "How does shark skin feel?",
         options: ["Rough", "Slimey", "Soft"],
         description: "People describe it as feeling like sandpaper."
-    }, 
+    },
     {
         question: "Do sharks have eyelids?",
         options: ["Yes", "No"],
@@ -104,4 +104,6 @@ const questions = [
     }
 ];
 
-module.exports = questions;
+// Exports the functions for Jest to import and test.
+if (typeof exports !== "undefined")
+    module.exports = questions;
