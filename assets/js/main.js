@@ -79,7 +79,12 @@ function init() {
 
     quiz.questions.splice(0, 10); // Reduce number of questions by 10
 
-    // Event listeners
+    addEventListeners();
+
+    randomiseAnswerPositions();
+}
+
+function addEventListeners() {
     $("#start-quiz").on("click", () => {
         swapGameArea(gameAreaScreen.quiz);
     });
@@ -150,8 +155,6 @@ function init() {
 
         showCorrectAnswer();
     });
-
-    randomiseAnswerPositions();
 }
 
 function validateUsername() {
@@ -230,8 +233,8 @@ function displayTopBar(gameArea) {
 }
 
 /**
- * This is passed as a callback funcion to the timer to update the progress bar
- * @param timeLeft Timer passes the time left on the timer 
+ * This function is passed as a callback funcion to the timer and updates the progress bar when called
+ * @param timeLeft The time left on the Timer is passed through as this argument
  */
 function timerTick(timeLeft) {
     $("#timer > div").width(`${timeLeft * (100 / timer.max)}%`);
@@ -263,8 +266,11 @@ function timerTick(timeLeft) {
     }
 }
 
+/**
+ * Applies .correct-answer to the correct option and .grey-out to the rest.
+ * Makes the correct answer's description appear.
+ */
 function showCorrectAnswer() {
-    // Apply .correct-answer to the correct option and .grey-out the rest
     let correctAnswerOptionNum = quiz.getQuestion().answer;
     $.each($(".answer-box"), function (i, option) {
         if (option.dataset.option == correctAnswerOptionNum) {
@@ -277,15 +283,17 @@ function showCorrectAnswer() {
     });
 }
 
+/**
+ * Loops through the options and randomize where the correct option is
+ */
 function randomiseAnswerPositions() {
-    // Loops through the options and randomize where the correct option is
     for (let question of quiz.questions) {
         let offSet = Math.floor(Math.random() * question.options.length);
         question.answer = offSet;
 
         for (let i = 0; i < offSet; i++) {
             // Cycles the array [i] number of times by pushing the popped value to the start of the array.
-            // unshift adds element to the beginning of the array, push adds to the end [https://www.w3schools.com/jsref/jsref_unshift.asp]
+            // unshift() adds element to the beginning of the array, push() adds to the end [https://www.w3schools.com/jsref/jsref_unshift.asp]
             question.options.unshift(question.options.pop());
         }
     }
@@ -293,6 +301,7 @@ function randomiseAnswerPositions() {
 
 /**
  * Swaps which screen is displayed eg Home screen -> Quiz screen
+ * @param gameArea Takes a gameAreaScreen variable
 */
 function swapGameArea(gameArea) {
     prevGameArea = currentGameArea;
@@ -310,7 +319,7 @@ function swapGameArea(gameArea) {
             showQuestion(quiz.getQuestion());
             // Displays confimation dialog before leaving quiz [https://www.sanwebe.com/2013/02/confirmation-dialog-on-leaving-page-javascript]
             window.onbeforeunload = (e) => {
-                // You can't display your own text anymore.
+                // You can't display your own text anymore due to security risks.
                 return "";
             };
             break;
@@ -341,19 +350,29 @@ function swapGameArea(gameArea) {
             // Sort userScores [https://www.altcademy.com/blog/how-to-sort-array-of-objects-in-javascript/]
             userScores.sort((a, b) => b.score - a.score);
 
-            let alreadyDisplayedScores = $("#leaderboard_table tbody").children();
+            addScoresToLeaderboard(userScores);
+            break;
+    }
+}
 
-            if (alreadyDisplayedScores.length > 1) {
-                for (let i = 1; i < alreadyDisplayedScores.length; i++) {
-                    $(alreadyDisplayedScores)[i].remove();
-                }
-            }
+/**
+ * Adds the user scores to the leaderboard.
+ * @param userScores An array of objects containing each username and score to be displayed.
+ */
+function addScoresToLeaderboard(userScores) {
+    let alreadyDisplayedScores = $("#leaderboard_table tbody").children();
 
-            for (let i = 0; i < 10; i++) {
-                let username = i < userScores.length ? userScores[i].username : "";
-                let score = i < userScores.length ? userScores[i].score : "";
+    if (alreadyDisplayedScores.length > 1) {
+        for (let i = 1; i < alreadyDisplayedScores.length; i++) {
+            $(alreadyDisplayedScores)[i].remove();
+        }
+    }
 
-                $("#leaderboard_table tbody").append(`<tr>
+    for (let i = 0; i < 10; i++) {
+        let username = i < userScores.length ? userScores[i].username : "";
+        let score = i < userScores.length ? userScores[i].score : "";
+
+        $("#leaderboard_table tbody").append(`<tr>
                     <td>
                     ${i + 1}
                     </td>
@@ -364,11 +383,16 @@ function swapGameArea(gameArea) {
                     ${score}
                     </td>
                 </tr>`);
-            }
-            break;
     }
 }
 
+/**
+ * Function to be passed to .reduce() to determine number of correct answers using userAnswers array.
+ * @param acc 
+ * @param currentValue 
+ * @param i 
+ * @returns Number of correct answers.
+ */
 function scoreReducer(acc, currentValue, i) {
     if (currentValue === quiz.questions[i].answer)
         return acc += 1;
@@ -376,6 +400,10 @@ function scoreReducer(acc, currentValue, i) {
     return acc;
 }
 
+/**
+ * Display question and answer options.
+ * @param questionSet The question from quiz.questions
+ */
 function showQuestion(questionSet) {
     $("#question-box > h2").html(questionSet.question);
     let answerBoxes = $(".answer-box");
