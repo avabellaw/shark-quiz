@@ -1,6 +1,7 @@
 # **Shark Facts** - Milestone Project 2
 
 Shark Facts is a simple, online quiz put your shark knowledge to the test!
+The questions are in a randomized order and only 10 out of 20 will be shown. The answers for each question also have a randomized order.
 
 This project demonstrates my ability to use JavaScript, JQuery and external APIs after studying the modules with Code Institue. It also builds on my knowledge of HTML5, CSS3 and UX design but primarily showcases my skills in making an interactive website.
 
@@ -12,7 +13,7 @@ This project demonstrates my ability to use JavaScript, JQuery and external APIs
 
 ### Project Goals
 
-I will be creating an online quiz on shark facts. My target audience will be anyone who loves sharks (such as my partner). This will likely include all ages.
+I will be creating an online quiz on shark facts. My target audience will be anyone who loves sharks (such as my partner). This will likely include all ages but with a focus on younger audiences.
 
 The site owner's goal aligns with the site user's goal which is to enjoy testing their knowledge on sharks. 
 In future, the site owner may want to utilise the website's traffic to gain ad revenue.
