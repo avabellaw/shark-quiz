@@ -8,7 +8,7 @@ global.timer = require("../timer");
 global.popper = require("@popperjs/core");
 global.tippy = require("tippy.js").default;
 
-const { init, quiz, getCurrentGameArea, swapGameArea, setUpJest} = require("../main");
+const { init, quiz, getCurrentGameArea, swapGameArea} = require("../main");
 
 beforeAll(() => {
     let fs = require("fs");

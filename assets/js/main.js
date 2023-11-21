@@ -198,7 +198,12 @@ function submitScoreToLeaderboard() {
 
 function clickNextButton() {
     if (!quiz.questionAnswered) {
-        nextButtonTooltip.show();
+        /*
+            process is defined by Jest [https://github.com/atomiks/tippyjs-react/issues/252]
+            Stops code from running in Jest as the .show() function isn't available
+        */
+        if (typeof process === "undefined")
+            nextButtonTooltip.show();
         return;
     };
 
