@@ -6,6 +6,7 @@ global.$ = require("jquery");
 global.questions = require("../questions");
 global.timer = require("../timer");
 global.popper = require("@popperjs/core");
+global.tippy = require("tippy.js").default;
 
 const { init, quiz, getCurrentGameArea, swapGameArea, setUpJest} = require("../main");
 
