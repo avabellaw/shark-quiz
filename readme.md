@@ -202,8 +202,12 @@ On mobile, it can take 12 seconds to load.
 I tried converting the 2.86MiB gif into a WebM video using ezgif. This reduced the size to only 180.95KiB, a 93% descrease in file size!
 ![Converted gif on ezgif](docs/lighthouse/sea-bg-gif-to-webm.webp)
 
-I attempted to use JavaScript and clone the video to add to the sides. However, even without that code it took longer and resulted in more layout shifts. I decided to compress the gif file I was already using and stick with that.
-I reduced the file size by just over 50%.
+I attempted to use JavaScript and clone the video to add to the sides. However, even without that code it took longer and resulted in more layout shifts that were a detriment to perforamce. I decided to compress the gif file I was already using and stick with that.
+I reduced the file size by just over 50% but decided to increase the quality slightly as it didn't count against me by much for performance.
+
+The final gif takes 9s to load instead of 12s but still results in a high performance mark.
+![Lighthouse report](docs/lighthouse/final-report.webp)
+![Lighthouse report metrics](docs/lighthouse/final-report-metrics.webp)
 
 **Google Fonts**
 
