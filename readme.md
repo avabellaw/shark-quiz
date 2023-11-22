@@ -1,7 +1,6 @@
 # **Shark Facts** - Milestone Project 2
 
 Shark Facts is a simple, online quiz put your shark knowledge to the test!
-The questions are in a randomized order and only 10 out of 20 will be shown. The answers for each question also have a randomized order.
 
 This project demonstrates my ability to use JavaScript, JQuery and external APIs after studying the modules with Code Institue. It also builds on my knowledge of HTML5, CSS3 and UX design but primarily showcases my skills in making an interactive website.
 
@@ -13,9 +12,18 @@ This project demonstrates my ability to use JavaScript, JQuery and external APIs
 
 ### Project Goals
 
-I will be creating an online quiz on shark facts. My target audience will be anyone who loves sharks (such as my partner). This will likely include all ages but with a focus on younger audiences.
+I will be creating an online quiz on shark facts. My target audience will be anyone who loves sharks (such as my partner). This will likely include all ages particulary younger audiences.
 
-The site owner's goal aligns with the site user's goal which is to enjoy testing their knowledge on sharks. 
+The questions will be in a randomized order and only 50% of the questions will be shown at a time. 
+The answers for each question will also have a randomized order.
+
+There will be a timer counting down from 20. If an answer is correct, 10 points + the time left will be added to the score.
+
+The site owner's goal aligns with the site user's goal which is the following:
+1. To enjoy testing their knowledge on sharks.
+2. Learn more about sharks.
+3. See their previous high scores.
+
 In future, the site owner may want to utilise the website's traffic to gain ad revenue.
 
 ### User Stories
@@ -29,7 +37,7 @@ In future, the site owner may want to utilise the website's traffic to gain ad r
 
 #### User Goals
 
-Most people who visit the website are likely to be one-time users who were searching for a quick quiz to play. The website needs to be intuitive to use and quick to get started.
+Most people who visit the website are likely to be one-time users, searching for a quick quiz to play. The website needs to be intuitive to use and quick to get started.
 
 #### Research
 
