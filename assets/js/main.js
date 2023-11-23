@@ -94,17 +94,19 @@ function addEventListeners() {
     });
 
     $("#instructions-button").on("click", () => {
-        if (currentGameArea === gameAreaScreen.instructions)
+        if (currentGameArea === gameAreaScreen.instructions) {
             swapGameArea(prevGameArea);
-        else
+        } else {
             swapGameArea(gameAreaScreen.instructions);
+        }
     });
 
     $("#leaderboard-button").on("click", () => {
-        if (currentGameArea === gameAreaScreen.leaderboard)
+        if (currentGameArea === gameAreaScreen.leaderboard) {
             swapGameArea(prevGameArea);
-        else
+        } else {
             swapGameArea(gameAreaScreen.leaderboard);
+        }
     });
 
     $("#add-to-leaderboard").on("click", () => {
@@ -202,8 +204,9 @@ function clickNextButton() {
             process is defined by Jest [https://github.com/atomiks/tippyjs-react/issues/252]
             Stops code from running in Jest as the .show() function isn't available
         */
-        if (typeof process === "undefined")
+        if (typeof process === "undefined") {
             nextButtonTooltip.show();
+        }
         return;
     }
 
@@ -232,7 +235,7 @@ function displayTopBar(gameArea) {
             case "leaderboard-button":
                 // Display instructions and leaderboard button
                 $(icon).attr("data-visible", gameArea === gameAreaScreen.home ||
-                             gameArea === gameAreaScreen.instructions);
+                    gameArea === gameAreaScreen.instructions);
                 break;
         }
     });
@@ -316,8 +319,10 @@ function swapGameArea(gameArea) {
     $(prevGameArea).attr("data-visible", "false");
     $(currentGameArea).attr("data-visible", "true");
 
-    if (currentGameArea == gameAreaScreen.leaderboard || currentGameArea == gameAreaScreen.instructions)
+    // Clicking on leaderboard/instructions icon again returns user to homepage 
+    if (gameArea == gameAreaScreen.leaderboard || gameArea == gameAreaScreen.instructions) {
         prevGameArea = gameAreaScreen.home;
+    }
 
     switch (gameArea) {
         case gameAreaScreen.quiz:
@@ -332,6 +337,7 @@ function swapGameArea(gameArea) {
         case gameAreaScreen.endGame:
             displayTopBar(gameAreaScreen.endGame);
             if (prevGameArea !== gameAreaScreen.quiz) break;
+
             let correctAnswers = quiz.userAnswers.reduce(scoreReducer, 0);
 
             $("#questions-correct").text(correctAnswers);
@@ -398,8 +404,9 @@ function addScoresToLeaderboard(userScores) {
  * @returns Number of correct answers.
  */
 function scoreReducer(acc, currentValue, i) {
-    if (currentValue === quiz.questions[i].answer)
+    if (currentValue === quiz.questions[i].answer) {
         return acc += 1;
+    }
 
     return acc;
 }
@@ -434,5 +441,6 @@ function getCurrentGameArea() {
     The if statement prevents an error being logged to the console in the browser.
     I got it from a stackoverflow post [https://stackoverflow.com/questions/52506163/unit-testing-with-jest-without-module-exports]
 */
-if (typeof exports !== "undefined")
-    module.exports = { init, quiz, getCurrentGameArea, swapGameArea };
+if (typeof exports !== "undefined") {
+    module.exports = questions;
+}
