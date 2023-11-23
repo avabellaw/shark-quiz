@@ -93,29 +93,31 @@ I will also use an image or gif for the background of the webpage.
 * HTML5  
 * CSS3
 * JavaScript
-* JQuery
 
 ### Frameworks, Libraries & Programs Used
-
-* Bootstrap 5.0.2:
-    * Used for responsiveness out-the-box, utility classes and components that allow for reliable design 
-    * Reduce time wasted on reinventing the wheel. 
+ 
+* Jest
+    * To create automatic tests.
 * Google Fonts
-    * Gives easy access to many fonts supplied through a CDN that downloads close to the region of the user. Speeding up delivery.
-    * I used the fonts: Assistant and Poppins - used throughout the website. Poppins for content and Assistant for the headings and nav/footer.
+    * Gives easy access to many fonts supplied from a CDN that is close to the user, increasing download speed.
+    * I added the @font-faces onto the end of my stylesheet. This is quicker than the browser having to make two requests, the first request being for the stylesheet with the @font-faces.
 * JQuery
-    
+    * JavaSript library with tools to more efficiently manipulate the DOM.
+* Tippy.js
+    * Creates tooltips that can be turned off/on programmically. Used for the next question button and for the username validation.
+* Popperjs
+    * Used by Tippy.js.
 * Font Awesome 
-    * Gives professional icons.
+    * Gives professional icons - I downloaded these into the "icons" folder.
 * Git 
     * Used for version control.
 * GitHub
-    * Used to store commits and to present the project using GitHub pages
+    * Used to store commits and to present the project using GitHub pages.
 * Visual Studio Code
     * Used as the IDE for the project.
     * I set a shortcut for Visual Code to format HTML/CSS (ctrl+shift+f).
 * Python - http.server
-    * I will use Python to host the website locally during development to allow me to view the website.
+    * To host the website locally during development to allow me to view the website.
 * Paint.NET
     * Used to edit and create images for the project such as the homepage hero and the visual FIELDS gif in services.html
 * Figma
@@ -129,16 +131,11 @@ I will also use an image or gif for the background of the webpage.
         * Style the website and test new ideas to be copied into the project.
         * Continuously test responsiveness by adjusting the screen size and by testing preset device dimensions.
         * Bug fix.
-        * Find out how Bootstrap is styling elements.
 * Firefox, Microsoft Edge, Safari
     * Used to test compatibility on other browsers.
 * [Responsinator](http://www.responsinator.com/) for testing on different screens.
-* [Image aspect ratio and resizing calculator](https://red-route.org/code/image-resizing-calculator)
-    * For working out what width and height an image should have when first loaded on a mobile
 * [Grammarly](https://app.grammarly.com/)
     * To help find grammar and spelling mistakes to correct.
-* [Aspect Ratio Calculator](https://aspectratiocalculator.com/)
-    * To work out the aspect ratio of images.
 
 ## Testing
 
