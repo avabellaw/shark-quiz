@@ -174,7 +174,7 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
     * I had to add a semi-colon to the timer object intialisation.
     * I have one warning because the validator is using ES6 and async is from ES8.
     * There is a warning again for "module" that's used for Jest.
-    * JSLint also made me realise I didn't need "async" for the startTime function.
+    * JSLint also made me realise I didn't need "async" for the startTimer function.
 
 ### Testing User Stories From The User Experience Section
 
@@ -203,10 +203,13 @@ I discovered that elements wouldn't be hidden fast enough meaning all the game-a
 
 For the rest of the tests, I followed the red, green, refactor approach.
 
-I spent a lot of time trying to debug why questions from questions.js was an empty array. It turned out that I needed to use "module.exports = questions" instead of "module.exports = {questions}". This fixed my bug in jest.
+I spent a lot of time trying to debug why questions from questions.js was an empty array. It turned out that I needed to use "module.exports = questions" instead of "module.exports = {questions}". This fixed my bug in Jest.
 
 Event listeners don't work in jest unless they're added after the page is loaded. I fixed this by moving the event listeners over to init();. At first I thought it was to do with JQuery and therefore I tried adding the event listeners using vanilla js. This gave an error through jest saying that the element doesn't exist yet. This prompted me to move the code into init() which worked. I then tried switching back to using JQuery and this worked bringing me to the conclusion I just had to move the code into init().
 Had I followed the red, green refractor approach earlier I would have noticed this sooner as the timeout I was using was making the test pass no matter what. 
+
+Here you can see all my tests and them passing:
+![Jest passing tests](docs/jest-test-results.webp)
 
 ### Manual Testing
 
@@ -256,8 +259,7 @@ By copying this and adding it to the HTML inline, you avoid an additional reques
 The project was deployed to GitHub Pages using the following steps:
 
 1. Log in to GitHub and locate the GitHub Repository.
-2. At the top of the Repository (no, locate the "Settings" Button on the menu.
-    * Alternatively Click Here for a GIF demonstrating the process starting from Step 2.
+2. At the top of the Repository no, locate the "Settings" Button on the menu.
 3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
 4. Under "Source", click the dropdown called "None" and select "Master Branch".
 5. The page will automatically refresh.
@@ -281,13 +283,13 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 6. Type `git clone`, and then paste the URL you copied in Step 3.
 
 ```
-$ git clone https://github.com/avabellaw/crystal-clear-opticians
+$ git clone https://github.com/avabellaw/shark-quiz
 ```
 
 7. Press Enter. Your local clone will be created.
 
 ```
-$ git clone https://github.com/avabellaw/crystal-clear-opticians
+$ git clone https://github.com/avabellaw/shark-quiz
 > Cloning into `CI-Clone`...
 > remote: Counting objects: 10, done.
 > remote: Compressing objects: 100% (8/8), done.
@@ -311,18 +313,17 @@ $ git clone https://github.com/avabellaw/crystal-clear-opticians
 
 * I found out how to use jest with JQuery from [StackOverflow](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file)
 * How to use cookies from [developer.mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
-* Speed up Google Fonts by [inlining the stylseheet](https://johnfraney.ca/blog/improve-page-speed-google-fonts/)
-    * If you open the Google Fonts link tag src, you will load a stylsheet. Adding this critical css font stylesheet inline, cuts out an additional request.
+* Speed up Google Fonts by [inlining the styleheet](https://johnfraney.ca/blog/improve-page-speed-google-fonts/)
+    * If you open the Google Fonts link tag src, you will load a stylsheet. Adding this critical css font stylesheet inline, cuts out an additional request. However, to be safe I've added it to the end of my style.css file.
 
 ### Media
 
 #### Images
 
-* ![Background ocean](https://tenor.com/en-GB/view/sea-aesthetic-anime-gif-22005651)
+* ![Background ocean gif](https://tenor.com/en-GB/view/sea-aesthetic-anime-gif-22005651)
     * I edited the gif using [ezgif](https://ezgif.com/effects/ezgif-1-d9e8e08506.gif).
     * It's not the highest resolution but I think it fits the look and feel of the website that I'm going for.
 * ![next-button icon](https://www.pngfind.com/mpng/boJwxo_left-arrow-comments-instagram-plus-icon-png-transparent/)
     * I edited and resized the image.
 * favicon created by me in paint.NET
-
-### Videos
+* All topbar icons were downloaded from Font Awesome.
