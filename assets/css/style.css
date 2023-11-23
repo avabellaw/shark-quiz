@@ -120,14 +120,8 @@ button {
 /* End of Game area */
 
 /* Instructions screen */
-.game-area#instructions {
-    padding: 2rem 1rem;
-}
-
-@media screen and (min-width:576px) {
-    .game-area#instructions {
-        padding: 2rem 15%;
-    }
+.game-area#instructions .game-area_container {
+    max-width: 500px;
 }
 
 /* End of Instructions screen */
