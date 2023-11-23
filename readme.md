@@ -170,6 +170,10 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
     * I received no warnings of actual concern.
     * JSHint pointed out that "module" is undefined but that's okay because it's used for jest. 
     * JSLint doesn't like that the if statement for "module.exports" contains "exports" that isn't defined. Again this is okay as it's used for Jest. It is an if statement to check if typeof exports is defined.
+* [timer.js results](docs/validation/js/timer-jshint-results.webp)
+    * I had to add a semi-colon to the timer object intialisation.
+    * I have one warning because the validator is using ES6 and async is from ES8.
+    * There is a warning again for "module" that's used for Jest.
 
 ### Testing User Stories From The User Experience Section
 

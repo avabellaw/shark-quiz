@@ -20,7 +20,7 @@ let timer = {
             return this.timer;
         }
     }
-}
+};
 
 // Exports the functions for Jest to import and test.
 if (typeof exports !== "undefined")
