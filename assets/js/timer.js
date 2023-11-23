@@ -8,7 +8,7 @@ let timer = {
         callFunction(this.timer);
     },
     startTimer: function (callFunction) {
-        decreaseTimer = setInterval(function() {
+        decreaseTimer = setInterval(() => {
             callFunction(--this.timer);
             if (this.timer <= 0) this.stopTimer();
         }, 1000);
