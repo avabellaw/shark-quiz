@@ -154,12 +154,22 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### [JSHint Validator](https://jshint.com/)
 
+__Secondary validator: [JSLint](https://www.jslint.com/)__
+
 * [main.js results](docs/validation/js/jshint-results.webp)
     * I reordered some variables/function into alphabetical order but kept how I grouped most of them.
     * Shortened some comments.
     * Added an escape chararcter ("\") before "^" in the variable "specialChars" that's used to validate the username field.
     * Remove an unnessicary semi-colon and a trailing space.
     * The undefined variables are defined later or in different JavaScript files.
+    * I tested the code in JS**L**int first but it didn't like that I used a for loop with a variable in it.
+        ![JSLint warning](docs/validation/js/jslint-results.webp)
+        
+        Even after selecting the option to ignore for loop warning, JSLint doesn't like if you don't declare variables at the top of the function. This code is functional as is and I believe using this for loop works well for its intended purpose.
+* [questions.js results](docs/validation/js/questions-jshint-results.webp)
+    * I received no warnings of actual concern.
+    * JSHint pointed out that "module" is undefined but that's okay because it's used for jest. 
+    * JSLint doesn't like that the if statement for "module.exports" contains "exports" that isn't defined. Again this is okay as it's used for Jest. It is an if statement to check if typeof exports is defined.
 
 ### Testing User Stories From The User Experience Section
 
