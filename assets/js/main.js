@@ -4,9 +4,9 @@ let prevGameArea;
 
 let quiz = {
     questions: [],
-    userAnswers: [],
-    questionIndex: 0,
     questionAnswered: false,
+    questionIndex: 0,
+    userAnswers: [],
     score: 0,
     getQuestion: function () {
         return questions[this.questionIndex];
@@ -44,19 +44,19 @@ let gameAreaScreen = {
 };
 
 let nextButtonTooltip = tippy(document.getElementById("next-button"), {
-    // Setup the tooltip for when next button is clicked before answering the question
+    // Setup tooltip for if next button is clicked before answering question
+    animation: "perspective",
     content: "Please answer question first",
     placement: "left",
-    trigger: "manual",
-    animation: "perspective"
+    trigger: "manual"
 });
 
 let validationTooltip = tippy(document.getElementById("username"), {
-    // Setup the tooltip for when next button is clicked before answering the question
+    // Setup tooltip for if submit button is without validation passing
+    animation: "perspective",
     content: "Validation errors present",
     placement: "top",
-    trigger: "manual",
-    animation: "perspective"
+    trigger: "manual"
 });
 
 // Equivalent to $(document).ready( handler ) https://api.jquery.com/ready/
@@ -159,7 +159,7 @@ function addEventListeners() {
 
 function validateUsername() {
     // specialChars.test() taken from [https://onecompiler.com/questions/3xnp9df38/-javascript-how-to-check-for-special-characters-present-in-a-string]
-    let specialChars = /[`!@#$%^&*()\-+=\[\]{};':"\\|, .<>\/?~]/;
+    let specialChars = /[`!@#$%\^&*()\-+=\[\]{};':"\\|, .<>\/?~]/;
 
     let passedValidation = true;
 
@@ -205,7 +205,7 @@ function clickNextButton() {
         if (typeof process === "undefined")
             nextButtonTooltip.show();
         return;
-    };
+    }
 
     if (!quiz.hasNextQuestion()) {
         swapGameArea(gameAreaScreen.endGame);
@@ -231,14 +231,15 @@ function displayTopBar(gameArea) {
             case "instructions-button":
             case "leaderboard-button":
                 // Display instructions and leaderboard button
-                $(icon).attr("data-visible", gameArea === gameAreaScreen.home || gameArea === gameAreaScreen.instructions);
+                $(icon).attr("data-visible", gameArea === gameAreaScreen.home ||
+                             gameArea === gameAreaScreen.instructions);
                 break;
         }
     });
 }
 
 /**
- * This function is passed as a callback funcion to the timer and updates the progress bar when called
+ * Used as a callback funcion, called by the timer, and updates the progress bar when called
  * @param timeLeft The time left on the Timer is passed through as this argument
  */
 function timerTick(timeLeft) {
@@ -261,7 +262,7 @@ function timerTick(timeLeft) {
 
             // $("class").each() wasn't working therfore I found a different way [https://stackoverflow.com/questions/4735342/jquery-to-loop-through-elements-with-the-same-class]
             $.each($(".answer-box"), function (i, box) {
-                // This will loop through every .answer-box and apply the appropriate class 
+                // This will loop through every .answer-box and apply the appropriate class
                 if (i !== quiz.getQuestion().answer)
                     $(box).addClass("incorrect-answer");
             });
@@ -392,10 +393,8 @@ function addScoresToLeaderboard(userScores) {
 }
 
 /**
- * Function to be passed to .reduce() to determine number of correct answers using userAnswers array.
- * @param acc 
- * @param currentValue 
- * @param i 
+ * Function to to determine number of correct answers
+ * Used as function for .reduce() on userAnswers array
  * @returns Number of correct answers.
  */
 function scoreReducer(acc, currentValue, i) {
