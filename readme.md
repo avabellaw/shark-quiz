@@ -174,6 +174,8 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
     * I had to add a semi-colon to the timer object intialisation.
     * I have one warning because the validator is using ES6 and async is from ES8.
     * There is a warning again for "module" that's used for Jest.
+    * JSLint told me to change "complex arrow function" to a regular function within "startTimer".
+    * JSLint also made me realise I didn't need "async" for the startTime function.
 
 ### Testing User Stories From The User Experience Section
 

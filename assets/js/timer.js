@@ -7,8 +7,8 @@ let timer = {
         this.timer = this.max;
         callFunction(this.timer);
     },
-    startTimer: async function (callFunction) {
-        decreaseTimer = setInterval(() => {
+    startTimer: function (callFunction) {
+        decreaseTimer = setInterval(function() {
             callFunction(--this.timer);
             if (this.timer <= 0) this.stopTimer();
         }, 1000);
