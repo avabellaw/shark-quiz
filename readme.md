@@ -152,11 +152,14 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 * [style.css results](docs/validation/css/style-results.webp) 
 
-### HTML Validator Notes
+### [JSHint Validator](https://jshint.com/)
 
-### CSS Validator Notes
-
-### JS Validator Notes
+* [main.js results](docs/validation/js/jshint-results.webp)
+    * I reordered some variables/function into alphabetical order but kept how I grouped most of them.
+    * Shortened some comments.
+    * Added an escape chararcter ("\") before "^" in the variable "specialChars" that's used to validate the username field.
+    * Remove an unnessicary semi-colon and a trailing space.
+    * The undefined variables are defined later or in different JavaScript files.
 
 ### Testing User Stories From The User Experience Section
 
@@ -300,8 +303,9 @@ $ git clone https://github.com/avabellaw/crystal-clear-opticians
 
 #### Images
 
-* ![Background image ocean image](https://tenor.com/en-GB/view/sea-aesthetic-anime-gif-22005651)
+* ![Background ocean](https://tenor.com/en-GB/view/sea-aesthetic-anime-gif-22005651)
     * I edited the gif using [ezgif](https://ezgif.com/effects/ezgif-1-d9e8e08506.gif).
+    * It's not the highest resolution but I think it fits the look and feel of the website that I'm going for.
 * ![next-button icon](https://www.pngfind.com/mpng/boJwxo_left-arrow-comments-instagram-plus-icon-png-transparent/)
     * I edited and resized the image.
 * favicon created by me in paint.NET
