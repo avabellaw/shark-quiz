@@ -1,13 +1,17 @@
 let decreaseTimer;
 
 let timer = {
+    // Timer starts on this number
     max: 20,
-    timer: 20,
+    // Holds the current time left on the timer
+    timer: 0,
     resetTimer: function (callFunction) {
         this.timer = this.max;
         callFunction(this.timer);
     },
     startTimer: function (callFunction) {
+        this.timer = this.max;
+
         decreaseTimer = setInterval(() => {
             callFunction(--this.timer);
             if (this.timer <= 0) this.stopTimer();

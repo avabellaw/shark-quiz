@@ -2,6 +2,7 @@
 let currentGameArea = "#home";
 let prevGameArea;
 
+// Holds the quiz state
 let quiz = {
     questions: [],
     questionAnswered: false,
@@ -33,8 +34,10 @@ let quiz = {
     }
 };
 
+/**
+ * options to pass into swapGameArea() for example
+ */
 let gameAreaScreen = {
-    // The options to pass into swapGameArea() for example
     home: "#home",
     quiz: "#quiz",
     endGame: "#end-game",
@@ -43,16 +46,16 @@ let gameAreaScreen = {
     submitScore: "#submit-score"
 };
 
+// Next-button tooltip for if clicked before answering the question
 let nextButtonTooltip = tippy(document.getElementById("next-button"), {
-    // Setup tooltip for if next button is clicked before answering question
     animation: "perspective",
     content: "Please answer question first",
     placement: "left",
     trigger: "manual"
 });
 
+// Username submit-button tooltip clicked and validation doesn't pass
 let validationTooltip = tippy(document.getElementById("username"), {
-    // Setup tooltip for if submit button is without validation passing
     animation: "perspective",
     content: "Validation errors present",
     placement: "top",
@@ -85,14 +88,17 @@ function init() {
 }
 
 function addEventListeners() {
+    // Start Quiz button
     $("#start-quiz").on("click", () => {
         swapGameArea(gameAreaScreen.quiz);
     });
 
+    // Next question button 
     $("#next-button").on("click", () => {
         clickNextButton();
     });
 
+    // Instructions button in topbar
     $("#instructions-button").on("click", () => {
         if (currentGameArea === gameAreaScreen.instructions) {
             swapGameArea(prevGameArea);
@@ -101,6 +107,7 @@ function addEventListeners() {
         }
     });
 
+    // Leaderboard button in topbar
     $("#leaderboard-button").on("click", () => {
         if (currentGameArea === gameAreaScreen.leaderboard) {
             swapGameArea(prevGameArea);
@@ -109,19 +116,23 @@ function addEventListeners() {
         }
     });
 
+    // End game "Add to Leaderboard" button
     $("#add-to-leaderboard").on("click", () => {
         swapGameArea(gameAreaScreen.submitScore);
         $("#submit-score_score").text(quiz.score);
     });
 
-    $("#submit-score_button").on("click", () => {
-        submitScoreToLeaderboard();
-    });
-
+    // Username input field - submit score screen
     $("#username").on("input", () => {
         validateUsername();
     });
 
+    // Submit score button - submit score screen
+    $("#submit-score_button").on("click", () => {
+        submitScoreToLeaderboard();
+    });
+
+    // Key listener to listen for "Enter" key
     document.addEventListener("keyup", (event) => {
         // Add key listener [https://www.section.io/engineering-education/keyboard-events-in-javascript/]
         if (event.key === "Enter") {
@@ -139,6 +150,7 @@ function addEventListeners() {
         }
     });
 
+    // Answer box event listeners
     $(".answer-box").on("click", (event) => {
         if (quiz.questionAnswered) return;
         // event.target gets the top element which is the paragraph tag [https://www.metaltoad.com/blog/how-detect-which-element-was-clicked-using-jquery]
@@ -159,19 +171,24 @@ function addEventListeners() {
     });
 }
 
+/**
+ * Validates the username and applies appropriate classes if validation failed
+ * @returns Whether validation passed or not
+ */
 function validateUsername() {
     // specialChars.test() taken from [https://onecompiler.com/questions/3xnp9df38/-javascript-how-to-check-for-special-characters-present-in-a-string]
     let specialChars = /[`!@#$%\^&*()\-+=\[\]{};':"\\|, .<>\/?~]/;
 
     let passedValidation = true;
-
     $(".validation-message").removeClass("validation-error");
 
+    // Check if username has special characters or spaces
     if (specialChars.test($("#username").val())) {
         $("#special-characters").addClass("validation-error");
         passedValidation = false;
     }
 
+    // Check if username is within character length bounds
     let usernameLength = $("#username").val().length;
     if (usernameLength < 2 || usernameLength > 15) {
         $("#min-max-characters").addClass("validation-error");
@@ -189,6 +206,9 @@ function validateUsername() {
     return passedValidation;
 }
 
+/**
+ * Swap game area to leaderboard and submit the score + username 
+ */
 function submitScoreToLeaderboard() {
     if (validateUsername()) {
         document.cookie = `${$("#username").val()}=${quiz.score}; max-age=31536000;`;
@@ -198,7 +218,12 @@ function submitScoreToLeaderboard() {
     }
 }
 
+/**
+ * Next question button clicked
+ * @returns 
+ */
 function clickNextButton() {
+    // If question not answered, show tooltip
     if (!quiz.questionAnswered) {
         /*
             process is defined by Jest [https://github.com/atomiks/tippyjs-react/issues/252]
@@ -210,10 +235,13 @@ function clickNextButton() {
         return;
     }
 
+    // If no more questions, go to end game screen
     if (!quiz.hasNextQuestion()) {
         swapGameArea(gameAreaScreen.endGame);
         return;
     }
+
+    // Show next question
     showQuestion(quiz.nextQuestion());
 }
 
@@ -224,6 +252,7 @@ function clickNextButton() {
 function displayTopBar(gameArea) {
     $.each($(".topbar_icon"), function (i, icon) {
         let id = $(icon).attr("id");
+
         switch (id) {
             case "home-button":
                 return;
@@ -233,9 +262,11 @@ function displayTopBar(gameArea) {
                 break;
             case "instructions-button":
             case "leaderboard-button":
-                // Display instructions and leaderboard button
-                $(icon).attr("data-visible", gameArea === gameAreaScreen.home ||
-                    gameArea === gameAreaScreen.instructions);
+                /*
+                    Display instructions and leaderboard icons on homescreen
+                    The previous screen's topbar icons persist for the leaderboard and instructions sceen 
+                */
+                $(icon).attr("data-visible", gameArea === gameAreaScreen.home);
                 break;
         }
     });
@@ -282,6 +313,7 @@ function timerTick(timeLeft) {
 function showCorrectAnswer() {
     let correctAnswerOptionNum = quiz.getQuestion().answer;
     $.each($(".answer-box"), function (i, option) {
+        // Apply correct answer class and grey out the rest
         if (option.dataset.option == correctAnswerOptionNum) {
             $(option).addClass("correct-answer");
             let desc = quiz.getQuestion().description;
@@ -300,8 +332,8 @@ function randomiseAnswerPositions() {
         let offSet = Math.floor(Math.random() * question.options.length);
         question.answer = offSet;
 
+        // Offsets the answer boxes by pushing the popped value to the start of the array.
         for (let i = 0; i < offSet; i++) {
-            // Cycles the array [i] number of times by pushing the popped value to the start of the array.
             // unshift() adds element to the beginning of the array, push() adds to the end [https://www.w3schools.com/jsref/jsref_unshift.asp]
             question.options.unshift(question.options.pop());
         }
@@ -319,7 +351,7 @@ function swapGameArea(gameArea) {
     $(prevGameArea).attr("data-visible", "false");
     $(currentGameArea).attr("data-visible", "true");
 
-    // Clicking on leaderboard/instructions icon again returns user to homepage 
+    // Clicking on leaderboard/instructions icon again returns user to homepage when screen swapped
     if (gameArea == gameAreaScreen.leaderboard || gameArea == gameAreaScreen.instructions) {
         prevGameArea = gameAreaScreen.home;
     }
@@ -343,9 +375,6 @@ function swapGameArea(gameArea) {
             $("#questions-correct").text(correctAnswers);
             $("#total-questions").text(quiz.questions.length);
             $("#end-game-score").text(quiz.score);
-            break;
-        case gameAreaScreen.instructions:
-            displayTopBar(gameAreaScreen.instructions);
             break;
         case gameAreaScreen.leaderboard:
             window.onbeforeunload = (e) => {
@@ -374,12 +403,14 @@ function swapGameArea(gameArea) {
 function addScoresToLeaderboard(userScores) {
     let alreadyDisplayedScores = $("#leaderboard_table tbody").children();
 
+    // Remove old version of leaderboard if exists
     if (alreadyDisplayedScores.length > 1) {
         for (let i = 1; i < alreadyDisplayedScores.length; i++) {
             $(alreadyDisplayedScores)[i].remove();
         }
     }
 
+    // Add rows to the leaderboard
     for (let i = 0; i < 10; i++) {
         let username = i < userScores.length ? userScores[i].username : "";
         let score = i < userScores.length ? userScores[i].score : "";
