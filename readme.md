@@ -19,12 +19,15 @@ The answers for each question will also have a randomized order.
 
 There will be a timer counting down from 20. If an answer is correct, 10 points + the time left will be added to the score.
 
-The site owner's goal aligns with the site user's goal which is the following:
+The site owner's goal aligns with the site user's goal which are the following:
 1. To enjoy testing their knowledge on sharks.
 2. Learn more about sharks.
-3. See their previous high scores.
+3. See previous high scores.
 
-In future, the site owner may want to utilise the website's traffic to gain ad revenue.
+In future, the site owner may want to:
+1. Utilise the website's traffic to gain ad revenue.
+2. Have the leaderboard be publically hosted.
+3. Have an account, such as a Google account, associated with the username. To prevent overwriting other people's scores by using the same username.
 
 ### User Stories
 
