@@ -7,7 +7,7 @@ body {
     display: flex;
 }
 
-h2 { 
+h2 {
     margin-top: 0;
 }
 
@@ -402,9 +402,18 @@ input#start-quiz {
     position: relative;
 }
 
-.progress-indicator_circle.tick {
-    background: rgba(255, 255, 255, 0.416) url(../icons/check-mark.webp);
+.progress-indicator_circle.answered {
+    width: 0.8rem;
+    height: 0.8rem;
     background-size: contain;
+}
+
+.progress-indicator_circle.tick {
+    background-image: url(../icons/check-mark.webp);
+}
+
+.progress-indicator_circle.cross {
+    background: rgba(255, 255, 255, 0.416) url(../icons/red-cross.webp);
 }
 
 .progress-indicator_circle#current-question {
@@ -491,9 +500,11 @@ noscript {
     60% {
         transform: scale(1.8);
     }
+
     80% {
         transform: scale(1.6);
     }
+
     100% {
         transform: scale(1.4);
     }

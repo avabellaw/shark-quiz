@@ -171,9 +171,6 @@ function addEventListeners() {
             // Add points to the score and display the updated score
             let score = quiz.score += timer.timer + 10;
             document.getElementById("points").innerText = score;
-
-            // Add tick to question progress indicator
-            $("#current-question").addClass("tick");
         }
 
         timer.stopTimer();
@@ -251,6 +248,9 @@ function clickNextButton() {
         swapGameArea(gameAreaScreen.endGame);
         return;
     }
+
+    
+    setProgressIndicator();
 
     // Show next question
     showQuestion(quiz.nextQuestion());
@@ -481,6 +481,17 @@ function showQuestion(questionSet) {
     }
 
     timer.startTimer(timerTick);
+}
+
+function setProgressIndicator() {
+    console.log(quiz.userAnswers[quiz.questionIndex]);
+    if (quiz.userAnswers[quiz.questionIndex] === quiz.getQuestion().answer) {
+        // Add tick to question progress indicator
+        $("#current-question").addClass("answered").addClass("tick");
+    } else {
+        // Add cross to question progress indicator
+        $("#current-question").addClass("answered").addClass("cross");
+    }
 }
 
 function getCurrentGameArea() {

@@ -334,3 +334,4 @@ $ git clone https://github.com/avabellaw/shark-quiz
 * All topbar icons were downloaded from Font Awesome.
 * [Tick icon from Flaticon, created by Octopocto](https://www.flaticon.com/free-icons/tick)
     * I changed the colour of this image.
+* [Red cross icon from Flaticon created by Pixel perfect](https://www.flaticon.com/free-icons/close)
