@@ -1,6 +1,7 @@
 // Game variables
 let currentGameArea = "#home";
 let prevGameArea;
+const numberOfQuestions = 10;
 
 // Holds the quiz state
 let quiz = {
@@ -80,7 +81,12 @@ function init() {
         quiz.questions[randomIndex] = valueToSwap;
     }
 
-    quiz.questions.splice(0, 10); // Reduce number of questions by 10
+    // Reduce number of questions to the value of numberOfQuestions
+    quiz.questions.splice(0, quiz.questions.length - numberOfQuestions);
+
+    for(let i = 0; i < numberOfQuestions; i++){
+        $("#progress-indicator").append("<div class='progress-indicator_circle'></div>");
+    }
 
     addEventListeners();
 

@@ -372,6 +372,28 @@ input#start-quiz {
     transition: width 0.8s ease;
 }
 
+#progress-indicator {
+    --circle-size: 0.75rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 100%;
+    height: var(--circle-size);
+}
+
+.progress-indicator_circle {
+    height: var(--circle-size);
+    width: var(--circle-size);
+    background-color: white;
+    border-radius: 50%;
+}
+
+.progress-indicator_circle.current-question {
+    transform: scale(1.5);
+    animation: zoomBounce 0.7s;
+}
+
 @media screen and (min-width:576px) {
     #question-box {
         margin: 2.5rem 0;
@@ -443,3 +465,14 @@ noscript {
 }
 
 /* End of Google fonts stylesheet */
+
+/* Animations */
+
+@keyframes zoomBounce {
+    75% {
+        transform: scale(1.75);
+    }
+    100% {
+        transform: scale(1.5);
+    }
+}
