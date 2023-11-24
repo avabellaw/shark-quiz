@@ -84,7 +84,8 @@ function init() {
     // Reduce number of questions to the value of numberOfQuestions
     quiz.questions.splice(0, quiz.questions.length - numberOfQuestions);
 
-    for (let i = 0; i < numberOfQuestions; i++) {
+    // First progress-indicator_circle already exists
+    for (let i = 1; i < numberOfQuestions; i++) {
         $("#progress-indicator").append("<div class='progress-indicator_circle'></div>");
     }
 

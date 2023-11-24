@@ -217,7 +217,9 @@ Here you can see all my tests and them passing:
 ### Manual Testing
 
 * I clicked through all the topbar icons in different orders.
-* I went through every question and answered them repeatedly
+* I went through every question and answered them repeatedly.
+* I counted how many progress-indicator_circles there were to see if it matches numberOfQuestions.
+    * This revealed that one too many circles existed. This was because I didn't factor in that one was already created in index.html.
 
 ### Further Testing
 
