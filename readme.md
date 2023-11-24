@@ -325,10 +325,12 @@ $ git clone https://github.com/avabellaw/shark-quiz
 
 #### Images
 
-* ![Background ocean gif](https://tenor.com/en-GB/view/sea-aesthetic-anime-gif-22005651)
+* [Background ocean gif](https://tenor.com/en-GB/view/sea-aesthetic-anime-gif-22005651)
     * I edited the gif using [ezgif](https://ezgif.com/effects/ezgif-1-d9e8e08506.gif).
     * It's not the highest resolution but I think it fits the look and feel of the website that I'm going for.
-* ![next-button icon](https://www.pngfind.com/mpng/boJwxo_left-arrow-comments-instagram-plus-icon-png-transparent/)
+* [next-button icon](https://www.pngfind.com/mpng/boJwxo_left-arrow-comments-instagram-plus-icon-png-transparent/)
     * I edited and resized the image.
 * favicon created by me in paint.NET
 * All topbar icons were downloaded from Font Awesome.
+* [Tick icon from Flaticon, created by Octopocto](https://www.flaticon.com/free-icons/tick)
+    * I changed the colour of this image.

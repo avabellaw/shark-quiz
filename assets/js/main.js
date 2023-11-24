@@ -168,8 +168,12 @@ function addEventListeners() {
         if (!correctAnswer) {
             $(clickedBox).addClass("incorrect-answer");
         } else {
+            // Add points to the score and display the updated score
             let score = quiz.score += timer.timer + 10;
             document.getElementById("points").innerText = score;
+
+            // Add tick to question progress indicator
+            $("#current-question").addClass("tick");
         }
 
         timer.stopTimer();

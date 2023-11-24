@@ -397,8 +397,14 @@ input#start-quiz {
 .progress-indicator_circle {
     height: var(--circle-size);
     width: var(--circle-size);
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.416);
     border-radius: 50%;
+    position: relative;
+}
+
+.progress-indicator_circle.tick {
+    background: rgba(255, 255, 255, 0.416) url(../icons/check-mark.webp);
+    background-size: contain;
 }
 
 .progress-indicator_circle#current-question {
