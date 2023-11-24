@@ -373,25 +373,27 @@ input#start-quiz {
 }
 
 #progress-indicator {
-    --circle-size: 0.75rem;
+    --circle-size: 0.5rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 
-    width: 100%;
+    width: 75%;
+    margin: auto;
     height: var(--circle-size);
 }
 
 .progress-indicator_circle {
     height: var(--circle-size);
     width: var(--circle-size);
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
 }
 
-.progress-indicator_circle.current-question {
-    transform: scale(1.5);
-    animation: zoomBounce 0.7s;
+.progress-indicator_circle#current-question {
+    border: 1px solid #ffffffba;
+    transform: scale(1.4);
+    animation: zoomBounce 0.5s ease-in-out;
 }
 
 @media screen and (min-width:576px) {
@@ -469,10 +471,13 @@ noscript {
 /* Animations */
 
 @keyframes zoomBounce {
-    75% {
-        transform: scale(1.75);
+    60% {
+        transform: scale(1.8);
+    }
+    80% {
+        transform: scale(1.6);
     }
     100% {
-        transform: scale(1.5);
+        transform: scale(1.4);
     }
 }

@@ -467,10 +467,12 @@ function showQuestion(questionSet) {
         answerBoxes[2].setAttribute("data-visible", "true");
     }
 
+    // Move current question indicator to next circle
     if (quiz.questionIndex > 0) {
-        let currentQuestionCircle = $(".progress-indicator_circle.current-question");
-        $(currentQuestionCircle).next().addClass("current-question");
-        $(currentQuestionCircle).removeClass("current-question")
+        let currentQuestionCircle = $("#current-question");
+
+        // Remove current-question ID and add it to the next circle
+        $(currentQuestionCircle).removeAttr("id").next().attr("id", "current-question");
     }
 
     timer.startTimer(timerTick);
