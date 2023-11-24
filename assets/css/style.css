@@ -403,8 +403,7 @@ input#start-quiz {
 }
 
 .progress-indicator_circle.answered {
-    width: 0.8rem;
-    height: 0.8rem;
+    transform: scale(1.4);
     background-size: contain;
 }
 
@@ -413,12 +412,12 @@ input#start-quiz {
 }
 
 .progress-indicator_circle.cross {
-    background: rgba(255, 255, 255, 0.416) url(../icons/red-cross.webp);
+    background-image: url(../icons/red-cross.webp);
 }
 
 .progress-indicator_circle#current-question {
     border: 1px solid #ffffffba;
-    transform: scale(1.4);
+    transform: scale(1.5);
     animation: zoomBounce 0.5s ease-in-out;
 }
 
