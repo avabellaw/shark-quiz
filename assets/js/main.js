@@ -84,7 +84,7 @@ function init() {
     // Reduce number of questions to the value of numberOfQuestions
     quiz.questions.splice(0, quiz.questions.length - numberOfQuestions);
 
-    for(let i = 0; i < numberOfQuestions; i++){
+    for (let i = 0; i < numberOfQuestions; i++) {
         $("#progress-indicator").append("<div class='progress-indicator_circle'></div>");
     }
 
@@ -466,6 +466,13 @@ function showQuestion(questionSet) {
     } else {
         answerBoxes[2].setAttribute("data-visible", "true");
     }
+
+    if (quiz.questionIndex > 0) {
+        let currentQuestionCircle = $(".progress-indicator_circle.current-question");
+        $(currentQuestionCircle).next().addClass("current-question");
+        $(currentQuestionCircle).removeClass("current-question")
+    }
+
     timer.startTimer(timerTick);
 }
 
