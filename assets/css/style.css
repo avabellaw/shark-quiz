@@ -377,10 +377,21 @@ input#start-quiz {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    position: relative;
 
     width: 75%;
-    margin: auto;
+    margin: 0.6rem auto;
     height: var(--circle-size);
+}
+
+#progress-indicator:after {
+    content: "";
+    position: absolute;
+    background-color: #00000042;
+    height: 4px;
+    width: 40%;
+    bottom: -1.5rem;
+    border-radius: 50%;
 }
 
 .progress-indicator_circle {
