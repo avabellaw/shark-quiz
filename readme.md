@@ -1,8 +1,8 @@
 # **Shark Facts** - Milestone Project 2
 
-Shark Facts is a simple, online quiz put your shark knowledge to the test!
+Shark Facts is a simple, online quiz - put your shark knowledge to the test!
 
-This project demonstrates my ability to use JavaScript, JQuery and external APIs after studying the modules with Code Institue. It also builds on my knowledge of HTML5, CSS3 and UX design but primarily showcases my skills in making an interactive website.
+This project demonstrates my ability to use JavaScript, JQuery and external APIs after studying the modules with Code Institute. It also builds on my knowledge of HTML5, CSS3 and UX design but primarily showcases my skills in making an interactive website.
 
 [View the live project here.](https://avabellaw.github.io/shark-quiz/)
 
@@ -12,7 +12,7 @@ This project demonstrates my ability to use JavaScript, JQuery and external APIs
 
 ### Project Goals
 
-I will be creating an online quiz on shark facts. My target audience will be anyone who loves sharks (such as my partner). This will likely include all ages particulary younger audiences.
+I will be creating an online quiz on shark facts. My target audience will be anyone who loves sharks (such as my partner). This will likely include all ages particularly younger audiences.
 
 The questions will be in a randomized order and only 50% of the questions will be shown at a time. 
 The answers for each question will also have a randomized order.
@@ -20,7 +20,7 @@ The answers for each question will also have a randomized order.
 There will be a timer counting down from 20. If an answer is correct, 10 points + the time left will be added to the score.
 
 The site owner's goal aligns with the site user's goal which are the following:
-1. To enjoy testing their knowledge on sharks.
+1. To enjoy testing their knowledge of sharks.
 2. Learn more about sharks.
 3. See previous high scores.
 
@@ -53,8 +53,8 @@ Features to include:
 * A leaderboard to showcase previous scores saved in the user's cookies.
 * A way to view instructions on how to play.
 * A way to contact the developer.
-* The quiz involving a question with the option of 3 possible answers.
-* A score that is incremented you guess a question correctly.
+* The quiz with the option of 3 possible answers for each question.
+* A score that is incremented if you guess a question correctly.
 * A timer - any time left for that question is added to the score.
 
 Features to include in future:
@@ -65,7 +65,7 @@ Features to include in future:
 
 The majority of the quiz will feel like an application as it resides largely on only one page.
 
-There will be a homapage with the following:
+There will be a homepage with the following:
 * An option to view the leaderboard.
 * An option to view the instructions.
 * A box to input a username before starting the quiz.
@@ -103,11 +103,11 @@ I will also use an image or gif for the background of the webpage.
     * To create automatic tests.
 * Google Fonts
     * Gives easy access to many fonts supplied from a CDN that is close to the user, increasing download speed.
-    * I added the @font-faces onto the end of my stylesheet. This is quicker than the browser having to make two requests, the first request being for the stylesheet with the @font-faces.
+    * I added the @font-faces onto the end of my stylesheet. This is quicker than the browser making two requests, the first being for the aforementioned stylesheet containing each @font-face.
 * JQuery
     * JavaSript library with tools to more efficiently manipulate the DOM.
 * Tippy.js
-    * Creates tooltips that can be turned off/on programmically. Used for the next question button and for the username validation.
+    * Creates tooltips that can be turned off/on programmatically. Used for the next question button and the username validation.
 * Popperjs
     * Used by Tippy.js.
 * Font Awesome 
@@ -147,9 +147,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 ### [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
 
 * [index.html results](docs/validation/html/index-results.webp)
-    * I received a warning for a misuse of aria-label on the topbar icons. After research, I concluded  that the button tag would be more appropriate than a div tag for these icons and the next question button.
+    * I received a warning for the misuse of a topbar icon aria-label attribute. After research, I concluded that the button tag would be more appropriate than a div tag for these icons and the next question button.
     * I removed a duplicate "data-visible" tag from the score topbar icon.
-    * I am left with a warning for a misuse of aria-label on the trophy icon that has the score displayed next to it. Without this and the described-by attribute, a person with a screenreader wouldn't know their score.
+    * I am left with a warning for a misuse of aria-label on the trophy icon that has the score displayed next to it. Without this and the described-by attribute, a person with a screen reader wouldn't know their score.
 
 ### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
@@ -160,21 +160,21 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 __Secondary validator: [JSLint](https://www.jslint.com/)__
 
 * [main.js results](docs/validation/js/jshint-results.webp)
-    * I reordered some variables/function into alphabetical order but kept how I grouped most of them.
+    * I reordered some variables/functions into alphabetical order but kept how I grouped most of them.
     * Shortened some comments.
-    * Added an escape chararcter ("\") before "^" in the variable "specialChars" that's used to validate the username field.
-    * Remove an unnessicary semi-colon and a trailing space.
+    * Added an escape character ("\") before "^" in the variable "specialChars" that is used to validate the username field.
+    * Remove an unnecessary semi-colon and a trailing space.
     * The undefined variables are defined later or in different JavaScript files.
     * I tested the code in JS**L**int first but it didn't like that I used a for loop with a variable in it.
         ![JSLint warning](docs/validation/js/jslint-results.webp)
         
-        Even after selecting the option to ignore for loop warning, JSLint doesn't like if you don't declare variables at the top of the function. This code is functional as is and I believe using this for loop works well for its intended purpose.
+        Even after selecting the option to ignore for loop warning, JSLint doesn't like it if you don't declare variables at the top of the function. This code is functional as is and I believe using this for loop works well for its intended purpose.
 * [questions.js results](docs/validation/js/questions-jshint-results.webp)
     * I received no warnings of actual concern.
     * JSHint pointed out that "module" is undefined but that's okay because it's used for jest. 
     * JSLint doesn't like that the if statement for "module.exports" contains "exports" that isn't defined. Again this is okay as it's used for Jest. It is an if statement to check if typeof exports is defined.
 * [timer.js results](docs/validation/js/timer-jshint-results.webp)
-    * I had to add a semi-colon to the timer object intialisation.
+    * I had to add a semi-colon to the timer object initialisation.
     * I have one warning because the validator is using ES6 and async is from ES8.
     * There is a warning again for "module" that's used for Jest.
     * JSLint also made me realise I didn't need "async" for the startTimer function.
@@ -191,7 +191,7 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
 
     ![Feedback after question answered](docs/testing-user-stories/question-feedback.webp)
 
-    As shown by the above screenshot, the user recieves more information after answering a question. It also displays after answering incorrectly.
+    As shown by the above screenshot, the user receives more information after answering a question. It also displays after answering incorrectly.
 
     ![Feedback after question answered incorrectly](docs/testing-user-stories/question-incorrect-feedback.webp)
 
@@ -207,16 +207,13 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
 
     From the homepage, you can click the leaderboard to view previous high scores. It's also displayed at the end of the quiz after you submit your score.
 
-
-
-
 ### Automatic Testing (unit tests)
 
-Automated testing helps create robust code that stays robust and helps you understand the code your writing before you write it. 
-Automated tests can also help with bug fixing unrelated problems. They give you confidence that the code is getting the desired result, in the intended way.
-If you are updating and implementing new features frequently, automated tests significantly reduce the risk of accidentally intriducing new bugs. If a bug has been fixed before, and a test implemented afterwards, it's unlikely that bug will reappear in the same way.
+Automated testing helps create robust code that stays robust and helps you understand the code you're writing before you write it. 
+Automated tests can also help with bug-fixing unrelated problems. They give you confidence that the code is getting the desired result, in the intended way.
+If you are updating and implementing new features frequently, automated tests significantly reduce the risk of accidentally introducing new bugs. If a bug has been fixed before, and a test implemented afterwards, it's unlikely that bug will reappear in the same way.
 
-I had to setup Jest to work with JQuery by importing it. I found this [StackOverflow post](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file) explaining how.
+I had to set up Jest to work with JQuery by importing it. I found this [StackOverflow post](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file) explaining how.
 1. Add the following to the package.json file:
 ```
 "jest": {
@@ -235,24 +232,31 @@ My first two tests were:
 1. To test that all .game-areas have been hidden by JQuery
 2. To test that the #home .game-area is revealed when showHomeScreen() is called
 
-I discovered that elements wouldn't be hidden fast enough meaning all the game-areas would be shown for a second while JQuery loaded. I decided to use the data-attribute "data-visible" instead of using JQuery to hide the elements. Therefore,I removed these first tests.
+I discovered that elements wouldn't be hidden fast enough meaning all the game-areas would be shown for a second while JQuery loaded. I decided to use the data attribute "data-visible" instead of using JQuery to hide the elements. Therefore, I removed these first tests.
 
 For the rest of the tests, I followed the red, green, refactor approach.
 
-I spent a lot of time trying to debug why questions from questions.js was an empty array. It turned out that I needed to use "module.exports = questions" instead of "module.exports = {questions}". This fixed my bug in Jest.
+I spent a lot of time trying to debug why the questions variable from questions.js was an empty array. It turned out that I needed to use "module.exports = questions" instead of "module.exports = {questions}". This fixed my bug in Jest.
 
-Event listeners don't work in jest unless they're added after the page is loaded. I fixed this by moving the event listeners over to init();. At first I thought it was to do with JQuery and therefore I tried adding the event listeners using vanilla js. This gave an error through jest saying that the element doesn't exist yet. This prompted me to move the code into init() which worked. I then tried switching back to using JQuery and this worked bringing me to the conclusion I just had to move the code into init().
+Event listeners don't work in jest unless they're added after the page is loaded. I fixed this by moving the event listeners over to init();. At first, I thought it had to do with JQuery and therefore I tried adding the event listeners using vanilla js. This gave an error through Jest saying that the element doesn't exist yet. This prompted me to move the code into the "init()" function which worked. I then tried switching back to using JQuery and this worked bringing me to the conclusion I just had to move the code into init().
 Had I followed the red, green refractor approach earlier I would have noticed this sooner as the timeout I was using was making the test pass no matter what. 
 
-Here you can see all my tests and them passing:
+Here you can see all my tests and that they've passed:
 ![Jest passing tests](docs/jest-test-results.webp)
 
 ### Manual Testing
 
 * I clicked through all the topbar icons in different orders.
 * I went through every question and answered them repeatedly.
-* I counted how many progress-indicator_circles there were to see if it matches numberOfQuestions.
+* I counted how many progress-indicator_circles there were to see if it matched numberOfQuestions.
     * This revealed that one too many circles existed. This was because I didn't factor in that one was already created in index.html.
+* Favicon not showing when deployed on GitHub pages.
+    * This is likely because the favicon isn't in the root directory as "/shark-quiz/" is appended to the end of the URL. I had to add the following HTML to show the favicon:
+    ```
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    ```
+    https://stackoverflow.com/questions/35037482/favicon-with-github-pages
+
 
 ### Further Testing
 
@@ -263,13 +267,13 @@ Here you can see all my tests and them passing:
 On mobile, it can take 12 seconds to load.
 ![Gifs are inefficient](docs/lighthouse/sea-bg-gif.webp)
 
-I tried converting the 2.86MiB gif into a WebM video using ezgif. This reduced the size to only 180.95KiB, a 93% descrease in file size!
+I tried converting the 2.86MiB gif into a WebM video using ezgif. This reduced the size to only 180.95KiB, a 93% decrease in file size!
 ![Converted gif on ezgif](docs/lighthouse/sea-bg-gif-to-webm.webp)
 
-I attempted to use JavaScript and clone the video to add to the sides. However, even without that code it took longer and resulted in more layout shifts that were a detriment to perforamce. I decided to compress the gif file I was already using and stick with that.
+I attempted to use JavaScript and clone the video to add to the sides. However, even without that code it took longer and resulted in more layout shifts that were a detriment to performance. I decided to compress the GIF file I was already using and stick with that.
 I reduced the file size by just over 50% but decided to increase the quality slightly as it didn't count against me by much for performance.
 
-The final gif takes 9s to load instead of 12s but still results in a high performance mark.
+The final gif takes 9s to load instead of 12s but still results in a high-performance mark.
 ![Lighthouse report](docs/lighthouse/final-report.webp)
 ![Lighthouse report metrics](docs/lighthouse/final-report-metrics.webp)
 
@@ -288,7 +292,7 @@ By copying this and adding it to the HTML inline, you avoid an additional reques
 
 ### Known Bugs
 
-* I had to add an if statement to stop nextButtonTooltip.show(); from being run in Jest. I did this because the function is unavailable in the test enviroment and I'm unable to figure out why.
+* I had to add an if statement to stop nextButtonTooltip.show(); from being run in Jest. I did this because the function is unavailable in the test environment and I'm unable to figure out why.
 
 ### Deployment
 
@@ -352,7 +356,7 @@ $ git clone https://github.com/avabellaw/shark-quiz
 * I found out how to use jest with JQuery from [StackOverflow](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file)
 * How to use cookies from [developer.mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
 * Speed up Google Fonts by [inlining the styleheet](https://johnfraney.ca/blog/improve-page-speed-google-fonts/)
-    * If you open the Google Fonts link tag src, you will load a stylsheet. Adding this critical css font stylesheet inline, cuts out an additional request. However, to be safe I've added it to the end of my style.css file.
+    * If you open the Google Fonts link tag src, you will load a stylesheet. Adding this critical CSS font stylesheet inline cuts out an additional request. However, to be safe I've added it to the end of my style.css file.
 
 ### Media
 
@@ -367,4 +371,4 @@ $ git clone https://github.com/avabellaw/shark-quiz
 * All topbar icons were downloaded from Font Awesome.
 * [Tick icon from Flaticon, created by Octopocto](https://www.flaticon.com/free-icons/tick)
     * I changed the colour of this image.
-* [Red cross icon from Flaticon created by Pixel perfect](https://www.flaticon.com/free-icons/close)
+* [Red cross icon from Flaticon created by Pixel Perfect](https://www.flaticon.com/free-icons/close)
