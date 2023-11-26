@@ -31,6 +31,8 @@ let quiz = {
         this.userAnswers.push(parseInt(answerId));
         this.questionAnswered = true;
         $("#next-button").removeClass("grey-out");
+
+        setProgressIndicator();
         return answerId == this.questions[this.questionIndex].answer;
     }
 };
@@ -248,9 +250,6 @@ function clickNextButton() {
         swapGameArea(gameAreaScreen.endGame);
         return;
     }
-
-    
-    setProgressIndicator();
 
     // Show next question
     showQuestion(quiz.nextQuestion());
