@@ -27,7 +27,7 @@ The site owner's goal aligns with the site user's goal which are the following:
 In future, the site owner may want to:
 1. Utilise the website's traffic to gain ad revenue.
 2. Have the leaderboard be publically hosted.
-3. Have an account, such as a Google account, associated with the username. To prevent overwriting other people's scores by using the same username.
+3. Have an account, such as a Google account, associated with the username to make it exclusive. This will prevent overwriting other user's scores by using the same username.
 
 ### User Stories
 
@@ -182,6 +182,10 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
 ### Testing User Stories From The User Experience Section
 
 ### Automatic Testing (unit tests)
+
+Automated testing helps create robust code that stays robust and helps you understand the code your writing before you write it. 
+Automated tests can also help with bug fixing unrelated problems. They give you confidence that the code is getting the desired result, in the intended way.
+If you are updating and implementing new features frequently, automated tests significantly reduce the risk of accidentally intriducing new bugs. If a bug has been fixed before, and a test implemented afterwards, it's unlikely that bug will reappear in the same way.
 
 I had to setup Jest to work with JQuery by importing it. I found this [StackOverflow post](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file) explaining how.
 1. Add the following to the package.json file:
