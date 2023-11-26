@@ -183,17 +183,32 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
 
 1. **As a first-time user, I want to be able to start the game quickly and with ease.**
 
-![Homepage screenshot](docs/testing-user-stories/homepage.webp)
+    ![ Homepage screenshot](docs/testing-user-stories/homepage.webp)
 
-The homepage allows you to start the quiz with the click of a button. If you want to add your score to the leaderboard, you can input your username and submit it later.
+    The homepage allows you to start the quiz with the click of a button. If you want to add your score to the leaderboard, you can input your username and submit it later.
 
 2. **As a first-time user, I want feedback after answering each question.**
 
-![Feedback after question answered](docs/testing-user-stories/question-feedback.webp)
+    ![Feedback after question answered](docs/testing-user-stories/question-feedback.webp)
 
-As shown by the above screenshot, the user recieves more information after answering a question. It also displays after answering incorrectly.
+    As shown by the above screenshot, the user recieves more information after answering a question. It also displays after answering incorrectly.
 
-![Feedback after question answered incorrectly](docs/testing-user-stories/question-incorrect-feedback.webp)
+    ![Feedback after question answered incorrectly](docs/testing-user-stories/question-incorrect-feedback.webp)
+
+3. **As a first-time user, I want to see what score I achieve.**
+
+    ![End game score](docs/testing-user-stories/end-game-screenshot.webp)
+
+    After completing the quiz, your score is displayed along with how many answers you got correct out of the total questions asked.
+
+4. **As a recurring user, I want to compete against previous scores.**
+
+    ![Leaderboard screenshot](docs/testing-user-stories/leaderboard-screenshot.webp)
+
+    From the homepage, you can click the leaderboard to view previous high scores. It's also displayed at the end of the quiz after you submit your score.
+
+
+
 
 ### Automatic Testing (unit tests)
 
