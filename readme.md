@@ -181,6 +181,20 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
 
 ### Testing User Stories From The User Experience Section
 
+1. **As a first-time user, I want to be able to start the game quickly and with ease.**
+
+![Homepage screenshot](docs/testing-user-stories/homepage.webp)
+
+The homepage allows you to start the quiz with the click of a button. If you want to add your score to the leaderboard, you can input your username and submit it later.
+
+2. **As a first-time user, I want feedback after answering each question.**
+
+![Feedback after question answered](docs/testing-user-stories/question-feedback.webp)
+
+As shown by the above screenshot, the user recieves more information after answering a question. It also displays after answering incorrectly.
+
+![Feedback after question answered incorrectly](docs/testing-user-stories/question-incorrect-feedback.webp)
+
 ### Automatic Testing (unit tests)
 
 Automated testing helps create robust code that stays robust and helps you understand the code your writing before you write it. 
