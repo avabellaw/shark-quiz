@@ -155,6 +155,9 @@ function addEventListeners() {
                 case gameAreaScreen.submitScore:
                     submitScoreToLeaderboard();
                     break;
+                case gameAreaScreen.endGame:
+                    $("#add-to-leaderboard").trigger("click");
+                    break;
             }
         }
     });
