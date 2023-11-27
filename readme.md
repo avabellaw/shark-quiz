@@ -76,6 +76,8 @@ Below this, there will be three answers for the user to choose from.
 
 Once the quiz has ended, the user's score will be displayed.
 
+You will be able to use the enter button in place of mouse clicks for the majority of actions.
+
 ### Skeleton Plane
 
 I have created my wireframe in Figma. To see the comments I've made, you will need to view the wireframe logged into an account such as a Google account.
@@ -84,7 +86,9 @@ You can find my [Figma wireframe design here](https://www.figma.com/file/oSBxvFv
 
 ### Surface Plane
 
-I decided to use the fonts
+I decided to use the fonts "Jolly Lodger" and "Itim". They are playful fonts that fit the aesthetic and are ideal for younger audiences.
+
+I added the @font-faces from Google's API to the end of my CSS.
 
 As sharks are creatures of the sea, I will be using a colour theme consisting primarily of blue.
 I will also use an image or gif for the background of the webpage.
