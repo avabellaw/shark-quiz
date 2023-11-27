@@ -23,6 +23,7 @@ let quiz = {
         $(".answer-box_desc").attr("data-visible", "false");
         $("#next-button").addClass("grey-out");
         this.questionAnswered = false;
+        setTimerBarColour(0, 117, 223); // Reset to initial colour
         timer.resetTimer(timerTick);
 
         return questions[++this.questionIndex];
@@ -175,7 +176,7 @@ function addEventListeners() {
         } else {
             // Add points to the score and display the updated score
             let score = quiz.score += timer.timer + 10;
-            document.getElementById("points").innerText = score;
+            $("#points").text(score);
         }
 
         timer.stopTimer();
@@ -298,7 +299,7 @@ function timerTick(timeLeft) {
         let green = 117 - 100 + timeLeft * (100 / timer.max);
         let blue = 223 - 180 + (timeLeft * (180 / timer.max));
 
-        $("#timer > div").css("background-color", `rgb(${red}, ${green}, ${blue})`);
+        setTimerBarColour(red, green, blue);
     }
 
     if (timeLeft === 0) {
@@ -317,6 +318,16 @@ function timerTick(timeLeft) {
             showCorrectAnswer();
         }, 500);
     }
+}
+
+/**
+ * Sets the colour of the timer progress bar to the RGB values passed to it.
+ * @param {integer} red 
+ * @param {integer} green 
+ * @param {integer} blue 
+ */
+function setTimerBarColour(red, green, blue){
+    $("#timer > div").css("background-color", `rgb(${red}, ${green}, ${blue})`);
 }
 
 /**

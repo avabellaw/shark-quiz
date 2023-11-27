@@ -260,7 +260,8 @@ Here you can see all my tests and that they've passed:
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
     ```
     https://stackoverflow.com/questions/35037482/favicon-with-github-pages
-
+* I found that when the timer was reset, it would fill back up in whatever colour it was when the timer stopped before changing back to blue.
+    * This was quite noticeable when it was red, from answering late or running out of time. To solve this, the timer bar colour is reset before resetting the timer, within quiz.nextQuestion(). 
 
 ### Further Testing
 
