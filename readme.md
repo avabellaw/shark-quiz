@@ -17,7 +17,7 @@ I will be creating an online quiz on shark facts. My target audience will be any
 The questions will be in a randomized order and only 50% of the questions will be shown at a time. 
 The answers for each question will also have a randomized order.
 
-There will be a timer counting down from 20. If an answer is correct, 10 points + the time left will be added to the score.
+There will be a timer counting down from 15. If an answer is correct, 10 points + the time left will be added to the score.
 
 The site owner's goal aligns with the site user's goal which are the following:
 1. To enjoy testing their knowledge of sharks.

@@ -2,7 +2,7 @@ let decreaseTimer;
 
 let timer = {
     // Timer starts on this number
-    max: 20,
+    max: 15,
     // Holds the current time left on the timer
     timer: 0,
     resetTimer: function (callFunction) {

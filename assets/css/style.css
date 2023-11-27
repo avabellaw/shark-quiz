@@ -12,6 +12,7 @@ body {
 
 h2 {
     margin-top: 0;
+    font-size: 1.6em;
 }
 
 @media screen and (max-aspect-ratio: 955/707) {
@@ -223,7 +224,7 @@ input#username {
 }
 
 input[type="button"] {
-    padding: 0.3rem 2.5rem;
+    width: 100%;
     font-size: 1em;
     border: 0px;
     cursor: pointer;
@@ -239,7 +240,6 @@ input[type="button"]:hover {
 
 input#start-quiz {
     margin-top: 2rem;
-    width: 100%;
     max-width: 12em;
 }
 
