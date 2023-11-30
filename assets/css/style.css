@@ -99,7 +99,6 @@ input {
 /* Game area */
 .game-area {
     min-height: 65vh;
-    background-color: #001b3bf9;
     color: white;
     
     display: flex;
@@ -254,7 +253,9 @@ input#start-quiz {
     display: flex;
     flex-direction: column;
 
-    box-shadow: #001b3bf5 0 0 1rem 1rem;
+    --background-colour:#001b3bf9;
+    box-shadow: var(--background-colour) 0 0 1rem 1rem;
+    background-color: var(--background-colour);
 }
 
 #question-box {
@@ -445,6 +446,41 @@ input#start-quiz {
 }
 
 /* End of End-screen */
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+
+    color: white;
+    font-weight: 400;
+    font-size: 0.7em;
+}
+
+footer > p {
+    margin: 0;
+    margin-right: auto;
+}
+
+.footer_link {
+    display: flex;
+}
+
+.footer_link > img {
+    filter: invert(1);
+    margin-left: 1.5em;
+}
+
+.footer_link > img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* End of Footer */
 
 /* Display message if JavaScript isn't enabled */
 noscript {
