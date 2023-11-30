@@ -46,6 +46,16 @@ Most people who visit the website are likely to be one-time users, searching for
 
 You can find the research I conducted for this project [by clicking this link](docs/research/research.md).
 
+#### Asynchronisity
+
+Shark-quiz is to be a largely event-driven quiz. The only loop will be an asynchronous timer that doesn't share any variables with other functions. The timer will follow the following process:
+1. Wait for one second.
+2. Decrement the timer variable.
+3. Call a function to respond to the value of the timer. 
+
+Every action is performed by the timer, therefore I will avoid any timing problems caused by variables that are shared with asynchronous functions. For example, trying to access the result of an asynchronous function after calling it but it's not been run yet.
+
+
 ### Scope Plane
 
 Features to include:
