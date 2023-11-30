@@ -340,7 +340,9 @@ By copying this and adding it to the HTML inline, you avoid an additional reques
 
 * I had to add an if statement to stop nextButtonTooltip.show(); from being run in Jest. I did this because the function is unavailable in the test environment and I'm unable to figure out why.
 * GIF is an inefficient format for for animation - a performance issue.
-    * This can be resolved by using a webm or mp4 format, however, it would take some redesigning and I like how it turned out. It struggles more on larger devices than on smaller devices.
+    * This can be resolved by using a webm or mp4 format, however, it would take some redesigning and I wouldn't be able to use the background-repeat property. 
+    * I could use JS to replicate the same affect I have now. This would come with a performance hit itself and didn't work well enough when I attempted it.
+    * It struggles more on larger devices than on smaller devices which atleast aligns with a mobile-first approach.
 
 ### Deployment
 
