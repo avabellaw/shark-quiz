@@ -265,6 +265,9 @@ Here you can see all my tests and that they've passed:
 
 ### Manual Testing
 
+Manual testing can find bugs or UX flaws before the website goes live. Manually testing helps you find problems that you may not have predicted and is the best way to guarantee a good user experience. There are some tests that a computer simply can't perform.
+By completing the tests as an end user might, many issues can be discovered and corrected before going live.
+
 * I clicked through all the topbar icons in different orders.
 * I went through every question and answered them repeatedly.
 * I counted how many progress-indicator_circles there were to see if it matched numberOfQuestions.
