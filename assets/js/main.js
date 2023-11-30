@@ -87,7 +87,10 @@ function init() {
     // Reduce number of questions to the value of numberOfQuestions
     quiz.questions.splice(0, quiz.questions.length - numberOfQuestions);
 
-    // First progress-indicator_circle already exists
+    /*
+        Create the progress-indicator circles.
+        The first progress-indicator_circle already exists.
+    */
     for (let i = 1; i < numberOfQuestions; i++) {
         $("#progress-indicator").append("<div class='progress-indicator_circle'></div>");
     }
@@ -97,6 +100,9 @@ function init() {
     randomiseAnswerPositions();
 }
 
+/**
+ * Add the event listeners to all the appropriate elements
+ */
 function addEventListeners() {
     // Start Quiz button
     $("#start-quiz").on("click", () => {
@@ -186,7 +192,7 @@ function addEventListeners() {
 }
 
 /**
- * Validates the username and applies appropriate classes if validation failed
+ * Validates the username and applies appropriate validation classes if validation failed
  * @returns Whether validation passed or not
  */
 function validateUsername() {
@@ -209,6 +215,7 @@ function validateUsername() {
         passedValidation = false;
     }
 
+    // Add or remove .validation-error and .grey-out class
     if (!passedValidation) {
         $("#username").addClass("validation-error");
         $("#submit-score_button").addClass("grey-out");
@@ -240,8 +247,8 @@ function clickNextButton() {
     // If question not answered, show tooltip
     if (!quiz.questionAnswered) {
         /*
-            process is defined by Jest [https://github.com/atomiks/tippyjs-react/issues/252]
-            Stops code from running in Jest as the .show() function isn't available
+            "process" is defined by Jest [https://github.com/atomiks/tippyjs-react/issues/252].
+            This stops code from running in Jest as the .show() function isn't available.
         */
         if (typeof process === "undefined") {
             nextButtonTooltip.show();
@@ -287,7 +294,8 @@ function displayTopBar(gameArea) {
 }
 
 /**
- * Used as a callback funcion, called by the timer, and updates the progress bar when called
+ * Passed to timer as a callback function.
+ * Updates the progress bar when called.
  * @param timeLeft The time left on the Timer is passed through as this argument
  */
 function timerTick(timeLeft) {
@@ -308,12 +316,13 @@ function timerTick(timeLeft) {
             // -1 indicates that the timer ran out
             quiz.answerQuestion(-1);
 
-            // $("class").each() wasn't working therfore I found a different way [https://stackoverflow.com/questions/4735342/jquery-to-loop-through-elements-with-the-same-class]
+            // $("class").each() wasn't working, therefore, I found a different way [https://stackoverflow.com/questions/4735342/jquery-to-loop-through-elements-with-the-same-class]
             $.each($(".answer-box"), function (i, box) {
-                // This will loop through every .answer-box and apply the appropriate class
+                // This will loop through every .answer-box and apply the .incorrect-answer class when appropriate
                 if (i !== quiz.getQuestion().answer)
                     $(box).addClass("incorrect-answer");
             });
+
             // Show the correct answer after displaying the incorrect ones
             showCorrectAnswer();
         }, 500);
@@ -331,7 +340,7 @@ function setTimerBarColour(red, green, blue){
 }
 
 /**
- * Applies .correct-answer to the correct option and .grey-out to the rest.
+ * Applies .correct-answer to the correct answer box and .grey-out to the rest.
  * Makes the correct answer's description appear.
  */
 function showCorrectAnswer() {
@@ -428,8 +437,8 @@ function swapGameArea(gameArea) {
 }
 
 /**
- * Adds the user scores to the leaderboard.
- * @param userScores An array of objects containing each username and score to be displayed.
+ * Adds the user scores to the leaderboard
+ * @param userScores An array of objects containing each username and score to be displayed
  */
 function addScoresToLeaderboard(userScores) {
     let alreadyDisplayedScores = $("#leaderboard_table tbody").children();
@@ -461,8 +470,8 @@ function addScoresToLeaderboard(userScores) {
 }
 
 /**
- * Function to to determine number of correct answers
- * Used as function for .reduce() on userAnswers array
+ * Function to to determine number of correct answers.
+ * Used as function for .reduce() on userAnswers array.
  * @returns Number of correct answers.
  */
 function scoreReducer(acc, currentValue, i) {
@@ -474,7 +483,7 @@ function scoreReducer(acc, currentValue, i) {
 }
 
 /**
- * Display question and answer options.
+ * Display question and answer options
  * @param questionSet The question from quiz.questions
  */
 function showQuestion(questionSet) {
@@ -503,6 +512,9 @@ function showQuestion(questionSet) {
     timer.startTimer(timerTick);
 }
 
+/**
+ * Sets the progress indicator displayed at the bottom of the quiz screen
+ */
 function setProgressIndicator() {
     console.log(quiz.userAnswers[quiz.questionIndex]);
     if (quiz.userAnswers[quiz.questionIndex] === quiz.getQuestion().answer) {
@@ -514,6 +526,9 @@ function setProgressIndicator() {
     }
 }
 
+/**
+ * @returns The current game area
+ */
 function getCurrentGameArea() {
     return currentGameArea;
 }
