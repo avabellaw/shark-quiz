@@ -73,7 +73,7 @@ Features to include in future:
 
 ### Structure Plane
 
-The majority of the quiz will feel like an application as it resides largely on only one page.
+The majority of the quiz will feel like an application as it resides on only one web page.
 
 There will be a homepage with the following:
 * An option to view the leaderboard.
@@ -87,6 +87,11 @@ Below this, there will be three answers for the user to choose from.
 Once the quiz has ended, the user's score will be displayed.
 
 You will be able to use the enter button in place of mouse clicks for the majority of actions.
+
+#### Assets
+
+Images including GIFs will reside in the images folder. 
+Anything classed as an icon will go under the "icons" folder. This will include .svg and .webp files. 
 
 ### Skeleton Plane
 
@@ -272,6 +277,29 @@ Here you can see all my tests and that they've passed:
     https://stackoverflow.com/questions/35037482/favicon-with-github-pages
 * I found that when the timer was reset, it would fill back up in whatever colour it was when the timer stopped before changing back to blue.
     * This was quite noticeable when it was red, from answering late or running out of time. To solve this, the timer bar colour is reset before resetting the timer, within quiz.nextQuestion(). 
+* I tested that the progress indicater and the answer boxes are updated correctly after the time runs out. I also tested that the enter button works in place of clicking the next question button and that it still prevents you from moving on before answering.
+
+    ![Time ran out](docs/manual-testing/timer-run-out.webp)
+
+* I tested that answering correctly:
+    1. Updates the score.
+    2. Highlights the correct answer in green and display the description.
+    3. Updates the progress indicator.
+
+    ![Correct answer](docs/manual-testing/correct-answer.webp)
+
+* I tested that the end game is displayed after all questions answered. I confirmed that the score and number of correct questions was correct aswell as the total questions asked.
+
+    ![End game displaying score](docs/manual-testing/end-game.webp)
+* I tested that the "add to leaderboard" button worked and that the validation on this page also worked (image size bigger for readability).
+
+    ![Enter username validation](docs/manual-testing/validation.webp)
+* I tested that the score was added to the leaderboard correctly and then displayed with only the home icon visible on the topbar.
+
+    ![Leaderboard after end game](docs/manual-testing/leaderboard.webp)
+* I tested that you could still get back to the homepage after switching between "leaderboard" and "instructions".
+
+    ![Switching between "leaderboard" and "instructions"](docs/manual-testing/switching-leaderboard-to-instructions.gif)
 
 ### Further Testing
 
