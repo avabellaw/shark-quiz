@@ -2,6 +2,7 @@
  * @jest-environment jsdom
 */
 
+// Import dependencies using require()
 global.$ = require("jquery");
 global.questions = require("../questions");
 global.timer = require("../timer");
