@@ -380,6 +380,13 @@ function swapGameArea(gameArea) {
         prevGameArea = gameAreaScreen.home;
     }
 
+    // Display footer only on homepage and when score is displayed
+    if(gameArea === gameAreaScreen.home || gameArea === gameAreaScreen.endGame){
+        $("#footer").attr("data-visible", true);
+    } else {
+        $("#footer").attr("data-visible", false);
+    }
+
     switch (gameArea) {
         case gameAreaScreen.quiz:
             displayTopBar(gameAreaScreen.quiz);
