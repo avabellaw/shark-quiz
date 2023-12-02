@@ -449,7 +449,8 @@ input#start-quiz {
 
 /* Footer */
 
-footer {
+#page-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -460,21 +461,25 @@ footer {
     font-size: 0.7em;
 }
 
-#footer > p {
+#page-footer > p {
     margin: 0;
     margin-right: auto;
 }
 
 .footer_link {
     display: flex;
+    padding: 7px;
+}
+
+.footer_link:first-of-type {
+    margin-right: 0.6em;
 }
 
 .footer_link > img {
     filter: invert(1);
-    margin-left: 1.5em;
 }
 
-.footer_link > img:hover {
+.footer_link:hover {
     transform: scale(1.2);
     cursor: pointer;
     transition: transform 0.2s ease;

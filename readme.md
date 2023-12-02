@@ -303,6 +303,7 @@ By completing the tests as an end user might, many issues can be discovered and 
 * I tested that you could still get back to the homepage after switching between "leaderboard" and "instructions".
 
     ![Switching between "leaderboard" and "instructions"](docs/manual-testing/switching-leaderboard-to-instructions.gif)
+* The addition of a footer, on the homepage and end game screen, made the .game-area look disproportionately sized and uncentered. To fix this, I added a transparent border to seperate the game-area from the footer.
 
 ### Further Testing
 
