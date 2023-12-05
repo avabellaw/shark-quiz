@@ -539,5 +539,5 @@ function getCurrentGameArea() {
     I got it from a stackoverflow post [https://stackoverflow.com/questions/52506163/unit-testing-with-jest-without-module-exports]
 */
 if (typeof exports !== "undefined") {
-    module.exports = questions;
+    module.exports = { init, quiz, getCurrentGameArea, swapGameArea };;
 }
