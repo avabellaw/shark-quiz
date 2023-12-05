@@ -12,22 +12,12 @@ This project demonstrates my ability to use JavaScript, JQuery and external APIs
 
 ### Project Goals
 
-I will be creating an online quiz on shark facts. My target audience will be anyone who loves sharks (such as my partner). This will likely include all ages particularly younger audiences.
+I will be creating an online quiz on shark facts. My target audience will be anyone who loves sharks (such as my partner). This will likely include all ages, but particularly younger audiences.
 
 The questions will be in a randomized order and only 50% of the questions will be shown at a time. 
 The answers for each question will also have a randomized order.
 
 There will be a timer counting down from 15. If an answer is correct, 10 points + the time left will be added to the score.
-
-The site owner's goal aligns with the site user's goal which are the following:
-1. To enjoy testing their knowledge of sharks.
-2. Learn more about sharks.
-3. See previous high scores.
-
-In future, the site owner may want to:
-1. Utilise the website's traffic to gain ad revenue.
-2. Have the leaderboard be publically hosted.
-3. Have an account, such as a Google account, associated with the username to make it exclusive. This will prevent overwriting other user's scores by using the same username.
 
 ### User Stories
 
@@ -42,6 +32,21 @@ In future, the site owner may want to:
 
 Most people who visit the website are likely to be one-time users, searching for a quick quiz to play. The website needs to be intuitive to use and quick to get started.
 
+The site owner's goal aligns with the site user's goal which are the following:
+1. To enjoy testing their knowledge of sharks.
+2. Learn more about sharks.
+3. See previous high scores.
+
+These goals are delivered by:
+1. Being fun, stress-free and easy-to-play with plently of user feedback.
+2. Having full facts revealed after each question is finished with.
+3. The user can access the leaderboard on the homepage. It's also revealed after submitting a new score to it.
+
+In future, the site owner may want to:
+1. Utilise the website's traffic to gain ad revenue.
+2. Have the leaderboard be publically hosted.
+3. Have an account, such as a Google account, associated with the username to make it exclusive. This will prevent overwriting other user's scores by using the same username.
+
 #### Research
 
 You can find the research I conducted for this project [by clicking this link](docs/research/research.md).
@@ -54,7 +59,6 @@ Shark-quiz is to be a largely event-driven quiz. The only loop will be an asynch
 3. Call a function to respond to the value of the timer. 
 
 Every action is performed by the timer, therefore I will avoid any timing problems caused by variables that are shared with asynchronous functions. For example, trying to access the result of an asynchronous function after calling it but it's not been run yet.
-
 
 ### Scope Plane
 
@@ -78,8 +82,8 @@ The majority of the quiz will feel like an application as it resides on only one
 There will be a homepage with the following:
 * An option to view the leaderboard.
 * An option to view the instructions.
-* A box to input a username before starting the quiz.
-* A 'Start Quiz' button that works after the username is inputted.
+* The title "Facts From The Deep".
+* A 'Start Quiz' button.
 
 Once the game has started, there will be a question with a 'next question' icon to the right of it. 
 Below this, there will be three answers for the user to choose from. 
@@ -91,6 +95,7 @@ You will be able to use the enter button in place of mouse clicks for the majori
 #### Assets
 
 Images including GIFs will reside in the images folder. 
+
 Anything classed as an icon will go under the "icons" folder. This will include .svg and .webp files. 
 
 ### Skeleton Plane
@@ -99,9 +104,12 @@ I have created my wireframe in Figma. To see the comments I've made, you will ne
 
 You can find my [Figma wireframe design here](https://www.figma.com/file/oSBxvFvlEHhYofP2wkHW3p/Facts-From-The-Deep). 
 
+There are 3 pages.
+
 ### Surface Plane
 
 I decided to use the fonts "Jolly Lodger" and "Itim". They are playful fonts that fit the aesthetic and are ideal for younger audiences.
+"Jolly Lodger" is perfect for any title text, such as on the homepage, and "itim" is used for everything else.
 
 I added the @font-faces from Google's API to the end of my CSS.
 
@@ -137,7 +145,7 @@ I will also use an image or gif for the background of the webpage.
     * Used to store commits and to present the project using GitHub pages.
 * Visual Studio Code
     * Used as the IDE for the project.
-    * I set a shortcut for Visual Code to format HTML/CSS (ctrl+shift+f).
+    * I set a shortcut for Visual Code to format HTML/CSS/JS (ctrl+shift+f).
 * Python - http.server
     * To host the website locally during development to allow me to view the website.
 * Paint.NET
@@ -228,37 +236,39 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
 
 ### Automatic Testing (unit tests)
 
-Automated testing helps create robust code that stays robust and helps you understand the code you're writing before you write it. 
-Automated tests can also help with bug-fixing unrelated problems. They give you confidence that the code is getting the desired result, in the intended way.
+Automated testing helps create robust code and helps you understand the code you're writing before you write it. 
+Automated tests can also help with bug-fixing unrelated problems. They give you confidence that the tested code is getting the desired result, in the intended way.
 If you are updating and implementing new features frequently, automated tests significantly reduce the risk of accidentally introducing new bugs. If a bug has been fixed before, and a test implemented afterwards, it's unlikely that bug will reappear in the same way.
 
-I had to set up Jest to work with JQuery by importing it. I found this [StackOverflow post](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file) explaining how.
-1. Add the following to the package.json file:
+I had to set up Jest to work with JQuery by importing it. 
+I found this [StackOverflow post](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file) explaining how. The set-up-jest.js file suggested in this post isn't actually needed. To add JQuery, all that is needed is one line at the top of the Jest test file:
+
 ```
-"jest": {
-    "setupFiles": [
-      "./setup-jest.js"
-    ]
-  },
-```
-2. Create a file with the same name referenced above containing:
-```
-global.window = window
 global.$ = require('jquery');
+```
+
+I added in further dependencies later:
+
+```
+global.questions = require("../questions");
+global.timer = require("../timer");
+global.popper = require("@popperjs/core");
+global.tippy = require("tippy.js").default;
 ```
 
 My first two tests were:
 1. To test that all .game-areas have been hidden by JQuery
 2. To test that the #home .game-area is revealed when showHomeScreen() is called
 
-I discovered that elements wouldn't be hidden fast enough meaning all the game-areas would be shown for a second while JQuery loaded. I decided to use the data attribute "data-visible" instead of using JQuery to hide the elements. Therefore, I removed these first tests.
+I discovered that elements wouldn't be hidden fast enough meaning all the game-areas would be shown for a second while JQuery loaded. I decided to use the data attribute "data-visible" instead of using JQuery to hide the elements. Therefore, I later removed these tests.
 
 For the rest of the tests, I followed the red, green, refactor approach.
 
-I spent a lot of time trying to debug why the questions variable from questions.js was an empty array. It turned out that I needed to use "module.exports = questions" instead of "module.exports = {questions}". This fixed my bug in Jest.
+I spent a lot of time trying to debug why the questions variable from questions.js was an empty array. I found the solution to be that I needed to use "module.exports = questions" instead of "module.exports = {questions}". 
 
-Event listeners don't work in jest unless they're added after the page is loaded. I fixed this by moving the event listeners over to init();. At first, I thought it had to do with JQuery and therefore I tried adding the event listeners using vanilla js. This gave an error through Jest saying that the element doesn't exist yet. This prompted me to move the code into the "init()" function which worked. I then tried switching back to using JQuery and this worked bringing me to the conclusion I just had to move the code into init().
-Had I followed the red, green refractor approach earlier I would have noticed this sooner as the timeout I was using was making the test pass no matter what. 
+Event listeners don't work in Jest unless they're added after the page is loaded. I fixed this by moving the event listeners over to init(). 
+At first, I thought it had to do with JQuery and therefore I tried adding the event listeners using vanilla js. This gave an error through Jest saying that the element doesn't exist yet which is what prompted me to move the code into the "init()" function. When I switched back to using JQuery, this worked.
+Had I followed the red-green-refractor approach earlier, I would have noticed this sooner as the timeout I was using was making the test always pass. 
 
 Here you can see all my tests and that they've passed:
 ![Jest passing tests](docs/jest-test-results.webp)
@@ -304,6 +314,8 @@ By completing the tests as an end user might, many issues can be discovered and 
 
     ![Switching between "leaderboard" and "instructions"](docs/manual-testing/switching-leaderboard-to-instructions.gif)
 * The addition of a footer, on the homepage and end game screen, made the .game-area look disproportionately sized and uncentered. To fix this, I added a transparent border to seperate the game-area from the footer.
+    ![Before adding the footer](docs/manual-testing/before-adding-footer-border.webp)
+    ![After adding the footer](docs/manual-testing/after-adding-footer-border.webp)
 
 ### Further Testing
 
@@ -344,6 +356,7 @@ By copying this and adding it to the HTML inline, you avoid an additional reques
     * This can be resolved by using a webm or mp4 format, however, it would take some redesigning and I wouldn't be able to use the background-repeat property. 
     * I could use JS to replicate the same affect I have now. This would come with a performance hit itself and didn't work well enough when I attempted it.
     * It struggles more on larger devices than on smaller devices which atleast aligns with a mobile-first approach.
+* Sometimes there are some pixels missing before the box shadow around the .game-area. This appears occasionally after resizing the window.
 
 ### Deployment
 

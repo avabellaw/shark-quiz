@@ -31,7 +31,7 @@ It automatically scrolls the user to the next question.
 
 **What I dislike**
 
-I think they could've size the questions/answers better by keeping them within the height of the viewport.
+I think they could've sized the questions/answers better by keeping them within the height of the viewport.
 
 ## National Geographic Kids - Quiz Wiz
 
