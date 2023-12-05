@@ -109,6 +109,7 @@ There are 3 pages.
 ### Surface Plane
 
 I decided to use the fonts "Jolly Lodger" and "Itim". They are playful fonts that fit the aesthetic and are ideal for younger audiences.
+
 "Jolly Lodger" is perfect for any title text, such as on the homepage, and "itim" is used for everything else.
 
 I added the @font-faces from Google's API to the end of my CSS.
@@ -169,7 +170,7 @@ I will also use an image or gif for the background of the webpage.
 
 ## Testing
 
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page as I went to ensure unexpected errors were kept to a minimum. I used these validators at the end to ensure there were no validation errors upon project submission.
+The W3C Markup Validator and W3C CSS Validator Services were used to validate the HTML and CSS as I developed the project ensuring unexpected errors were kept to a minimum. I also used them again before submitting.
 
 ### [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
 
@@ -190,15 +191,15 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
     * I reordered some variables/functions into alphabetical order but kept how I grouped most of them.
     * Shortened some comments.
     * Added an escape character ("\") before "^" in the variable "specialChars" that is used to validate the username field.
-    * Remove an unnecessary semi-colon and a trailing space.
+    * Removed an unnecessary semi-colon and a trailing space.
     * The undefined variables are defined later or in different JavaScript files.
     * I tested the code in JS**L**int first but it didn't like that I used a for loop with a variable in it.
         ![JSLint warning](docs/validation/js/jslint-results.webp)
         
-        Even after selecting the option to ignore for loop warning, JSLint doesn't like it if you don't declare variables at the top of the function. This code is functional as is and I believe using this for loop works well for its intended purpose.
+        Even after selecting the option to ignore the for loop warning, JSLint doesn't like it if you don't declare variables at the top of the function. This code is functional as is and I believe using this for loop works well for its intended purpose.
 * [questions.js results](docs/validation/js/questions-jshint-results.webp)
     * I received no warnings of actual concern.
-    * JSHint pointed out that "module" is undefined but that's okay because it's used for jest. 
+    * JSHint pointed out that "module" is undefined but that's okay because it's used for Jest. 
     * JSLint doesn't like that the if statement for "module.exports" contains "exports" that isn't defined. Again this is okay as it's used for Jest. It is an if statement to check if typeof exports is defined.
 * [timer.js results](docs/validation/js/timer-jshint-results.webp)
     * I had to add a semi-colon to the timer object initialisation.
@@ -210,7 +211,7 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
 
 1. **As a first-time user, I want to be able to start the game quickly and with ease.**
 
-    ![ Homepage screenshot](docs/testing-user-stories/homepage.webp)
+    ![Homepage screenshot](docs/testing-user-stories/homepage.webp)
 
     The homepage allows you to start the quiz with the click of a button. If you want to add your score to the leaderboard, you can input your username and submit it later.
 
@@ -368,7 +369,6 @@ For desktop:
 * GIF is an inefficient format for for animation - a performance issue.
     * This can be resolved by using a webm or mp4 format, however, it would take some redesigning and I wouldn't be able to use the background-repeat property. 
     * I could use JS to replicate the same affect I have now. This would come with a performance hit itself and didn't work well enough when I attempted it.
-    * It struggles more on larger devices than on smaller devices which atleast aligns with a mobile-first approach.
 * Sometimes there are some pixels missing before the box shadow around the .game-area. This appears occasionally after resizing the window.
 
 ### Deployment
@@ -433,7 +433,7 @@ $ git clone https://github.com/avabellaw/shark-quiz
 * I found out how to use jest with JQuery from [StackOverflow](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file)
 * How to use cookies from [developer.mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
 * Speed up Google Fonts by [inlining the styleheet](https://johnfraney.ca/blog/improve-page-speed-google-fonts/)
-    * If you open the Google Fonts link tag src, you will load a stylesheet. Adding this critical CSS font stylesheet inline cuts out an additional request. However, to be safe I've added it to the end of my style.css file.
+    * If you open the Google Fonts link tag src, you will load a stylesheet. Adding this critical CSS font stylesheet inline cuts out an additional request. However, to be safe for this project, I've added it to the end of my style.css file.
 
 ### Media
 
@@ -445,7 +445,7 @@ $ git clone https://github.com/avabellaw/shark-quiz
 * [next-button icon](https://www.pngfind.com/mpng/boJwxo_left-arrow-comments-instagram-plus-icon-png-transparent/)
     * I edited and resized the image.
 * favicon created by me in paint.NET
-* All topbar icons were downloaded from Font Awesome.
+* All topbar icons were downloaded from [Font Awesome](https://fontawesome.com).
 * [Tick icon from Flaticon, created by Octopocto](https://www.flaticon.com/free-icons/tick)
     * I changed the colour of this image.
 * [Red cross icon from Flaticon created by Pixel Perfect](https://www.flaticon.com/free-icons/close)
