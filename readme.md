@@ -324,17 +324,19 @@ By completing the tests as an end user might, many issues can be discovered and 
 **gifs are inefficient for animated content**
 
 On mobile, it can take 12 seconds to load.
+
 ![Gifs are inefficient](docs/lighthouse/sea-bg-gif.webp)
 
 I tried converting the 2.86MiB gif into a WebM video using ezgif. This reduced the size to only 180.95KiB, a 93% decrease in file size!
+
 ![Converted gif on ezgif](docs/lighthouse/sea-bg-gif-to-webm.webp)
 
 I attempted to use JavaScript and clone the video to add to the sides. However, even without that code it took longer and resulted in more layout shifts that were a detriment to performance. I decided to compress the GIF file I was already using and stick with that.
 I reduced the file size by just over 50% but decided to increase the quality slightly as it didn't count against me by much for performance.
 
 The final gif takes 9s to load instead of 12s but still results in a high-performance mark.
-![Lighthouse report](docs/lighthouse/final-report.webp)
-![Lighthouse report metrics](docs/lighthouse/final-report-metrics.webp)
+![Lighthouse report](docs/lighthouse/gif-final-report.webp)
+![Lighthouse report metrics](docs/lighthouse/gif-final-report-metrics.webp)
 
 **Google Fonts**
 
@@ -348,6 +350,17 @@ If you click on the link that Google Fonts gives you, it connects to googleapis.
 By copying this and adding it to the HTML inline, you avoid an additional request. Google Fonts is a render-blocking resource that takes around 700ms. This significantly improves performance.
 
 ![Google Lighthouse report after optimising](docs/lighthouse/google-fonts-optimised.webp)
+
+**Final scores**
+
+For mobile:
+
+![Lighthouse report for mobile](docs/lighthouse/final-lighthouse-report-mobile.webp)
+
+For desktop:
+
+![Lighthouse report for desktop](docs/lighthouse/final-lighthouse-report-desktop.webp)
+
 
 ### Known Bugs
 
