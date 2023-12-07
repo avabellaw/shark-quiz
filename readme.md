@@ -199,7 +199,7 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
 * [questions.js results](docs/validation/js/questions-jshint-results.webp)
     * I received no warnings of actual concern.
     * JSHint pointed out that "module" is undefined but that's okay because it's used for Jest. 
-    * JSLint doesn't like that the if statement for "module.exports" contains "exports" that isn't defined. Again this is okay as it's used for Jest. It is an if statement to check if typeof exports is defined.
+    * JSLint doesn't like that the if statement for "module.exports" contains "exports" that isn't defined. Again this is okay as it's used for Jest. It is within an if statement to check whether typeof exports is defined.
 * [timer.js results](docs/validation/js/timer-jshint-results.webp)
     * I had to add a semi-colon to the timer object initialisation.
     * I have one warning because the validator is using ES6 and async is from ES8.
@@ -290,7 +290,7 @@ By completing the tests as an end user might, many issues can be discovered and 
     https://stackoverflow.com/questions/35037482/favicon-with-github-pages
 * I found that when the timer was reset, it would fill back up in whatever colour it was when the timer stopped before changing back to blue.
     * This was quite noticeable when it was red, from answering late or running out of time. To solve this, the timer bar colour is reset before resetting the timer, within quiz.nextQuestion(). 
-* I tested that the progress indicator and the answer boxes update correctly after the time runs out. I also tested that the enter button works in place of clicking the next question button and that it still prevents you from moving on before answering.
+* I tested that the enter button works in place of clicking the next question button and that it still prevents you from moving on before answering. I then let the timer run out to test that the progress indicator and the answer boxes updated correctly.
 
     ![Time ran out](docs/manual-testing/timer-run-out.webp)
 
@@ -310,10 +310,11 @@ By completing the tests as an end user might, many issues can be discovered and 
 * I tested that the score was added to the leaderboard correctly and then displayed with only the home icon visible on the topbar.
 
     ![Leaderboard after end game](docs/manual-testing/leaderboard.webp)
-* I tested that you could still get back to the homepage after switching between "leaderboard" and "instructions".
+* I tested that you could still get back to the homepage after switching between "leaderboard" and "instructions" (without having to click the home button).
 
     ![Switching between "leaderboard" and "instructions"](docs/manual-testing/switching-leaderboard-to-instructions.gif)
 * The addition of a footer, on the homepage and end game screen, made the .game-area look disproportionately sized and uncentered. To fix this, I added a transparent border to separate the game-area from the footer.
+
     ![Before adding the footer](docs/manual-testing/before-adding-footer-border.webp)
     ![After adding the footer](docs/manual-testing/after-adding-footer-border.webp)
 
