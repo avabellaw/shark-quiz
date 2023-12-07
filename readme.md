@@ -63,16 +63,15 @@ Every action is performed by the timer, therefore I will avoid any timing proble
 ### Scope Plane
 
 Features to include:
-* Home page - Showing all the options available to the user.
+* Home page - Showing all the options available to the user in the topbar.
 * A leaderboard to showcase previous scores saved in the user's cookies.
 * A way to view instructions on how to play.
-* A way to contact the developer.
-* The quiz with the option of 3 possible answers for each question.
+* The quiz with the option of 2-3 possible answers for each question.
 * A score that is incremented if you guess a question correctly.
 * A timer - any time left for that question is added to the score.
 
 Features to include in future:
-* A way to store scores globally.
+* A way to store scores publically.
 * An interface for the site owner to add new questions.
 
 ### Structure Plane
@@ -110,9 +109,9 @@ There are 3 pages.
 
 I decided to use the fonts "Jolly Lodger" and "Itim". They are playful fonts that fit the aesthetic and are ideal for younger audiences.
 
-"Jolly Lodger" is perfect for any title text, such as on the homepage, and "itim" is used for everything else.
+"Jolly Lodger" is perfect for any title text, such as on the homepage, and "Itim" is used for everything else.
 
-I added the @font-faces from Google's API to the end of my CSS.
+I downloaded the @font-faces from Google's API and added them to the end of my CSS.
 
 As sharks are creatures of the sea, I will be using a colour theme consisting primarily of blue.
 I will also use an image or gif for the background of the webpage.
@@ -170,7 +169,7 @@ I will also use an image or gif for the background of the webpage.
 
 ## Testing
 
-The W3C Markup Validator and W3C CSS Validator Services were used to validate the HTML and CSS as I developed the project ensuring unexpected errors were kept to a minimum. I also used them again before submitting the project.
+The W3C Markup Validator and W3C CSS Validator Services were used to validate the HTML and CSS as I developed the project ensuring unexpected errors were kept to a minimum. I validated the files again before submitting the project.
 
 ### [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
 
@@ -267,8 +266,8 @@ For the rest of the tests, I followed the red, green, refactor approach.
 
 I spent a lot of time trying to debug why the questions variable from questions.js was an empty array. I found the solution to be that I needed to use "module.exports = questions" instead of "module.exports = {questions}". 
 
-Event listeners don't work in Jest unless they're added after the page is loaded. I fixed this by moving the event listeners over to init(). 
-At first, I thought it had to do with JQuery and therefore I tried adding the event listeners using vanilla js. This gave an error through Jest saying that the element doesn't exist yet which is what prompted me to move the code into the "init()" function. When I switched back to using JQuery, this worked.
+Event listeners don't work in Jest unless they're added after the page is loaded. I fixed this by moving the event listeners over to init(). I should've done this originally anyway.
+At first, I thought the event listeners not working had to do with JQuery, thus I tried adding the event listeners using vanilla js. This gave an error through Jest saying that the element doesn't exist yet which is what prompted me to move the code into the "init()" function. When I switched back to using JQuery, this worked.
 Had I followed the red-green-refractor approach earlier, I would have noticed this sooner as the timeout I was using was making the test always pass. 
 
 Here you can see all my tests and that they've passed:
@@ -276,7 +275,7 @@ Here you can see all my tests and that they've passed:
 
 ### Manual Testing
 
-Manual testing can find bugs or UX flaws before the website goes live. Manually testing helps you find problems that you may not have predicted and is the best way to guarantee a good user experience. There are some tests that a computer simply can't perform.
+Manual testing can find bugs or UX flaws before the website goes live. Manually testing helps you find problems that you may not have predicted, and it is the best way to guarantee a good user experience. There are some tests that a computer simply can't perform.
 By completing the tests as an end user might, many issues can be discovered and corrected before going live.
 
 * I clicked through all the topbar icons in different orders.
@@ -332,7 +331,7 @@ I tried converting the 2.86MiB gif into a WebM video using ezgif. This reduced t
 
 ![Converted gif on ezgif](docs/lighthouse/sea-bg-gif-to-webm.webp)
 
-I attempted to use JavaScript and clone the video to add to the sides. However, even without that code it took longer and resulted in more layout shifts that were a detriment to performance. I decided to compress the GIF file I was already using and stick with that.
+I attempted to use JavaScript and clone the video to add to the sides. However, even without the code, to clone the sides, it took longer and resulted in more layout shifts that were a detriment to performance. I decided to compress the GIF file I was already using and stick with that.
 I reduced the file size by just over 50% but decided to increase the quality slightly as it didn't count against me by much for performance.
 
 The final gif takes 9s to load instead of 12s but still results in a high-performance mark.
@@ -444,8 +443,8 @@ $ git clone https://github.com/avabellaw/shark-quiz
     * It's not the highest resolution but I think it fits the look and feel of the website that I'm going for.
 * [next-button icon](https://www.pngfind.com/mpng/boJwxo_left-arrow-comments-instagram-plus-icon-png-transparent/)
     * I edited and resized the image.
-* favicon created by me in paint.NET
+* Favicon created by me in paint.NET
 * All topbar icons were downloaded from [Font Awesome](https://fontawesome.com).
 * [Tick icon from Flaticon, created by Octopocto](https://www.flaticon.com/free-icons/tick)
     * I changed the colour of this image.
-* [Red cross icon from Flaticon created by Pixel Perfect](https://www.flaticon.com/free-icons/close)
+* [Red cross icon from Flaticon, created by Pixel Perfect](https://www.flaticon.com/free-icons/close)
