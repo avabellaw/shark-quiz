@@ -3,7 +3,7 @@ body {
     background-size: contain;
 
     font-family: "Itim";
-    font-size: calc(0.8rem + 0.5vw + 0.5vh);
+    font-size: calc(0.8rem + 0.45vw + 0.45vh);
 
     display: flex;
     height: 100vh;
@@ -228,7 +228,7 @@ input#username {
 
 input[type="button"] {
     width: 100%;
-    font-size: 1.2em;
+    font-size: 1.1em;
     border: 0px;
     cursor: pointer;
 }
