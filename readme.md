@@ -38,8 +38,8 @@ The site owner's goal aligns with the site user's goal which are the following:
 3. See previous high scores.
 
 These goals are delivered by:
-1. Being fun, stress-free and easy-to-play with plently of user feedback.
-2. Having full facts revealed after each question is finished with.
+1. Being fun, stress-free and easy to play with plenty of user feedback.
+2. Having full facts revealed after each question is finished.
 3. The user can access the leaderboard on the homepage. It's also revealed after submitting a new score to it.
 
 In future, the site owner may want to:
@@ -51,7 +51,7 @@ In future, the site owner may want to:
 
 You can find the research I conducted for this project [by clicking this link](docs/research/research.md).
 
-#### Asynchronisity
+#### Asynchronicity
 
 Shark-quiz is to be a largely event-driven quiz. The only loop will be an asynchronous timer that doesn't share any variables with other functions. The timer will follow the following process:
 1. Wait for one second.
@@ -170,14 +170,14 @@ I will also use an image or gif for the background of the webpage.
 
 ## Testing
 
-The W3C Markup Validator and W3C CSS Validator Services were used to validate the HTML and CSS as I developed the project ensuring unexpected errors were kept to a minimum. I also used them again before submitting.
+The W3C Markup Validator and W3C CSS Validator Services were used to validate the HTML and CSS as I developed the project ensuring unexpected errors were kept to a minimum. I also used them again before submitting the project.
 
 ### [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
 
 * [index.html results](docs/validation/html/index-results.webp)
     * I received a warning for the misuse of a topbar icon aria-label attribute. After research, I concluded that the button tag would be more appropriate than a div tag for these icons and the next question button.
     * I removed a duplicate "data-visible" tag from the score topbar icon.
-    * I am left with a warning for a misuse of aria-label on the trophy icon that has the score displayed next to it. Without this and the described-by attribute, a person with a screen reader wouldn't know their score.
+    * I am left with a warning for misuse of aria-label on the trophy icon that has the score displayed next to it. Without this and the described-by attribute, a person with a screen reader wouldn't know their score.
 
 ### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
@@ -242,13 +242,13 @@ Automated tests can also help with bug-fixing unrelated problems. They give you 
 If you are updating and implementing new features frequently, automated tests significantly reduce the risk of accidentally introducing new bugs. If a bug has been fixed before, and a test implemented afterwards, it's unlikely that bug will reappear in the same way.
 
 I had to set up Jest to work with JQuery by importing it. 
-I found this [StackOverflow post](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file) explaining how. The set-up-jest.js file suggested in this post isn't actually needed. To add JQuery, all that is needed is one line at the top of the Jest test file:
+I found this [StackOverflow post](https://stackoverflow.com/questions/45948843/how-to-require-jquery-plugin-in-jest-test-file) explaining how. The set-up-jest.js file suggested in this post isn't needed. To add JQuery, all that is needed is one line at the top of the Jest test file:
 
 ```
 global.$ = require('jquery');
 ```
 
-I added in further dependencies later:
+I added further dependencies later:
 
 ```
 global.questions = require("../questions");
@@ -291,18 +291,18 @@ By completing the tests as an end user might, many issues can be discovered and 
     https://stackoverflow.com/questions/35037482/favicon-with-github-pages
 * I found that when the timer was reset, it would fill back up in whatever colour it was when the timer stopped before changing back to blue.
     * This was quite noticeable when it was red, from answering late or running out of time. To solve this, the timer bar colour is reset before resetting the timer, within quiz.nextQuestion(). 
-* I tested that the progress indicater and the answer boxes are updated correctly after the time runs out. I also tested that the enter button works in place of clicking the next question button and that it still prevents you from moving on before answering.
+* I tested that the progress indicator and the answer boxes update correctly after the time runs out. I also tested that the enter button works in place of clicking the next question button and that it still prevents you from moving on before answering.
 
     ![Time ran out](docs/manual-testing/timer-run-out.webp)
 
 * I tested that answering correctly:
     1. Updates the score.
-    2. Highlights the correct answer in green and display the description.
+    2. Will highlight the correct answer in green and display the description.
     3. Updates the progress indicator.
 
     ![Correct answer](docs/manual-testing/correct-answer.webp)
 
-* I tested that the end game is displayed after all questions answered. I confirmed that the score and number of correct questions was correct aswell as the total questions asked.
+* I tested that the end game is displayed after all questions are answered. I confirmed that the score, the number of correct questions, and the total questions asked are displayed correctly.
 
     ![End game displaying score](docs/manual-testing/end-game.webp)
 * I tested that the "add to leaderboard" button worked and that the validation on this page also worked (image size bigger for readability).
@@ -314,7 +314,7 @@ By completing the tests as an end user might, many issues can be discovered and 
 * I tested that you could still get back to the homepage after switching between "leaderboard" and "instructions".
 
     ![Switching between "leaderboard" and "instructions"](docs/manual-testing/switching-leaderboard-to-instructions.gif)
-* The addition of a footer, on the homepage and end game screen, made the .game-area look disproportionately sized and uncentered. To fix this, I added a transparent border to seperate the game-area from the footer.
+* The addition of a footer, on the homepage and end game screen, made the .game-area look disproportionately sized and uncentered. To fix this, I added a transparent border to separate the game-area from the footer.
     ![Before adding the footer](docs/manual-testing/before-adding-footer-border.webp)
     ![After adding the footer](docs/manual-testing/after-adding-footer-border.webp)
 
@@ -366,10 +366,10 @@ For desktop:
 ### Known Bugs
 
 * I had to add an if statement to stop nextButtonTooltip.show(); from being run in Jest. I did this because the function is unavailable in the test environment and I'm unable to figure out why.
-* GIF is an inefficient format for for animation - a performance issue.
+* GIF is an inefficient format for animation - a performance issue.
     * This can be resolved by using a webm or mp4 format, however, it would take some redesigning and I wouldn't be able to use the background-repeat property. 
-    * I could use JS to replicate the same affect I have now. This would come with a performance hit itself and didn't work well enough when I attempted it.
-* Sometimes there are some pixels missing before the box shadow around the .game-area. This appears occasionally after resizing the window.
+    * I could use JS to replicate the same effect I have now. This would come with a performance hit itself and didn't work well enough when I attempted it.
+* Sometimes some pixels are missing before the box shadow around the .game-area. This appears occasionally after resizing the window.
 
 ### Deployment
 

@@ -241,7 +241,7 @@ function submitScoreToLeaderboard() {
 
 /**
  * Next question button clicked
- * @returns 
+ * @returns Void
  */
 function clickNextButton() {
     // If question not answered, show tooltip
