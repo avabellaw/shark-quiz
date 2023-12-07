@@ -165,7 +165,7 @@ I will also use an image or gif for the background of the webpage.
     * Used to test compatibility on other browsers.
 * [Responsinator](http://www.responsinator.com/) for testing on different screens.
 * [Grammarly](https://app.grammarly.com/)
-    * To help find grammar and spelling mistakes to correct.
+    * To help find and correct grammar and spelling mistakes.
 
 ## Testing
 
