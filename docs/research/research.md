@@ -9,9 +9,9 @@
 **What I like**
 
 * Reveals a description, giving you more information and explaining why the answer was correct/incorrect.
-* Content is spread out with lots of space which also makes it easier to read.
 
-![zoo.com with answer revealed](zoo-answer-desc.webp)
+    ![zoo.com with answer revealed](zoo-answer-desc.webp)
+* Content is spread out with lots of space which also makes it easier to read.
 
 ## Beano - The Ultimate Shark Quiz!
 
