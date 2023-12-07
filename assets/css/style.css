@@ -3,7 +3,7 @@ body {
     background-size: contain;
 
     font-family: "Itim";
-    font-size: calc(0.9rem + 0.4vw + 0.4vh);
+    font-size: calc(0.8rem + 0.4vw + 0.4vh);
 
     display: flex;
     height: 100vh;
@@ -12,7 +12,7 @@ body {
 
 h2 {
     margin-top: 0;
-    font-size: 1.6em;
+    font-size: 1.4em;
 }
 
 @media screen and (max-aspect-ratio: 955/707) {
@@ -54,7 +54,7 @@ input {
 #topbar>h1 {
     margin: 0;
     line-height: 3rem;
-    font-size: 1.5rem;
+    font-size: 1.2em;
 
     position: absolute;
     left: 50%;
@@ -219,7 +219,7 @@ input#username {
     margin-top: 0;
     color: white;
     font-family: 'Jolly Lodger';
-    font-size: 2.5em;
+    font-size: 2.2em;
 }
 
 input[type="button"] {
