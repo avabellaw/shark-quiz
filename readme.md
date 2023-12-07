@@ -195,7 +195,7 @@ __Secondary validator: [JSLint](https://www.jslint.com/)__
     * I tested the code in JS**L**int first but it didn't like that I used a for loop with a variable in it.
         ![JSLint warning](docs/validation/js/jslint-results.webp)
         
-        Even after selecting the option to ignore the for loop warning, JSLint doesn't like it if you don't declare variables at the top of the function. This code is functional as is and I believe using this for loop works well for its intended purpose.
+        Even after selecting the option to ignore the for-loop warning, JSLint expects variables to be declared at the top of the function and a forEach loop to be used instead. This code is functional as is and I believe using this for loop works well for its intended purpose.
 * [questions.js results](docs/validation/js/questions-jshint-results.webp)
     * I received no warnings of actual concern.
     * JSHint pointed out that "module" is undefined but that's okay because it's used for Jest. 
@@ -260,15 +260,15 @@ My first two tests were:
 1. To test that all .game-areas have been hidden by JQuery
 2. To test that the #home .game-area is revealed when showHomeScreen() is called
 
-I discovered that elements wouldn't be hidden fast enough meaning all the game-areas would be shown for a second while JQuery loaded. I decided to use the data attribute "data-visible" instead of using JQuery to hide the elements. Therefore, I later removed these tests.
-
-For the rest of the tests, I followed the red, green, refactor approach.
+I discovered that elements wouldn't be hidden fast enough, meaning that all the game-areas would be shown for a second while JQuery loaded. I decided to introduce the data attribute "data-visible" instead of using JQuery to hide the elements. Therefore, I later removed these tests.
 
 I spent a lot of time trying to debug why the questions variable from questions.js was an empty array. I found the solution to be that I needed to use "module.exports = questions" instead of "module.exports = {questions}". 
 
 Event listeners don't work in Jest unless they're added after the page is loaded. I fixed this by moving the event listeners over to init(). I should've done this originally anyway.
-At first, I thought the event listeners not working had to do with JQuery, thus I tried adding the event listeners using vanilla js. This gave an error through Jest saying that the element doesn't exist yet which is what prompted me to move the code into the "init()" function. When I switched back to using JQuery, this worked.
+At first, I thought the event listeners not working had to do with JQuery. I therefore tried adding the event listeners using vanilla js. This gave an error through Jest saying that the element doesn't exist yet which is what prompted me to move the code into the "init()" function. When I switched back to using JQuery, this still worked.
 Had I followed the red-green-refractor approach earlier, I would have noticed this sooner as the timeout I was using was making the test always pass. 
+
+For the rest of the tests, I followed the red, green, refactor approach.
 
 Here you can see all my tests and that they've passed:
 ![Jest passing tests](docs/jest-test-results.webp)
