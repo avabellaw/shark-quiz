@@ -132,7 +132,7 @@ I will also use an image or gif for the background of the webpage.
     * Gives easy access to many fonts supplied from a CDN that is close to the user, increasing download speed.
     * I added the @font-faces onto the end of my stylesheet. This is quicker than the browser making two requests, the first being for the aforementioned stylesheet containing each @font-face.
 * JQuery
-    * JavaSript library with tools to more efficiently manipulate the DOM.
+    * JavaScript library with tools to more efficiently manipulate the DOM.
 * Tippy.js
     * Creates tooltips that can be turned off/on programmatically. Used for the next question button and the username validation.
 * Popperjs
@@ -149,7 +149,7 @@ I will also use an image or gif for the background of the webpage.
 * Python - http.server
     * To host the website locally during development to allow me to view the website.
 * Paint.NET
-    * Used to edit and create images for the project such as the homepage hero and the visual FIELDS gif in services.html
+    * Used to edit and create images for the website.
 * Figma
     * Used to create the mockup of the website before developing.
 * Word 
